@@ -1,0 +1,12 @@
+ul.main-menu
+    for menuItem in menu
+        if(currentPage == menuItem.singleName)
+            li.main-menu__item.active
+                a.main-menu__link(href=menuItem.singleName + ".html")
+                    img.main-menu__icon(src="./img/menu-icons/" + menuItem.singleName + ".svg")
+                    span.main-menu__span= menuItem.name
+        else
+            li.main-menu__item
+                a.main-menu__link(href=menuItem.singleName + ".html")
+                    img.main-menu__icon(src="./img/menu-icons/" + menuItem.singleName + ".svg")
+                    span.main-menu__span= menuItem.name

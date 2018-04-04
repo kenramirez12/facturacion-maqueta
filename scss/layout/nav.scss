@@ -1,0 +1,32 @@
+.main-menu {
+    margin: 0;
+
+    &__item {
+        padding: 0 15px;
+        border-left: 5px solid;
+        border-color: transparent;
+        height: 2.5rem;
+        transition: all 0.2s;
+
+        &:hover {
+            border-color: $main-c;
+        }
+        &.active {
+            background-color: $alt-c-d;
+        }
+    }
+    
+    &__link {
+        color: $white-text;
+        font-size: 0.9em;
+        font-weight: 600;
+        line-height: 2.5rem;
+    }
+
+    &__icon {
+        --size: 0.9rem;
+        margin-right: 0.8em;
+        width: var(--size);
+        height: var(--size);
+    }
+}

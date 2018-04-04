@@ -1,0 +1,10 @@
+.main {
+    &__container {
+        flex: 2;
+        background-color: $grey-bg;
+    }
+
+    &__content {
+        padding: 20px;
+    }
+}

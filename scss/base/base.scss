@@ -1,0 +1,17 @@
+body {
+    font-family: $main-font;
+    font-size: 16px;
+    color: $black-text;
+}
+
+/* Remove input date up and down arrows */
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
+/* Remove input date clear button */
+input[type=date]::-webkit-clear-button {
+    -webkit-appearance: none;
+    display: none;
+}

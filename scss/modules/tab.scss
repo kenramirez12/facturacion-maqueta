@@ -1,0 +1,29 @@
+.tab {
+    background-color: $white-bg;
+    border-radius: 5px;
+    border-right: 1px solid $shadow-c-l;
+    border-left: 1px solid $shadow-c-l;
+    border-bottom: 1px solid $shadow-c;
+
+    &__top {
+        padding: 0 1.5rem;
+        border-bottom: 1px solid $shadow-c-l;
+        height: 3rem;
+    }
+
+    &__title {
+        line-height: 3rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+    }
+
+    &__content {
+        // padding: 2rem 1.5rem 4rem 1.5rem;
+        padding: 2rem 0 4rem;
+
+        &--alternative {
+            padding: 1.5rem 0;
+        }
+    }
+}

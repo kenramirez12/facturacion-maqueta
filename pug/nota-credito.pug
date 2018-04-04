@@ -1,0 +1,41 @@
+extends ./template/config/main-layout
+
+append config
+    -var currentPage = "nota-credito"
+
+block content
+    .tab
+        .tab__top
+            span.tab__title EMITIR NOTA DE CRÉDITO
+        .tab__content
+            .container.to-left
+                .col-md-9.plr-0
+                    .row
+                        .col-md-4
+                            select.field.bordered.select
+                                option.select__option(value="0") Tipo de Nota de Crédito
+                                option.select__option(value="0") Lorem ipsum
+                                option.select__option(value="0") Dolor sit
+                        
+                        .col-md-5
+                            label.field__label.horizontal
+                                .field__tag Serie
+                                input.field.disabled(type="text", size="3" disabled="disabled", value="F001")
+                                | &nbsp;
+                                input.field.bordered(type="text", size="12")
+                        
+                        .col-md-3
+                            button.btn.alt
+                                img.btn__icon(src="./img/buttons/plus-icon.png")
+                                | Ver Factura
+
+                    .row.mtb-2
+                        .col-md-9
+                            label.field__label.vertical
+                                .field__tag Motivo o sustento por el cual se emitirá la Nota de Crédito
+                                textarea.field.bordered.block.textarea(name="")
+                    
+                    .row
+                        .col-12
+                            input.btn.bordered(type="submit", value="CANCELAR")
+                            input.btn.bordered.disabled(type="submit", value="EMITIR")

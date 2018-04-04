@@ -1,0 +1,72 @@
+.btn {
+    color: $black-text;
+    font-size: 0.8rem;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 7rem;
+    height: 2rem;
+    border: 0;
+    border-radius: 0.9rem;
+    padding: 0 0.8rem;
+    cursor: pointer;
+
+    &__icon {
+        margin-right: 0.5em;
+    }
+
+    // Buttons styles
+    &.bordered {
+        background-color: transparent;
+        border: 2px solid $alt-c-l;
+        font-weight: 700;
+    }
+
+    &.disabled {
+        background-color: $shadow-c;
+    }
+
+    &.alt {
+        background-color: $btn-alt-bg; 
+        color: $white-text;
+        font-weight: 600;
+    }
+
+    // Login buttons
+    &.btn-login {
+        // flex: 1;
+        border-color: $main-c;
+        color: $main-c;
+        font-weight: 400;
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: $main-c;
+            color: $white-text;
+        }
+    }
+
+    &.btn-forgetpw {
+        // flex: 1;
+        font-size: 0.8rem;
+        transition: color 0.3s;
+
+        &:hover {
+            color: $alt-c-l;
+        }
+    }
+
+    &.btn-default {
+        // background-color: $alt-c-l;
+        color: $alt-c;
+        font-weight: 400;
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: darken($alt-c-l, 10);
+            border-color: darken($alt-c-l, 10);
+        }
+    }
+}

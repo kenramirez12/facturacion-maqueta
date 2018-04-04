@@ -1,0 +1,221 @@
+extends ./template/config/main-layout
+
+append config
+    -var currentPage = "boleta"
+
+block content
+    .tab
+        .tab__top
+            span.tab__title EMITIR BOLETA ELECTRÓNICA
+        .tab__content
+            .container-fluid
+                .row.mb-1
+                    .col-md-2
+                        .field__tag Número de documento
+                    .col-md-3
+                        input.field.bordered.block(type="text")
+                    .col-md-3
+                        label.field__label.horizontal
+                            .field__tag Serie
+                            input.field.disabled(type="text", size="3" disabled="disabled", value="F001")
+                            | &nbsp;
+                            input.field.bordered(type="text", size="12")
+                    .col-md-2
+                        .field__tag Fecha de vencimiento
+                    .col-md-2
+                        input.field.bordered(type="date")
+                
+                .row.mb-1
+                    .col-md-2
+                        .field__tag Razón social
+                    .col-md-3
+                        input.field.bordered.block(type="text")
+                    .col-md-2.offset-md-3
+                        .field__tag Fecha de emisión
+                    .col-md-2
+                        input.field.bordered(type="date")
+                    
+                .row
+                    .col-md-8
+                        .select-field
+                            .select-field__list
+                                .select-field__item.selected Tipo de moneda
+                                .select-field__item Soles (S/.)
+                                .select-field__item Dólares ($)
+                                .select-field__item Euros (&euro;)
+                        //- select.field.bordered.select
+                        //-     option.select__option(value="0") Tipo de moneda
+                        | &nbsp;
+                        .select-field
+                            .select-field__list
+                                .select-field__item.selected Tipo de factura
+                                .select-field__item Soles (S/.)
+                                .select-field__item Dólares ($)
+                                .select-field__item Euros (&euro;)
+                        //- select.field.bordered.select
+                        //-     option.select__option(value="0") Tipo de factura
+                        | &nbsp;
+                        .select-field
+                            .select-field__list
+                                .select-field__item.selected Establecimiento emisor
+                                .select-field__item Soles (S/.)
+                                .select-field__item Dólares ($)
+                                .select-field__item Euros (&euro;)
+                        //- select.field.bordered.select
+                        //-     option.select__option(value="0") Establecimiento emisor
+                    .col-md-2
+                        .field__tag Pagado
+                    .col-md-2
+                        .field__tag Detracción
+
+    .row.mt-1
+        .col-12
+            button.btn.alt.float-right
+                img.btn__icon(src="./img/buttons/plus-icon.png")
+                | Añadir Producto/Servicio
+
+    .tab.mt-1
+        .tab__content.tab__content--alternative
+            .container-fluid
+                .row
+                    //- .table-responsive
+                        //- table.table
+                        //-     thead
+                        //-         tr
+                        //-             td: span.field__tag Blen/Servicio
+                        //-             td: span.field__tag U. de medida
+                        //-             td: span.field__tag Descripción
+                        //-             td: span.field__tag Código
+                        //-             td: span.field__tag Tipo de IGV
+                        //-             td: span.field__tag Valor Unit.
+                        //-             td: span.field__tag IGV
+                        //-             td: span.field__tag Total
+                        //-     tbody
+                        //-         tr
+                        //-             td: input(type="text").field.default.block
+                        //-             td: input(type="text").field.default.block
+                        //-             td: input(type="text").field.default.block
+                        //-             td: input(type="text").field.default.block
+                        //-             td: input(type="text").field.default.block
+                        //-             td: input(type="text").field.default.block
+                        //-             td: input(type="text").field.default.block
+                        //-             td: input(type="text").field.default.block
+                        //-         tr
+                        //-             td: input(type="text").field.default.block
+                        //-             td: input(type="text").field.default.block
+                        //-             td: input(type="text").field.default.block
+                        //-             td: input(type="text").field.default.block
+                        //-             td: input(type="text").field.default.block
+                        //-             td: input(type="text").field.default.block
+                        //-             td: input(type="text").field.default.block
+                        //-             td: input(type="text").field.default.block
+                    .col-md-2.text-center
+                        td: span.field__tag Blen/Servicio
+                    .col-md-1.text-center
+                        td: span.field__tag U. de medida
+                    .col-md-4.text-center
+                        td: span.field__tag Descripción
+                    .col-md-1.text-center
+                        td: span.field__tag Código
+                    .col-md-1.text-center
+                        td: span.field__tag Tipo de IGV
+                    .col-md-1.text-center
+                        td: span.field__tag Valor Unit.
+                    .col-md-1.text-center
+                        td: span.field__tag IGV
+                    .col-md-1.text-center
+                        td: span.field__tag Total
+                
+                - for (i = 0; i < 3; ++i)
+                    .row.mtb-1
+                        .col-md-2
+                            input.field.default.block(type="search", placeholder="Buscar...")
+                        .col-md-1
+                            input.field.default.block(type="text")
+                        .col-md-4
+                            input.field.default.block(type="text")
+                        .col-md-1
+                            input.field.default.block(type="text")
+                        .col-md-1
+                            input.field.default.block(type="text")
+                        .col-md-1
+                            input.field.default.block(type="text")
+                        .col-md-1
+                            input.field.default.block(type="text")
+                        .col-md-1
+                            input.field.default.block(type="text")
+
+    .row.mt-3
+        .col-md-7
+            .tab
+                .tab__content.tab__content--alternative
+                    .container-fluid
+                        .field__label.vertical
+                            span.field__tag.mb-1 Añadir Observación
+                            textarea.field.default.block.textarea(name="")
+            
+            .row.mt-3
+                .col-12
+                    input.btn.bordered(type="submit", value="REGRESAR")
+                    | &nbsp;
+                    input.btn.bordered(type="submit", value="PREVISUALIZAR")
+                    | &nbsp;
+                    input.btn.bordered(type="submit", value="GENERAR")
+            
+        .col-md-3.offset-md-2
+            .tab
+                .tab__content.tab__content--alternative
+                    .container-fluid
+                        .row.mtb-1
+                            .col-6
+                                span.field__tag.normal-w % Descuento
+                            .col-6
+                                input.field.default.block(type="text")
+                        .row.mtb-1
+                            .col-6
+                                span.field__tag.normal-w Anticipo (-)
+                            .col-6
+                                input.field.default.small-height.block(type="text")
+                        .row.mtb-1
+                            .col-6
+                                span.field__tag.normal-w Exonerada
+                            .col-6
+                                input.field.default.small-height.block(type="text")
+                        .row.mtb-1
+                            .col-6
+                                span.field__tag.normal-w Inafecta
+                            .col-6
+                                input.field.default.small-height.block(type="text")
+                        .row.mtb-1
+                            .col-6
+                                span.field__tag.normal-w Gravada
+                            .col-6
+                                input.field.default.small-height.block(type="text")
+                        .row.mtb-1
+                            .col-6
+                                span.field__tag.normal-w IGV
+                            .col-6
+                                input.field.default.small-height.block(type="text")
+                        .row.mtb-1
+                            .col-6
+                                span.field__tag.normal-w Gratuita
+                            .col-6
+                                input.field.default.small-height.block(type="text")
+                        .row.mtb-1
+                            .col-6
+                                span.field__tag.normal-w Otros cargos
+                            .col-6
+                                input.field.default.small-height.block(type="text")
+                        .row.mtb-1
+                            .col-6
+                                span.field__tag.normal-w Descuento total (-)
+                            .col-6
+                                input.field.default.small-height.block(type="text")
+                        .row.mtb-1
+                            .col-6
+                                span.field__tag TOTAL
+                            .col-6
+                                input.field.default.small-height.block(type="text")
+
+block scripts
+    script(src="./js/boleta.js")

@@ -1,0 +1,72 @@
+extends ./template/config/main-layout
+
+append config
+    -var currentPage = "factura"
+
+block content
+    .tab
+        .tab__top
+            span.tab__title EMITIR FACTURA ELECTRÓNICA
+        .tab__content
+            .container-fluid
+                .row.mb-1
+                    .col-md-2
+                        .field__tag Número de documento
+                    .col-md-3
+                        input.field.bordered.block(type="text")
+                    .col-md-3
+                        label.field__label.horizontal
+                            .field__tag Serie
+                            input.field.disabled(type="text", size="3" disabled="disabled", value="F001")
+                            | &nbsp;
+                            input.field.bordered(type="text", size="12")
+                    .col-md-2
+                        .field__tag Fecha de vencimiento
+                    .col-md-2
+                        input.field.bordered(type="date")
+                
+                .row.mb-1
+                    .col-md-2
+                        .field__tag Razón social
+                    .col-md-3
+                        input.field.bordered.block(type="text")
+                    .col-md-2.offset-md-3
+                        .field__tag Fecha de emisión
+                    .col-md-2
+                        input.field.bordered(type="date")
+                    
+                .row
+                    .col-md-8
+                        select.field.bordered.select
+                            option.select__option(value="0") Tipo de moneda
+                            option.select__option(value="0") Tipo de moneda
+                            option.select__option(value="0") Tipo de moneda
+                            option.select__option(value="0") Tipo de moneda
+                            option.select__option(value="0") Tipo de moneda
+                            option.select__option(value="0") Tipo de moneda
+                        | &nbsp;
+                        select.field.bordered.select
+                            option.select__option(value="0") Tipo de factura
+                            option.select__option(value="0") Tipo de factura
+                            option.select__option(value="0") Tipo de factura
+                            option.select__option(value="0") Tipo de factura
+                            option.select__option(value="0") Tipo de factura
+                            option.select__option(value="0") Tipo de factura
+                        | &nbsp;
+                        select.field.bordered.select
+                            option.select__option(value="0") Establecimiento emisor
+                            option.select__option(value="0") Establecimiento emisor
+                            option.select__option(value="0") Establecimiento emisor
+                            option.select__option(value="0") Establecimiento emisor
+                            option.select__option(value="0") Establecimiento emisor
+                            option.select__option(value="0") Establecimiento emisor
+                    .col-md-2
+                        .field__tag Pagado
+                    .col-md-2
+                        .field__tag Detracción
+
+    .row.mt-1
+        .col-12
+            button.btn.alt.float-right
+                img.btn__icon(src="./img/buttons/plus-icon.png")
+                | Añadir Producto/Servicio

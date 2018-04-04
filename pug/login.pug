@@ -1,0 +1,43 @@
+extends ./template/config/main-layout
+
+append config
+    -var currentPage = "login"
+
+block content
+    .login
+        .login__title Iniciar sesión
+        .login__content#login-form
+            .login-field
+                img.login-field__icon(src="img/login/user.png")
+                input.login-field__input(type="text", placeholder="Nombre de Usuario")
+                img.login-field__check-icon(src="img/login/check.png")
+            .login-field
+                img.login-field__icon(src="img/login/password.png")
+                input.login-field__input(type="password", placeholder="Contraseña")
+                img.login-field__check-icon(src="img/login/check.png")
+            .login-field.login-field--buttons
+                input.btn.bordered.btn-login#login-btn(type="submit", value="Ingresar")
+                a.btn.btn-forgetpw#recover-btn(href="#") Olvidé la contraseña
+        
+        .login__content#recoverpw-form
+            .login-field.bb
+                img.login-field__icon(src="img/login/user.png")
+                input.login-field__input(type="email", placeholder="Ingresar Email")
+                img.login-field__check-icon(src="img/login/check.png")
+            
+            .login-info
+                .login-info__p Soporte
+                a.login-info__link(href="#") +01 312 8212
+            
+            .login-field.login-field--buttons
+                input.btn.bordered.btn-login#recover-btn(type="submit", value="Recuperar")
+                a.btn.btn-forgetpw#back-btn(href="#") Regresar
+
+    .authent
+        .authent__container
+            img.authent__img(src="./img/loading.svg")
+            span.authent__span un momento
+
+    script(src="./js/vendors/jquery-3.3.1.min.js")
+    script(src="./js/login.js")
+        

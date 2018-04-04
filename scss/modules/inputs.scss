@@ -1,0 +1,144 @@
+.field {
+    font-family: $main-font;
+    font-size: 0.8rem;
+    color: $black-text;
+    line-height: 2rem;
+
+    max-width: 100%;
+    height: 2rem;
+    border: 0;
+    border-radius: 0.4rem;
+    padding: 0 0.8rem;
+
+    flex: 1;
+
+    &__label {
+        display: flex;
+        align-items: center;
+
+        &.vertical {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    &__tag {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 1em;
+
+        // font-size: 0.9em;
+        font-size: 0.8em;
+        font-weight: 600;
+        // line-height: 2.2em;
+        height: 2.2em;
+        white-space: nowrap;
+
+        &.normal-w {
+            font-weight: 400;
+        }
+
+        &.text-center {
+            justify-content: center;
+        }
+    }
+
+    // Field styles
+    &.block {
+        width: 100%;
+        display: block;
+    }
+
+    &.textarea {
+        padding: 1em;
+        line-height: 1.2rem;
+        height: auto;
+    }
+
+    &.bordered {
+        background-color: $white-bg;
+        border: 2px solid $alt-c-l;
+        border-radius: 0.9rem;
+    }
+
+    &.default {
+        background-color: $alt-bg;
+    }
+    
+    &.disabled {
+        background-color: $disabled-bg;
+        font-weight: 700;
+        text-align: center;
+        border-radius: 0.9rem;
+    }
+
+    &.small-height {
+        // line-height: 
+    }
+}
+
+.select {
+    font-weight: 700;
+
+    &__option {
+        &:first-child {
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+    }
+}
+
+.select-field {
+    position: relative;
+    display: inline-block;
+    // width: 100%;
+    height: 2rem;
+    background-color: yellow;
+
+    &.active {
+        z-index: 99;
+
+        .select-field__list {
+            background-color: $alt-bg;
+        }
+
+        .select-field__item {
+            display: block;
+        }
+    }
+
+    &__list {
+        position: absolute;
+        border: 2px solid $alt-c-l;
+        border-radius: 0.9rem;
+        transition: background 0.2s;
+        overflow: hidden;
+    }
+
+    &__item {
+        display: none;
+        font-size: 0.8rem;
+        color: $black-text;
+        line-height: 2rem;
+        
+        border-top: 1px solid rgba($alt-c-l, 0.2);
+        padding: 0 0.8rem;
+        cursor: pointer;
+        user-select: none;
+        transition: background 0.2s;
+
+        &:first-child {
+            border-top: 0;
+        }
+
+        &:hover {
+            background: lighten($alt-c-l, 20);
+        }
+
+        &.selected {
+            display: block !important;
+            line-height: 2rem;
+            font-weight: 600;
+        }
+    }
+}

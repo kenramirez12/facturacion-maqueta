@@ -1,0 +1,29 @@
+.client-bar {
+    display: flex;
+    align-items: center;
+
+    height: 4rem;
+    padding: 0 2em;
+    background-color: $white-bg;
+    border-bottom: 1px solid $shadow-c;
+
+    &__info {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    &__name {
+        font-weight: 700;
+    }
+
+    &__avatar {
+        --var-size: 3rem;
+
+        width: var(--var-size);
+        height: var(--var-size);
+        border-radius: 50%;
+        margin-left: 0.8em;
+        margin-right: 0.5em;
+    }
+}

@@ -1,0 +1,22 @@
+// Colors
+$main-c: #d65b63;
+$alt-c: #222636;
+$alt-c-d: #151928; // Darken
+$alt-c-l: #a4a4b9; // Lighten
+
+$white-text: #e4ebf7;
+$black-text: #515974;
+
+$alt-bg: #e2e6ef;
+$white-bg: #f3f6fc;
+$grey-bg: #ecf0f1;
+$btn-alt-bg: #73a5db;
+$disabled-bg: #cbedf7;
+
+$shadow-c: #d2d6d7;
+$shadow-c-l: lighten($shadow-c, 5);
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600,700');
+
+$main-font: 'IBM Plex Sans', san-serif;

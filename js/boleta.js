@@ -1,0 +1,1 @@
+$('.select-field').click(function() { $(this).toggleClass('active') })

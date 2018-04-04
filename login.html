@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Sistema de Facturación</title>
+    <link rel="stylesheet" href="./css/main.css"/>
+  </head>
+  <body class="body-login">
+    <div class="login">
+      <div class="login__title">Iniciar sesión</div>
+      <div class="login__content" id="login-form">
+        <div class="login-field"><img class="login-field__icon" src="img/login/user.png"/>
+          <input class="login-field__input" type="text" placeholder="Nombre de Usuario"/><img class="login-field__check-icon" src="img/login/check.png"/>
+        </div>
+        <div class="login-field"><img class="login-field__icon" src="img/login/password.png"/>
+          <input class="login-field__input" type="password" placeholder="Contraseña"/><img class="login-field__check-icon" src="img/login/check.png"/>
+        </div>
+        <div class="login-field login-field--buttons">
+          <input class="btn bordered btn-login" id="login-btn" type="submit" value="Ingresar"/><a class="btn btn-forgetpw" id="recover-btn" href="#">Olvidé la contraseña</a>
+        </div>
+      </div>
+      <div class="login__content" id="recoverpw-form">
+        <div class="login-field bb"><img class="login-field__icon" src="img/login/user.png"/>
+          <input class="login-field__input" type="email" placeholder="Ingresar Email"/><img class="login-field__check-icon" src="img/login/check.png"/>
+        </div>
+        <div class="login-info">
+          <div class="login-info__p">Soporte</div><a class="login-info__link" href="#">+01 312 8212</a>
+        </div>
+        <div class="login-field login-field--buttons">
+          <input class="btn bordered btn-login" id="recover-btn" type="submit" value="Recuperar"/><a class="btn btn-forgetpw" id="back-btn" href="#">Regresar</a>
+        </div>
+      </div>
+    </div>
+    <div class="authent">
+      <div class="authent__container"><img class="authent__img" src="./img/loading.svg"/><span class="authent__span">un momento</span></div>
+    </div>
+    <script src="./js/vendors/jquery-3.3.1.min.js"></script>
+    <script src="./js/login.js"></script>
+  </body>!!!
+  <script src="js/vendors/jquery-3.3.1.min.js"></script>
+  <script src="js/main.js"></script>
+</html>
