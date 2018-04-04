@@ -22,3 +22,19 @@ const toggleMenu = function(header, logo, options) {
         })
     }
 }
+
+clientMenuBtn = $('.client-bar__menu-btn');
+
+clientMenuBtn.click(function() {
+    toggleClientMenu()
+})
+
+const toggleClientMenu = function() {
+    clientBarMenu = $('.client-bar__menu');
+
+    if(clientBarMenu.hasClass('active')) {
+        clientBarMenu.removeClass('active')
+    } else {
+        clientBarMenu.addClass('active')
+    }
+}
