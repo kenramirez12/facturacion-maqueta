@@ -1798,54 +1798,84 @@ input[type=date]::-webkit-clear-button {
     text-align: center;
     border-radius: 0.9rem; }
 
-.select {
-  font-weight: 700; }
-  .select__option:first-child {
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem; }
+select {
+  padding: 15px; }
+  select option {
+    padding: 15px; }
 
 .select-field {
-  position: relative;
   display: inline-block;
-  height: 2rem;
-  background-color: yellow; }
-  .select-field.active {
-    z-index: 99; }
-    .select-field.active .select-field__list {
-      background-color: #e2e6ef; }
-    .select-field.active .select-field__item {
-      display: block; }
-  .select-field__list {
+  position: relative;
+  z-index: 999; }
+  .select-field.inline {
+    width: 13rem;
+    margin: 0 0.2rem; }
+    .select-field.inline:first-child {
+      margin-left: 0; }
+    .select-field.inline::last-child {
+      margin-right: 0; }
+  .select-field.block {
+    width: 100%; }
+  .select-field:before {
+    --size: 5px;
+    --half-size: calc(var(--size) / 2);
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-top: var(--size) solid #515974;
     position: absolute;
-    border: 2px solid #a4a4b9;
-    border-radius: 0.9rem;
-    -webkit-transition: background 0.2s;
-    -o-transition: background 0.2s;
-    transition: background 0.2s;
-    overflow: hidden; }
-  .select-field__item {
-    display: none;
-    font-size: 0.8rem;
-    color: #515974;
-    line-height: 2rem;
-    border-top: 1px solid rgba(164, 164, 185, 0.2);
-    padding: 0 0.8rem;
-    cursor: pointer;
+    top: calc(1rem + 2px  - var(--half-size));
+    right: 10px; }
+  .select-field__selected, .select-field__item {
+    padding: 0 15px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    line-height: 2rem;
+    color: #515974;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+  .select-field__selected {
+    border: 2px solid #a4a4b9;
+    border-radius: 0.9rem;
+    font-weight: 600;
     -webkit-transition: background 0.2s;
     -o-transition: background 0.2s;
     transition: background 0.2s; }
-    .select-field__item:first-child {
-      border-top: 0; }
+    .select-field__selected:hover {
+      background-color: #e2e6ef; }
+  .select-field__list {
+    display: none;
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    border-radius: 0.9rem;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    background-color: #e2e6ef;
+    border: 2px solid #a4a4b9;
+    overflow: hidden; }
+  .select-field__item {
+    border-bottom: 1px solid rgba(164, 164, 185, 0.2); }
+    .select-field__item:last-child {
+      border-bottom: 0; }
     .select-field__item:hover {
-      background: #dedee5; }
-    .select-field__item.selected {
-      display: block !important;
-      line-height: 2rem;
-      font-weight: 600; }
+      background-color: #dedee5; }
+  .select-field.active .select-field__selected {
+    border-bottom: 2px solid rgba(164, 164, 185, 0.2);
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #e2e6ef; }
+  .select-field.active .select-field__list {
+    display: block;
+    border-top: 0; }
 
 .btn {
   color: #515974;
@@ -1866,7 +1896,10 @@ input[type=date]::-webkit-clear-button {
   padding: 0 0.8rem;
   cursor: pointer; }
   .btn__icon {
-    margin-right: 0.5em; }
+    --size: 1rem;
+    margin-right: 0.5em;
+    width: var(--size);
+    height: var(--size); }
   .btn.bordered {
     background-color: transparent;
     border: 2px solid #a4a4b9;
@@ -1876,7 +1909,12 @@ input[type=date]::-webkit-clear-button {
   .btn.alt {
     background-color: #73a5db;
     color: #e4ebf7;
-    font-weight: 600; }
+    font-weight: 600;
+    -webkit-transition: background 0.2s;
+    -o-transition: background 0.2s;
+    transition: background 0.2s; }
+    .btn.alt:hover {
+      background-color: #4a8bd1; }
   .btn.btn-login {
     border-color: #d65b63;
     color: #d65b63;

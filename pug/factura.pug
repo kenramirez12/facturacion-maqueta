@@ -37,29 +37,25 @@ block content
                     
                 .row
                     .col-md-8
-                        select.field.bordered.select
-                            option.select__option(value="0") Tipo de moneda
-                            option.select__option(value="0") Tipo de moneda
-                            option.select__option(value="0") Tipo de moneda
-                            option.select__option(value="0") Tipo de moneda
-                            option.select__option(value="0") Tipo de moneda
-                            option.select__option(value="0") Tipo de moneda
-                        | &nbsp;
-                        select.field.bordered.select
-                            option.select__option(value="0") Tipo de factura
-                            option.select__option(value="0") Tipo de factura
-                            option.select__option(value="0") Tipo de factura
-                            option.select__option(value="0") Tipo de factura
-                            option.select__option(value="0") Tipo de factura
-                            option.select__option(value="0") Tipo de factura
-                        | &nbsp;
-                        select.field.bordered.select
-                            option.select__option(value="0") Establecimiento emisor
-                            option.select__option(value="0") Establecimiento emisor
-                            option.select__option(value="0") Establecimiento emisor
-                            option.select__option(value="0") Establecimiento emisor
-                            option.select__option(value="0") Establecimiento emisor
-                            option.select__option(value="0") Establecimiento emisor
+                        .select-field.inline
+                            .select-field__selected Tipo de moneda
+                            ul.select-field__list
+                                li.select-field__item: span.select-field__value Soles (S/.)
+                                li.select-field__item: span.select-field__value Dólares ($)
+                                li.select-field__item: span.select-field__value Euros (&euro;)
+                        
+                        .select-field.inline
+                            .select-field__selected Tipo de factura
+                            ul.select-field__list
+                                li.select-field__item: span.select-field__value Tipo 1
+                                li.select-field__item: span.select-field__value Tipo 2
+                        
+                        .select-field.inline
+                            .select-field__selected Establecimiento emisor
+                            ul.select-field__list
+                                li.select-field__item: span.select-field__value establecimiento 1
+                                li.select-field__item: span.select-field__value establecimiento 2
+                        
                     .col-md-2
                         .field__tag Pagado
                     .col-md-2
@@ -68,5 +64,5 @@ block content
     .row.mt-1
         .col-12
             button.btn.alt.float-right
-                img.btn__icon(src="./img/buttons/plus-icon.png")
+                img.btn__icon(src="./img/buttons/plus-button.svg")
                 | Añadir Producto/Servicio

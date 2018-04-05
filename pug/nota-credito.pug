@@ -12,10 +12,11 @@ block content
                 .col-md-9.plr-0
                     .row
                         .col-md-4
-                            select.field.bordered.select
-                                option.select__option(value="0") Tipo de Nota de Crédito
-                                option.select__option(value="0") Lorem ipsum
-                                option.select__option(value="0") Dolor sit
+                            .select-field.block
+                                .select-field__selected Tipo de Nota de Crédito
+                                ul.select-field__list
+                                    li.select-field__item: span.select-field__value Lorem ipsum
+                                    li.select-field__item: span.select-field__value Dolor sit
                         
                         .col-md-5
                             label.field__label.horizontal
@@ -26,7 +27,7 @@ block content
                         
                         .col-md-3
                             button.btn.alt
-                                img.btn__icon(src="./img/buttons/plus-icon.png")
+                                img.btn__icon(src="./img/buttons/plus-button.svg")
                                 | Ver Factura
 
                     .row.mtb-2

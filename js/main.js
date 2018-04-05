@@ -38,3 +38,17 @@ const toggleClientMenu = function() {
         clientBarMenu.addClass('active')
     }
 }
+
+// Activar por defecto Select personalizado
+if($('.select-field')) {
+    $('.select-field__selected').click(function() {
+        $(this).parent().toggleClass('active') 
+    })
+    
+    $('.select-field__item').click(function() {
+        selectedVal = $(this).children().html();
+    
+        $(this).parent().prev().html(selectedVal)
+        $(this).parent().parent().removeClass('active')
+    })
+}
