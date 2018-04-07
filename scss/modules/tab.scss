@@ -4,26 +4,47 @@
     border-right: 1px solid $shadow-c-l;
     border-left: 1px solid $shadow-c-l;
     border-bottom: 1px solid $shadow-c;
-
+    
     &__top {
         padding: 0 1.5rem;
         border-bottom: 1px solid $shadow-c-l;
         height: 3rem;
     }
-
+    
     &__title {
         line-height: 3rem;
         font-size: 0.95rem;
         font-weight: 700;
         letter-spacing: 0.05em;
     }
-
+    
     &__content {
         // padding: 2rem 1.5rem 4rem 1.5rem;
         padding: 2rem 0 4rem;
 
         &--alternative {
             padding: 1.5rem 0;
+        }
+    }
+    
+    &.negative {
+        .tab {
+            &__top {
+                background-color: $alt-c;
+                border-top-right-radius: 5px;
+                border-top-left-radius: 5px;
+                border: 0;
+            }
+            
+            &__title {
+                color: $white-text;
+            }
+            
+            &__content {
+                background-color: $alt-c-d;
+                border-bottom-right-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
         }
     }
 }

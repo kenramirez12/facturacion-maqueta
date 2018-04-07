@@ -5,11 +5,8 @@
         img.client-bar__menu-btn(src="./img/down-arrow.svg")
     
         ul.client-bar__menu
+            for clientMenuItem in clientMenu
+                li.client-bar__menu-item
+                    a.client-bar__menu-link(href=clientMenuItem.singleName + ".html")= clientMenuItem.name
             li.client-bar__menu-item
-                a.client-bar__menu-link(href="#") Mi Perfil
-            li.client-bar__menu-item
-                a.client-bar__menu-link(href="#") Mis productos y Servicios
-            li.client-bar__menu-item
-                a.client-bar__menu-link(href="#") Historial de Emisiones
-            li.client-bar__menu-item
-                a.client-bar__menu-link(href="#") Cerrar Sesión
+                a.client-bar__menu-link(href="./login.html") Cerrar Sesión

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Sistema de Facturación</title>
+    <link rel="stylesheet" href="./css/main.css"/>
+  </head>
+  <body>
+    <div class="page">
+      <div class="sidebar">
+        <header class="main-header"><span class="main-header__logo">SOFTWARE V 1.0</span><img class="main-header__menu-btn" src="./img/menu-icons/toggle-btn.svg"/></header>
+        <ul class="main-menu">
+          <li class="main-menu__item"><a class="main-menu__link" href="dashboard.html"><img class="main-menu__icon" src="./img/menu-icons/dashboard.svg"/><span class="main-menu__span">Dashboard</span></a></li>
+          <li class="main-menu__item active"><a class="main-menu__link" href="factura.html"><img class="main-menu__icon" src="./img/menu-icons/factura.svg"/><span class="main-menu__span">Factura</span></a></li>
+          <li class="main-menu__item"><a class="main-menu__link" href="boleta.html"><img class="main-menu__icon" src="./img/menu-icons/boleta.svg"/><span class="main-menu__span">Boleta</span></a></li>
+          <li class="main-menu__item"><a class="main-menu__link" href="nota-credito.html"><img class="main-menu__icon" src="./img/menu-icons/nota-credito.svg"/><span class="main-menu__span">Nota de Crédito</span></a></li>
+          <li class="main-menu__item"><a class="main-menu__link" href="nota-debito.html"><img class="main-menu__icon" src="./img/menu-icons/nota-debito.svg"/><span class="main-menu__span">Nota de Débito</span></a></li>
+        </ul>
+      </div>
+      <main class="main__container">
+        <div class="client-bar">
+          <div class="client-bar__info">
+            <div class="client-bar__name">Constructora Aguirre</div><img class="client-bar__avatar" src="./img/avatar/user.jpg"/><img class="client-bar__menu-btn" src="./img/down-arrow.svg"/>
+            <ul class="client-bar__menu">
+              <li class="client-bar__menu-item"><a class="client-bar__menu-link" href="perfil.html">Mi Perfil</a></li>
+              <li class="client-bar__menu-item"><a class="client-bar__menu-link" href="productos-servicios.html">Mis productos y Servicios</a></li>
+              <li class="client-bar__menu-item"><a class="client-bar__menu-link" href="historial-emisiones.html">Historial de Emisiones</a></li>
+              <li class="client-bar__menu-item"><a class="client-bar__menu-link" href="./login.html">Cerrar Sesión</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="main__content">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 offset-md-2">
+                <div class="tab negative">
+                  <div class="tab__top"><span class="tab__title">USUARIO</span></div>
+                  <div class="tab__content tab__content--alternative">
+                    <div class="container-fluid">
+                      <div class="row no-gutters">
+                        <div class="col-md-4">
+                          <div class="profile-avatar"><img class="profile-avatar__img" src="./img/avatar/user.jpg"/></div>
+                        </div>
+                        <div class="col-md-5 offset-md-1">
+                          <label class="field__label vertical">
+                            <div class="field__tag">Nombre de la empresa</div>
+                            <input class="field default block" type="text" value="Constructora Aguirre"/>
+                          </label>
+                          <label class="field__label vertical mt-1">
+                            <div class="field__tag">Categoría</div>
+                            <input class="field default block" type="text" value="FINANZAS"/>
+                          </label>
+                          <label class="field__label vertical mt-1">
+                            <div class="field__tag">Descripción</div>
+                            <textarea class="field default textarea block"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="row no-gutters">
+                        <div class="col-md-5 offset-md-5">
+                          <label class="field__label vertical mt-1">
+                            <button class="btn alt float-right">GUARDAR</button>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab negative mt-1">
+                  <div class="tab__top"><span class="tab__title">ADMINISTRADOR</span></div>
+                  <div class="tab__content tab__content--alternative">
+                    <div class="container-fluid">
+                      <div class="row no-gutters">
+                        <div class="col-md-4"><span class="span-3">Crear Nuevos Usuarios</span>
+                          <label class="field__label vertical mt-2">
+                            <input class="field default block" type="text" placeholder="USUARIO" value=""/>
+                          </label>
+                          <label class="field__label vertical mt-1">
+                            <input class="field default block" type="text" placeholder="CONTRASEÑA" value=""/>
+                          </label>
+                          <label class="field__label vertical mt-3">
+                            <button class="btn alt float-right">CREAR</button>
+                          </label>
+                        </div>
+                        <div class="col-md-5 offset-md-1"><span class="span-3">Mis Usuarios</span>
+                          <ul class="users-list">
+                            <li class="users-list__item">
+                              <div class="users-list__avatar"><img class="users-list__avatar-img" src="./img/avatar/3.jpg"/></div><span class="users-list__name">ROCIO PEÑA</span><img class="users-list__delete-btn" src="./img/trash.svg"/>
+                            </li>
+                            <li class="users-list__item">
+                              <div class="users-list__avatar"><img class="users-list__avatar-img" src="./img/avatar/2.jpg"/></div><span class="users-list__name">PEDRO PEREZ</span><img class="users-list__delete-btn" src="./img/trash.svg"/>
+                            </li>
+                            <li class="users-list__item">
+                              <div class="users-list__avatar"><img class="users-list__avatar-img" src="./img/avatar/1.jpg"/></div><span class="users-list__name">JUAN JOTA</span><img class="users-list__delete-btn" src="./img/trash.svg"/>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script src="js/vendors/jquery-3.3.1.min.js"></script>
+  <script src="js/main.js"></script>
+</html>

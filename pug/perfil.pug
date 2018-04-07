@@ -1,0 +1,69 @@
+extends ./template/config/main-layout
+
+append config
+    -var currentPage = "factura"
+
+block content
+    .container
+        .row
+            .col-md-8.offset-md-2
+                .tab.negative
+                    .tab__top
+                        span.tab__title USUARIO
+                    .tab__content.tab__content--alternative
+                        .container-fluid
+                            .row.no-gutters
+                                .col-md-4
+                                    .profile-avatar
+                                        img.profile-avatar__img(src="./img/avatar/user.jpg")
+                                .col-md-5.offset-md-1
+                                    label.field__label.vertical
+                                        .field__tag Nombre de la empresa
+                                        input.field.default.block(type="text", value="Constructora Aguirre")
+
+                                    label.field__label.vertical.mt-1
+                                        .field__tag Categoría
+                                        input.field.default.block(type="text", value="FINANZAS")
+
+                                    label.field__label.vertical.mt-1
+                                        .field__tag Descripción
+                                        textarea.field.default.textarea.block
+                            
+                            .row.no-gutters
+                                .col-md-5.offset-md-5
+                                    label.field__label.vertical.mt-1
+                                        button.btn.alt.float-right GUARDAR
+
+                .tab.negative.mt-1
+                    .tab__top
+                        span.tab__title ADMINISTRADOR
+                    .tab__content.tab__content--alternative
+                        .container-fluid
+                            .row.no-gutters
+                                .col-md-4
+                                    span.span-3 Crear Nuevos Usuarios
+                                    label.field__label.vertical.mt-2
+                                        input.field.default.block(type="text", placeholder="USUARIO", value="")
+                                    label.field__label.vertical.mt-1
+                                        input.field.default.block(type="text", placeholder="CONTRASEÑA", value="")
+                                    label.field__label.vertical.mt-3
+                                        button.btn.alt.float-right CREAR
+                        
+                                .col-md-5.offset-md-1
+                                    span.span-3 Mis Usuarios
+                                    ul.users-list
+                                        li.users-list__item
+                                            .users-list__avatar
+                                                img.users-list__avatar-img(src="./img/avatar/3.jpg")
+                                            span.users-list__name ROCIO PEÑA
+                                            img.users-list__delete-btn(src="./img/trash.svg")
+                                        li.users-list__item
+                                            .users-list__avatar
+                                                img.users-list__avatar-img(src="./img/avatar/2.jpg")
+                                            span.users-list__name PEDRO PEREZ
+                                            img.users-list__delete-btn(src="./img/trash.svg")
+                                        li.users-list__item
+                                            .users-list__avatar
+                                                img.users-list__avatar-img(src="./img/avatar/1.jpg")
+                                            span.users-list__name JUAN JOTA
+                                            img.users-list__delete-btn(src="./img/trash.svg")
