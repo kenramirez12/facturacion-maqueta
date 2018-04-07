@@ -96,11 +96,17 @@
                       </ul>
                     </div>
                   </div>
-                  <div class="col-md-2">
+                  <div class="col-md-2 flex-center">
                     <div class="field__tag">Pagado</div>
+                    <label class="switch">
+                      <input type="checkbox"/><span class="slider round"></span>
+                    </label>
                   </div>
-                  <div class="col-md-2">
+                  <div class="col-md-2 flex-center">
                     <div class="field__tag">Detracción</div>
+                    <label class="switch">
+                      <input type="checkbox"/><span class="slider round"></span>
+                    </label>
                   </div>
                 </div>
               </div>
@@ -115,108 +121,103 @@
             <div class="tab__content tab__content--alternative">
               <div class="container-fluid">
                 <div class="row">
-                  <div class="col-md-2 text-center">
-                    <td><span class="field__tag">Blen/Servicio</span></td>
-                  </div>
-                  <div class="col-md-1 text-center">
-                    <td><span class="field__tag">U. de medida</span></td>
-                  </div>
-                  <div class="col-md-4 text-center">
-                    <td><span class="field__tag">Descripción</span></td>
-                  </div>
-                  <div class="col-md-1 text-center">
-                    <td><span class="field__tag">Código</span></td>
-                  </div>
-                  <div class="col-md-1 text-center">
-                    <td><span class="field__tag">Tipo de IGV</span></td>
-                  </div>
-                  <div class="col-md-1 text-center">
-                    <td><span class="field__tag">Valor Unit.</span></td>
-                  </div>
-                  <div class="col-md-1 text-center">
-                    <td><span class="field__tag">IGV</span></td>
-                  </div>
-                  <div class="col-md-1 text-center">
-                    <td><span class="field__tag">Total</span></td>
-                  </div>
-                </div>
-                <div class="row mtb-1">
-                  <div class="col-md-2">
-                    <input class="field default block" type="search" placeholder="Buscar..."/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-4">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                </div>
-                <div class="row mtb-1">
-                  <div class="col-md-2">
-                    <input class="field default block" type="search" placeholder="Buscar..."/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-4">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                </div>
-                <div class="row mtb-1">
-                  <div class="col-md-2">
-                    <input class="field default block" type="search" placeholder="Buscar..."/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-4">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
-                  <div class="col-md-1">
-                    <input class="field default block" type="text"/>
-                  </div>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <td><span class="field__tag">Blen/Servicio</span></td>
+                        <td><span class="field__tag">U. de medida</span></td>
+                        <td><span class="field__tag">Descripción</span></td>
+                        <td><span class="field__tag">Código</span></td>
+                        <td><span class="field__tag">Tipo de IGV</span></td>
+                        <td><span class="field__tag">Valor Unit.</span></td>
+                        <td><span class="field__tag">IGV</span></td>
+                        <td><span class="field__tag">Total</span></td>
+                        <td></td>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tr>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td><a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""/></a></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td><a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""/></a></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td>
+                        <input class="field default block" type="text"/>
+                      </td>
+                      <td><a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""/></a></td>
+                    </tr>
+                  </table>
                 </div>
               </div>
             </div>
@@ -312,7 +313,7 @@
         </div>
       </main>
     </div>
-  </body>!!!
+  </body>
   <script src="js/vendors/jquery-3.3.1.min.js"></script>
   <script src="js/main.js"></script>
   <script src="./js/boleta.js"></script>

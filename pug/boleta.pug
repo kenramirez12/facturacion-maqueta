@@ -56,10 +56,16 @@ block content
                                 li.select-field__item: span.select-field__value establecimiento 1
                                 li.select-field__item: span.select-field__value establecimiento 2
                         
-                    .col-md-2
+                    .col-md-2.flex-center
                         .field__tag Pagado
-                    .col-md-2
+                        label.switch
+                            input(type="checkbox")
+                            span.slider.round
+                    .col-md-2.flex-center
                         .field__tag Detracción
+                        label.switch
+                            input(type="checkbox")
+                            span.slider.round
 
     .row.mt-1
         .col-12
@@ -72,71 +78,31 @@ block content
             .container-fluid
                 .row
                     //- .table-responsive
-                        //- table.table
-                        //-     thead
-                        //-         tr
-                        //-             td: span.field__tag Blen/Servicio
-                        //-             td: span.field__tag U. de medida
-                        //-             td: span.field__tag Descripción
-                        //-             td: span.field__tag Código
-                        //-             td: span.field__tag Tipo de IGV
-                        //-             td: span.field__tag Valor Unit.
-                        //-             td: span.field__tag IGV
-                        //-             td: span.field__tag Total
-                        //-     tbody
-                        //-         tr
-                        //-             td: input(type="text").field.default.block
-                        //-             td: input(type="text").field.default.block
-                        //-             td: input(type="text").field.default.block
-                        //-             td: input(type="text").field.default.block
-                        //-             td: input(type="text").field.default.block
-                        //-             td: input(type="text").field.default.block
-                        //-             td: input(type="text").field.default.block
-                        //-             td: input(type="text").field.default.block
-                        //-         tr
-                        //-             td: input(type="text").field.default.block
-                        //-             td: input(type="text").field.default.block
-                        //-             td: input(type="text").field.default.block
-                        //-             td: input(type="text").field.default.block
-                        //-             td: input(type="text").field.default.block
-                        //-             td: input(type="text").field.default.block
-                        //-             td: input(type="text").field.default.block
-                        //-             td: input(type="text").field.default.block
-                    .col-md-2.text-center
-                        td: span.field__tag Blen/Servicio
-                    .col-md-1.text-center
-                        td: span.field__tag U. de medida
-                    .col-md-4.text-center
-                        td: span.field__tag Descripción
-                    .col-md-1.text-center
-                        td: span.field__tag Código
-                    .col-md-1.text-center
-                        td: span.field__tag Tipo de IGV
-                    .col-md-1.text-center
-                        td: span.field__tag Valor Unit.
-                    .col-md-1.text-center
-                        td: span.field__tag IGV
-                    .col-md-1.text-center
-                        td: span.field__tag Total
-                
-                - for (i = 0; i < 3; ++i)
-                    .row.mtb-1
-                        .col-md-2
-                            input.field.default.block(type="search", placeholder="Buscar...")
-                        .col-md-1
-                            input.field.default.block(type="text")
-                        .col-md-4
-                            input.field.default.block(type="text")
-                        .col-md-1
-                            input.field.default.block(type="text")
-                        .col-md-1
-                            input.field.default.block(type="text")
-                        .col-md-1
-                            input.field.default.block(type="text")
-                        .col-md-1
-                            input.field.default.block(type="text")
-                        .col-md-1
-                            input.field.default.block(type="text")
+                    table.table
+                        thead
+                            tr
+                                td: span.field__tag Blen/Servicio
+                                td: span.field__tag U. de medida
+                                td: span.field__tag Descripción
+                                td: span.field__tag Código
+                                td: span.field__tag Tipo de IGV
+                                td: span.field__tag Valor Unit.
+                                td: span.field__tag IGV
+                                td: span.field__tag Total
+                                td
+                        tbody
+                        - for(i = 0; i < 3; i++) {
+                            tr
+                                td: input(type="text").field.default.block
+                                td: input(type="text").field.default.block
+                                td: input(type="text").field.default.block
+                                td: input(type="text").field.default.block
+                                td: input(type="text").field.default.block
+                                td: input(type="text").field.default.block
+                                td: input(type="text").field.default.block
+                                td: input(type="text").field.default.block
+                                td: a.delete-product(href="#"): img.delete-product__icon(src="./img/trash.svg", alt="")
+                        - }
 
     .row.mt-3
         .col-md-7
