@@ -188,68 +188,73 @@ select {
     }
 }
 
-// .select {
-//     font-weight: 700;
-
-//     &__option {
-//         &:first-child {
-//             border-top-left-radius: 1rem;
-//             border-top-right-radius: 1rem;
-//         }
-//     }
-// }
-
-// .select-field {
-//     position: relative;
-//     display: inline-block;
-//     // width: 100%;
-//     height: 2rem;
-//     background-color: yellow;
-
-//     &.active {
-//         z-index: 99;
-
-//         .select-field__list {
-//             background-color: $alt-bg;
-//         }
-
-//         .select-field__item {
-//             display: block;
-//         }
-//     }
-
-//     &__list {
-//         position: absolute;
-//         border: 2px solid $alt-c-l;
-//         border-radius: 0.9rem;
-//         transition: background 0.2s;
-//         overflow: hidden;
-//     }
-
-//     &__item {
-//         display: none;
-//         font-size: 0.8rem;
-//         color: $black-text;
-//         line-height: 2rem;
-        
-//         border-top: 1px solid rgba($alt-c-l, 0.2);
-//         padding: 0 0.8rem;
-//         cursor: pointer;
-//         user-select: none;
-//         transition: background 0.2s;
-
-//         &:first-child {
-//             border-top: 0;
-//         }
-
-//         &:hover {
-//             background: lighten($alt-c-l, 20);
-//         }
-
-//         &.selected {
-//             display: block !important;
-//             line-height: 2rem;
-//             font-weight: 600;
-//         }
-//     }
-// }
+.select-default {
+    position: relative;
+    // background-color: #f3f6fc;
+    width: 100%;
+    margin: auto;
+    
+    color: #515974;
+    font-size: 0.9rem;
+    line-height: 2rem;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: calc(1rem - 2px);
+        right: 10px;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid #515974;
+    }
+    
+    &__list {
+        display: none;
+        position: absolute;
+        top: 2rem;
+        left: 0;
+        background-color: $alt-bg;
+        width: 100%;
+        border-top: 0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        overflow: hidden;
+    }
+    
+    &__selected {
+        background-color: $alt-bg;
+        padding: 0 10px;
+        border-radius: 0.4rem;
+        color: #515974;
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    &__item {
+        font-size: 0.8rem;
+        width: 100%;
+        padding: 0 10px;
+        cursor: pointer;
+        user-select: none;
+        transition: background 0.3s;
+      
+        &:hover {
+            background-color: darken($alt-bg, 5);
+        }
+    }
+    
+    &.active {
+      
+      .select-default__selected {
+        color: lighten(#515974, 30);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      
+      .select-default__list {
+        display: block; 
+      }
+    }
+  }

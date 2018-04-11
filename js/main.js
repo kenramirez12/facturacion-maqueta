@@ -52,3 +52,43 @@ if($('.select-field')) {
         $(this).parent().parent().removeClass('active')
     })
 }
+
+
+// Select default modified
+$(document).ready(function() {
+    if($('.select-default').length > 0) {
+      $('.select-default').each(function() {
+        var defaultVal = $(this).data('default'),
+            selected = $(this).children('.select-default__selected');
+        
+        selected.html(defaultVal)
+      })
+    }
+  
+    $('.select-default').click(function() {
+      var defaultVal = $(this).data('default'),
+          actualVal =$(this).data('value'),
+          isActive = ($(this).hasClass('active')) ? true : false,
+          selected = $(this).children('.select-default__selected');
+  
+      if(isActive) {
+        if(actualVal == "") {
+          selected.html(defaultVal)
+        } else {
+          selected.html(actualVal)
+        }
+      } else {
+        selected.html(defaultVal)
+      }
+  
+      $(this).toggleClass('active')
+      console.log('oli')
+    })
+  
+    $('.select-default__item').click(function() {
+      var actualVal = $(this).html(),
+          thisParent = $(this).parent().parent();
+  
+      thisParent.data('value', actualVal)
+    })
+  })

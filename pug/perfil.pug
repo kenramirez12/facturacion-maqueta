@@ -15,7 +15,12 @@ block content
                             .row.no-gutters
                                 .col-md-4
                                     .profile-avatar
-                                        img.profile-avatar__img(src="./img/avatar/user.jpg")
+                                        label.profile-avatar__label
+                                            img.profile-avatar__upload-icon(src="./img/upload-icon.svg")
+                                            span.profile-avatar__upload-tag SUBIR IMAGEN
+                                            input.profile-avatar__input(type="file")
+                                        //- img.profile-avatar__img(src="./img/avatar/user.jpg")
+                                        img.profile-avatar__img(src="./img/avatar/avatar-default.svg")
                                 .col-md-5.offset-md-1
                                     label.field__label.vertical
                                         .field__tag Nombre de la empresa
@@ -23,7 +28,12 @@ block content
 
                                     label.field__label.vertical.mt-1
                                         .field__tag Categoría
-                                        input.field.default.block(type="text", value="FINANZAS")
+                                        .select-default(data-default="CATEGORÍA", data-value="")
+                                            .select-default__selected
+                                            .select-default__list
+                                                .select-default__item FINANZAS
+                                                .select-default__item CONSTRUCCIÓN
+                                                .select-default__item INFORMÁTICA
 
                                     label.field__label.vertical.mt-1
                                         .field__tag Descripción
