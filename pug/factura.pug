@@ -47,8 +47,8 @@ block content
                         .select-field.inline
                             .select-field__selected Tipo de factura
                             ul.select-field__list
-                                li.select-field__item: span.select-field__value Tipo 1
-                                li.select-field__item: span.select-field__value Tipo 2
+                                li.select-field__item: span.select-field__value Bien
+                                li.select-field__item: span.select-field__value Servicio
                         
                         .select-field.inline
                             .select-field__selected Establecimiento emisor
@@ -72,3 +72,44 @@ block content
             button.btn.alt.float-right
                 img.btn__icon(src="./img/buttons/plus-button.svg")
                 | Añadir Producto/Servicio
+
+    .tab.mt-1
+        .tab__content.tab__content--alternative
+            .container-fluid
+                .row
+                    //- .table-responsive
+                    table.table
+                        thead
+                            tr
+                                td: span.field__tag Bien/Servicio
+                                td: span.field__tag U. de medida
+                                td: span.field__tag Descripción
+                                td: span.field__tag Código
+                                td: span.field__tag Tipo de IGV
+                                td: span.field__tag Valor Unit.
+                                td: span.field__tag IGV
+                                td: span.field__tag Total
+                                td
+                        tbody
+                        - for(i = 0; i < 3; i++) {
+                            tr
+                                td: input(type="text").field.default.block
+                                td
+                                    .select-default.block(data-default="Seleccionar", data-value="")
+                                            .select-default__selected
+                                            .select-default__list
+                                                .select-default__item Kg
+                                                .select-default__item Mts
+                                td: input(type="text").field.default.block
+                                td: input(type="text").field.default.block
+                                td
+                                    .select-default.block(data-default="Seleccionar", data-value="")
+                                            .select-default__selected
+                                            .select-default__list
+                                                .select-default__item Tipo 1
+                                                .select-default__item Tipo 2
+                                td: input(type="text").field.default.block
+                                td: input(type="text").field.default.block
+                                td: input(type="text").field.default.block
+                                td: a.delete-product(href="#"): img.delete-product__icon(src="./img/trash.svg", alt="")
+                        - }

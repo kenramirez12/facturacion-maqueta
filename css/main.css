@@ -1895,6 +1895,7 @@ select {
 
 .select-default {
   position: relative;
+  min-width: 150px;
   width: 100%;
   margin: auto;
   color: #515974;
@@ -1950,7 +1951,8 @@ select {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0; }
   .select-default.active .select-default__list {
-    display: block; }
+    display: block;
+    z-index: 9; }
 
 .switch {
   position: relative;
