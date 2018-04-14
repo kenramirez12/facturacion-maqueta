@@ -2,6 +2,11 @@
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
 
+    &-warning {
+        background-color: #e0925b;
+        color: $alt-bg;
+    }
+
     &-danger {
         background-color: $main-c;
         color: $alt-bg;
