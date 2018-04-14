@@ -18,3 +18,8 @@ ul {
     list-style: none;
     padding-left: 0;
 }
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #222636 inset !important;
+    -webkit-text-fill-color: #a4a4b9 !important;
+}

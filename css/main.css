@@ -1635,6 +1635,10 @@ ul {
   list-style: none;
   padding-left: 0; }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #222636 inset !important;
+  -webkit-text-fill-color: #a4a4b9 !important; }
+
 .mt-1 {
   margin-top: 0.8rem; }
 
@@ -1821,8 +1825,7 @@ select {
 
 .select-field {
   display: inline-block;
-  position: relative;
-  z-index: 999; }
+  position: relative; }
   .select-field.inline {
     width: 13rem;
     margin: 0 0.2rem; }
@@ -1891,7 +1894,8 @@ select {
     background-color: #e2e6ef; }
   .select-field.active .select-field__list {
     display: block;
-    border-top: 0; }
+    border-top: 0;
+    z-index: 99; }
 
 .select-default {
   position: relative;
@@ -2088,6 +2092,13 @@ input:checked + .slider:before {
   transition: opacity 0.2s; }
   .delete-product__icon:hover {
     opacity: 1; }
+
+.alert {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem; }
+  .alert-danger {
+    background-color: #d65b63;
+    color: #e2e6ef; }
 
 .sidebar {
   position: -webkit-sticky;
