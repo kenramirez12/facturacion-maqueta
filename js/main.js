@@ -39,6 +39,31 @@ const toggleClientMenu = function() {
     }
 }
 
+// Switch checkbox
+$('.switch').click(function(e) {
+    e.preventDefault();
+
+    var checkbox = $('.switch__checkbox');
+    var checkbox = $(this).find(checkbox);
+    var slider = $('.slider');
+    var slider = $(this).find(slider);
+
+    if(checkbox.attr('checked') == null) {
+        console.log('no esta activo');
+        console.log(checkbox.attr('checked'));
+
+        checkbox.attr('checked', true);
+        slider.addClass('active');
+    } else {
+        console.log('esta activo');
+        console.log(checkbox.attr('checked'));
+
+        checkbox.attr('checked', false);
+        slider.removeClass('active');
+    }
+})
+
+
 // Activar por defecto Select personalizado
 if($('.select-field')) {
     $('.select-field__selected').click(function() {
@@ -55,7 +80,7 @@ if($('.select-field')) {
 
 
 // Select default modified
-$(document).ready(function() {
+// $(document).ready(function() {
     if($('.select-default').length > 0) {
       $('.select-default').each(function() {
         var defaultVal = $(this).data('default'),
@@ -65,30 +90,65 @@ $(document).ready(function() {
       })
     }
   
-    $('.select-default').click(function() {
-      var defaultVal = $(this).data('default'),
-          actualVal =$(this).data('value'),
-          isActive = ($(this).hasClass('active')) ? true : false,
-          selected = $(this).children('.select-default__selected');
+//     $('.select-default').click(function() {
+//       var defaultVal = $(this).data('default'),
+//           actualVal =$(this).data('value'),
+//           isActive = ($(this).hasClass('active')) ? true : false,
+//           selected = $(this).children('.select-default__selected');
   
-      if(isActive) {
-        if(actualVal == "") {
-          selected.html(defaultVal)
-        } else {
-          selected.html(actualVal)
-        }
-      } else {
-        selected.html(defaultVal)
-      }
+//       if(isActive) {
+//         if(actualVal == "") {
+//           selected.html(defaultVal)
+//         } else {
+//           selected.html(actualVal)
+//         }
+//       } else {
+//         selected.html(defaultVal)
+//       }
   
-      $(this).toggleClass('active')
-      console.log('oli')
-    })
+//       $(this).toggleClass('active')
+//     })
   
-    $('.select-default__item').click(function() {
-      var actualVal = $(this).html(),
-          thisParent = $(this).parent().parent();
+//     $('.select-default__item').click(function() {
+//       var actualVal = $(this).html(),
+//           thisParent = $(this).parent().parent();
   
-      thisParent.data('value', actualVal)
-    })
-  })
+//       thisParent.data('value', actualVal)
+//     })
+//   })
+
+// Select updated
+$('.select-default').click(function(e) {
+    var selectDefault = $(this),
+        defaultValue = selectDefault.data('default'),
+        selected = selectDefault.find($('.select-default__selected'));
+
+    if(selectDefault.hasClass('active')) {
+        var elementClicked = $(e.target),
+            inputHidden = selectDefault.find($('.select__hidden'));
+
+            if(elementClicked.hasClass('select-default__item')) {
+                var newValue = elementClicked.html();
+                selected.html(newValue);
+                inputHidden.val(newValue);
+                selectDefault.removeClass('active');
+            }
+
+            // Cerrar si se hace click en selected
+            if(elementClicked.hasClass('select-default__selected')) {
+                selectDefault.removeClass('active');
+                if(!inputHidden.val()) {
+                    selected.html(defaultValue);
+                    console.log('obtiene valor de default' + defaultValue)
+                } else {
+                    selected.html(inputHidden.val());
+                    console.log('obtiene valor de input' + inputHidden.val())
+                }
+            }
+
+    } else {
+        selected.html(defaultValue);
+        selectDefault.addClass('active');
+    }
+
+})

@@ -59,12 +59,12 @@ block content
                     .col-md-2.flex-center
                         .field__tag Pagado
                         label.switch
-                            input(type="checkbox")
+                            input.switch__checkbox(type="checkbox")
                             span.slider.round
                     .col-md-2.flex-center
                         .field__tag Detracción
                         label.switch
-                            input(type="checkbox")
+                            input.switch__checkbox(type="checkbox")
                             span.slider.round
 
     .row.mt-1
@@ -97,6 +97,7 @@ block content
                                 td
                                     .select-default.block(data-default="Seleccionar", data-value="")
                                             .select-default__selected
+                                            input.select__hidden(type="hidden")
                                             .select-default__list
                                                 .select-default__item Kg
                                                 .select-default__item Mts
@@ -105,6 +106,7 @@ block content
                                 td
                                     .select-default.block(data-default="Seleccionar", data-value="")
                                             .select-default__selected
+                                            input.select__hidden(type="hidden")
                                             .select-default__list
                                                 .select-default__item Tipo 1
                                                 .select-default__item Tipo 2
