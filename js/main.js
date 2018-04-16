@@ -49,15 +49,9 @@ $('.switch').click(function(e) {
     var slider = $(this).find(slider);
 
     if(checkbox.attr('checked') == null) {
-        console.log('no esta activo');
-        console.log(checkbox.attr('checked'));
-
         checkbox.attr('checked', true);
         slider.addClass('active');
     } else {
-        console.log('esta activo');
-        console.log(checkbox.attr('checked'));
-
         checkbox.attr('checked', false);
         slider.removeClass('active');
     }
@@ -139,10 +133,8 @@ $('.select-default').click(function(e) {
                 selectDefault.removeClass('active');
                 if(!inputHidden.val()) {
                     selected.html(defaultValue);
-                    console.log('obtiene valor de default' + defaultValue)
                 } else {
                     selected.html(inputHidden.val());
-                    console.log('obtiene valor de input' + inputHidden.val())
                 }
             }
 
@@ -151,4 +143,18 @@ $('.select-default').click(function(e) {
         selectDefault.addClass('active');
     }
 
+})
+
+// Cerrar select desplegado si se hace click afuera
+clickCount = 0;
+$(document).click(function(e) {
+
+    if(clickCount == 1) {
+        $('.select-default.active').removeClass('active')
+        clickCount = 0;
+    }
+
+    if($('.select-default.active').length > 0) {
+        clickCount++;
+    }
 })
