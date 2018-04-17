@@ -2099,7 +2099,7 @@ input[type="checkbox"]:checked + .slider:before,
 .alert {
   padding: 0.5rem 1rem;
   font-size: 0.9rem; }
-  .alert-warning {
+  .alert-info {
     background-color: #e0925b;
     color: #e2e6ef; }
   .alert-danger {

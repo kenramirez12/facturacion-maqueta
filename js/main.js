@@ -158,3 +158,123 @@ $(document).click(function(e) {
         clickCount++;
     }
 })
+
+// Agregar y quitar productos
+// var newProductItem = 
+
+// newProductRow += '<td>';
+// newProductRow += '<input class="field default block" type="text"/>';
+// newProductRow += '</td>';
+// newProductRow += '<td>';
+// newProductRow += '<div class="select-default block" data-default="Seleccionar" data-value="">';
+// newProductRow += '<div class="select-default__selected"></div>';
+// newProductRow += '<input class="select__hidden" type="hidden"/>';
+// newProductRow += '<div class="select-default__list">';
+// newProductRow += '<div class="select-default__item">Kg</div>';
+// newProductRow += '<div class="select-default__item">Mts</div>';
+// newProductRow += '</div>';
+// newProductRow += '</div>';
+// newProductRow += '</td>';
+// newProductRow += '<td>';
+// newProductRow += '<input class="field default block" type="text"/>';
+// newProductRow += '</td>';
+// newProductRow += '<td>';
+// newProductRow += '<input class="field default block" type="text"/>';
+// newProductRow += '</td>';
+// newProductRow += '<td>';
+// newProductRow += '<div class="select-default block" data-default="Seleccionar" data-value="">';
+// newProductRow += '<div class="select-default__selected"></div>';
+// newProductRow += '<input class="select__hidden" type="hidden"/>';
+// newProductRow += '<div class="select-default__list">';
+// newProductRow += '<div class="select-default__item">Tipo 1</div>';
+// newProductRow += '<div class="select-default__item">Tipo 2</div>';
+// newProductRow += '</div>';
+// newProductRow += '</div>';
+// newProductRow += '</td>';
+// newProductRow += '<td>';
+// newProductRow += '<input class="field default block" type="text"/>';
+// newProductRow += '</td>';
+// newProductRow += '<td>';
+// newProductRow += '<input class="field default block" type="text"/>';
+// newProductRow += '</td>';
+// newProductRow += '<td>';
+// newProductRow += '<input class="field default block" type="text"/>';
+// newProductRow += '</td>';
+// newProductRow += '<td><a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""/></a></td>';
+// newProductRow += '</tr>';
+
+createNewProduct = function() {
+    var newRow = document.createElement('tr');
+
+    var newCol1 = document.createElement('td');
+    var input1 = document.createElement('input');
+    input1.setAttribute('type', 'text');
+    input1.classList.add('field', 'default', 'block');
+    newCol1.appendChild(input1);
+    
+    var newCol2 = document.createElement('td');
+    
+    
+    var newCol3 = document.createElement('td');
+    var input3 = document.createElement('input');
+    input3.setAttribute('type', 'text');
+    input3.classList.add('field', 'default', 'block');
+    newCol3.appendChild(input3);
+    var newCol4 = document.createElement('td');
+    var input4 = document.createElement('input');
+    input4.setAttribute('type', 'text');
+    input4.classList.add('field', 'default', 'block');
+    newCol4.appendChild(input4);
+    
+    var newCol5 = document.createElement('td');
+
+    var newCol6 = document.createElement('td');
+    var input6 = document.createElement('input');
+    input6.setAttribute('type', 'text');
+    input6.classList.add('field', 'default', 'block');
+    newCol6.appendChild(input6);
+    var newCol7 = document.createElement('td');
+    var input7 = document.createElement('input');
+    input7.setAttribute('type', 'text');
+    input7.classList.add('field', 'default', 'block');
+    newCol7.appendChild(input7);
+    var newCol8 = document.createElement('td');
+    var input8 = document.createElement('input');
+    input8.setAttribute('type', 'text');
+    input8.classList.add('field', 'default', 'block');
+    newCol8.appendChild(input8);
+
+    var newCol9 = document.createElement('td');
+    var deleteAnchor = document.createElement('a');
+    deleteAnchor.setAttribute('href', '#');
+    deleteAnchor.classList.add('delete-product');
+    var deleteIcon = document.createElement('img');
+    deleteIcon.setAttribute('src', './img/trash.svg');
+    deleteIcon.classList.add('delete-product__icon');
+    deleteAnchor.appendChild(deleteIcon);
+    newCol9.appendChild(deleteAnchor);
+
+    newRow.appendChild(newCol1);
+    newRow.appendChild(newCol2);
+    newRow.appendChild(newCol3);
+    newRow.appendChild(newCol4);
+    newRow.appendChild(newCol5);
+    newRow.appendChild(newCol6);
+    newRow.appendChild(newCol7);
+    newRow.appendChild(newCol8);
+    newRow.appendChild(newCol9);
+
+    return newRow;
+}
+
+$('.new-product-row').click(function() {
+    $('.table > tbody:last-child').append(createNewProduct);
+    
+    $('.delete-product').click(function() {
+        $(this).parent().parent().remove()
+    })
+})
+
+$('.delete-product').click(function() {
+    $(this).parent().parent().remove()
+})
