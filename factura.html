@@ -32,240 +32,243 @@
           </div>
         </div>
         <div class="main__content">
-          <div class="tab">
-            <div class="tab__top"><span class="tab__title">EMITIR FACTURA ELECTRÓNICA</span></div>
-            <div class="tab__content">
-              <div class="container-fluid">
-                <div class="row mb-1">
-                  <div class="col-md-2">
-                    <div class="field__tag">Número de documento</div>
-                  </div>
-                  <div class="col-md-3">
-                    <input class="field bordered block" type="text"/>
-                  </div>
-                  <div class="col-md-3">
-                    <label class="field__label horizontal">
-                      <div class="field__tag">Serie</div>
-                      <input class="field disabled" type="text" size="3" disabled="disabled" value="F001"/>&nbsp;
-                      <input class="field bordered" type="text" size="12"/>
-                    </label>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="field__tag">Fecha de vencimiento</div>
-                  </div>
-                  <div class="col-md-2">
-                    <input class="field bordered" type="date"/>
-                  </div>
-                </div>
-                <div class="row mb-1">
-                  <div class="col-md-2">
-                    <div class="field__tag">Razón social</div>
-                  </div>
-                  <div class="col-md-3">
-                    <input class="field bordered block" type="text"/>
-                  </div>
-                  <div class="col-md-2 offset-md-3">
-                    <div class="field__tag">Fecha de emisión</div>
-                  </div>
-                  <div class="col-md-2">
-                    <input class="field bordered" type="date"/>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-8">
-                    <div class="select-field inline">
-                      <div class="select-field__selected">Tipo de moneda</div>
-                      <ul class="select-field__list">
-                        <li class="select-field__item"><span class="select-field__value">Soles (S/.)</span></li>
-                        <li class="select-field__item"><span class="select-field__value">Dólares ($)</span></li>
-                        <li class="select-field__item"><span class="select-field__value">Euros (&euro;)</span></li>
-                      </ul>
+          <form method="POST" name="form">
+            <div class="tab">
+              <div class="tab__top"><span class="tab__title">EMITIR FACTURA ELECTRÓNICA</span></div>
+              <div class="tab__content">
+                <div class="container-fluid">
+                  <div class="row mb-1">
+                    <div class="col-md-2">
+                      <div class="field__tag">Número de documento</div>
                     </div>
-                    <div class="select-field inline">
-                      <div class="select-field__selected">Tipo de factura</div>
-                      <ul class="select-field__list">
-                        <li class="select-field__item"><span class="select-field__value">Bien</span></li>
-                        <li class="select-field__item"><span class="select-field__value">Servicio</span></li>
-                      </ul>
+                    <div class="col-md-3">
+                      <input class="field bordered block" type="text" name="numero-documento"/>
                     </div>
-                    <div class="select-field inline">
-                      <div class="select-field__selected">Establecimiento emisor</div>
-                      <ul class="select-field__list">
-                        <li class="select-field__item"><span class="select-field__value">establecimiento 1</span></li>
-                        <li class="select-field__item"><span class="select-field__value">establecimiento 2</span></li>
-                      </ul>
+                    <div class="col-md-3">
+                      <label class="field__label horizontal">
+                        <div class="field__tag">Serie</div>
+                        <input class="field disabled" type="text" size="3" disabled="disabled" value="F001"/>&nbsp;
+                        <input class="field bordered" type="text" name="serie" size="12"/>
+                      </label>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="field__tag">Fecha de vencimiento</div>
+                    </div>
+                    <div class="col-md-2">
+                      <input class="field bordered" type="date" name="fecha-vencimiento"/>
                     </div>
                   </div>
-                  <div class="col-md-2 flex-center">
-                    <div class="field__tag">Pagado</div>
-                    <label class="switch">
-                      <input class="switch__checkbox" type="checkbox" value="1" id="paid1" name="paid"/>
-                      <input type="hidden" name="_paid" value="on"/><span class="slider round"></span>
-                    </label>
+                  <div class="row mb-1">
+                    <div class="col-md-2">
+                      <div class="field__tag">Razón social</div>
+                    </div>
+                    <div class="col-md-3">
+                      <input class="field bordered block" type="text" name="razon-social"/>
+                    </div>
+                    <div class="col-md-2 offset-md-3">
+                      <div class="field__tag">Fecha de emisión</div>
+                    </div>
+                    <div class="col-md-2">
+                      <input class="field bordered" type="date" name="fecha-emision"/>
+                    </div>
                   </div>
-                  <div class="col-md-2 flex-center">
-                    <div class="field__tag">Detracción</div>
-                    <label class="switch">
-                      <input class="switch__checkbox" type="checkbox"/>
-                      <input type="hidden"/><span class="slider round"></span>
-                    </label>
+                  <div class="row">
+                    <div class="col-md-8">
+                      <div class="select-field inline">
+                        <div class="select-field__selected">Tipo de moneda</div>
+                        <ul class="select-field__list">
+                          <li class="select-field__item"><span class="select-field__value">Soles (S/.)</span></li>
+                          <li class="select-field__item"><span class="select-field__value">Dólares ($)</span></li>
+                          <li class="select-field__item"><span class="select-field__value">Euros (&euro;)</span></li>
+                        </ul>
+                      </div>
+                      <div class="select-field inline">
+                        <div class="select-field__selected">Tipo de factura</div>
+                        <ul class="select-field__list">
+                          <li class="select-field__item"><span class="select-field__value">Bien</span></li>
+                          <li class="select-field__item"><span class="select-field__value">Servicio</span></li>
+                        </ul>
+                      </div>
+                      <div class="select-field inline">
+                        <div class="select-field__selected">Establecimiento emisor</div>
+                        <ul class="select-field__list">
+                          <li class="select-field__item"><span class="select-field__value">establecimiento 1</span></li>
+                          <li class="select-field__item"><span class="select-field__value">establecimiento 2</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-md-2 flex-center">
+                      <div class="field__tag">Pagado</div>
+                      <label class="switch">
+                        <input class="switch__checkbox" type="checkbox" name="pagado"/>
+                        <input type="hidden" name="_pagado"/><span class="slider round"></span>
+                      </label>
+                    </div>
+                    <div class="col-md-2 flex-center">
+                      <div class="field__tag">Detracción</div>
+                      <label class="switch">
+                        <input class="switch__checkbox" type="checkbox" name="detraccion"/>
+                        <input type="hidden" name="_detraccion"/><span class="slider round"></span>
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row mt-1">
-            <div class="col-12">
-              <button class="btn alt float-right new-product-row"><img class="btn__icon" src="./img/buttons/plus-button.svg"/>Añadir Producto/Servicio</button>
+            <div class="row mt-1">
+              <div class="col-12">
+                <button class="btn alt float-right new-product-row"><img class="btn__icon" src="./img/buttons/plus-button.svg"/>Añadir Producto/Servicio</button>
+              </div>
             </div>
-          </div>
-          <div class="tab mt-1">
-            <div class="tab__content tab__content--alternative">
-              <div class="container-fluid">
-                <div class="row">
-                  <table class="table">
-                    <thead>
+            <div class="tab mt-1">
+              <div class="tab__content tab__content--alternative">
+                <div class="container-fluid">
+                  <div class="row">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <td><span class="field__tag">Bien/Servicio</span></td>
+                          <td><span class="field__tag">U. de medida</span></td>
+                          <td><span class="field__tag">Descripción</span></td>
+                          <td><span class="field__tag">Código</span></td>
+                          <td><span class="field__tag">Tipo de IGV</span></td>
+                          <td><span class="field__tag">Valor Unit.</span></td>
+                          <td><span class="field__tag">IGV</span></td>
+                          <td><span class="field__tag">Total</span></td>
+                          <td></td>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
                       <tr>
-                        <td><span class="field__tag">Bien/Servicio</span></td>
-                        <td><span class="field__tag">U. de medida</span></td>
-                        <td><span class="field__tag">Descripción</span></td>
-                        <td><span class="field__tag">Código</span></td>
-                        <td><span class="field__tag">Tipo de IGV</span></td>
-                        <td><span class="field__tag">Valor Unit.</span></td>
-                        <td><span class="field__tag">IGV</span></td>
-                        <td><span class="field__tag">Total</span></td>
-                        <td></td>
+                        <td>
+                          <input class="field default block" type="text" name="servicio-1"/>
+                        </td>
+                        <td>
+                          <div class="select-default block" data-default="Seleccionar" data-value="">
+                            <div class="select-default__selected"></div>
+                            <input class="select__hidden" type="hidden" name="unid-medida-1"/>
+                            <div class="select-default__list">
+                              <div class="select-default__item">Kg</div>
+                              <div class="select-default__item">Mts</div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="description-1"/>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="cod-1"/>
+                        </td>
+                        <td>
+                          <div class="select-default block" data-default="Seleccionar" data-value="">
+                            <div class="select-default__selected"></div>
+                            <input class="select__hidden" type="hidden" name="tipo-igv-1"/>
+                            <div class="select-default__list">
+                              <div class="select-default__item">Tipo 1</div>
+                              <div class="select-default__item">Tipo 2</div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="valor-unit-1"/>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="igv-1"/>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="total-1"/>
+                        </td>
+                        <td><a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""/></a></td>
                       </tr>
-                    </thead>
-                    <tbody></tbody>
-                    <tr>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td>
-                        <div class="select-default block" data-default="Seleccionar" data-value="">
-                          <div class="select-default__selected"></div>
-                          <input class="select__hidden" type="hidden"/>
-                          <div class="select-default__list">
-                            <div class="select-default__item">Kg</div>
-                            <div class="select-default__item">Mts</div>
+                      <tr>
+                        <td>
+                          <input class="field default block" type="text" name="servicio-2"/>
+                        </td>
+                        <td>
+                          <div class="select-default block" data-default="Seleccionar" data-value="">
+                            <div class="select-default__selected"></div>
+                            <input class="select__hidden" type="hidden" name="unid-medida-2"/>
+                            <div class="select-default__list">
+                              <div class="select-default__item">Kg</div>
+                              <div class="select-default__item">Mts</div>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td>
-                        <div class="select-default block" data-default="Seleccionar" data-value="">
-                          <div class="select-default__selected"></div>
-                          <input class="select__hidden" type="hidden"/>
-                          <div class="select-default__list">
-                            <div class="select-default__item">Tipo 1</div>
-                            <div class="select-default__item">Tipo 2</div>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="description-2"/>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="cod-2"/>
+                        </td>
+                        <td>
+                          <div class="select-default block" data-default="Seleccionar" data-value="">
+                            <div class="select-default__selected"></div>
+                            <input class="select__hidden" type="hidden" name="tipo-igv-2"/>
+                            <div class="select-default__list">
+                              <div class="select-default__item">Tipo 1</div>
+                              <div class="select-default__item">Tipo 2</div>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td><a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""/></a></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td>
-                        <div class="select-default block" data-default="Seleccionar" data-value="">
-                          <div class="select-default__selected"></div>
-                          <input class="select__hidden" type="hidden"/>
-                          <div class="select-default__list">
-                            <div class="select-default__item">Kg</div>
-                            <div class="select-default__item">Mts</div>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="valor-unit-2"/>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="igv-2"/>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="total-2"/>
+                        </td>
+                        <td><a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""/></a></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input class="field default block" type="text" name="servicio-3"/>
+                        </td>
+                        <td>
+                          <div class="select-default block" data-default="Seleccionar" data-value="">
+                            <div class="select-default__selected"></div>
+                            <input class="select__hidden" type="hidden" name="unid-medida-3"/>
+                            <div class="select-default__list">
+                              <div class="select-default__item">Kg</div>
+                              <div class="select-default__item">Mts</div>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td>
-                        <div class="select-default block" data-default="Seleccionar" data-value="">
-                          <div class="select-default__selected"></div>
-                          <input class="select__hidden" type="hidden"/>
-                          <div class="select-default__list">
-                            <div class="select-default__item">Tipo 1</div>
-                            <div class="select-default__item">Tipo 2</div>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="description-3"/>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="cod-3"/>
+                        </td>
+                        <td>
+                          <div class="select-default block" data-default="Seleccionar" data-value="">
+                            <div class="select-default__selected"></div>
+                            <input class="select__hidden" type="hidden" name="tipo-igv-3"/>
+                            <div class="select-default__list">
+                              <div class="select-default__item">Tipo 1</div>
+                              <div class="select-default__item">Tipo 2</div>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td><a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""/></a></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td>
-                        <div class="select-default block" data-default="Seleccionar" data-value="">
-                          <div class="select-default__selected"></div>
-                          <input class="select__hidden" type="hidden"/>
-                          <div class="select-default__list">
-                            <div class="select-default__item">Kg</div>
-                            <div class="select-default__item">Mts</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td>
-                        <div class="select-default block" data-default="Seleccionar" data-value="">
-                          <div class="select-default__selected"></div>
-                          <input class="select__hidden" type="hidden"/>
-                          <div class="select-default__list">
-                            <div class="select-default__item">Tipo 1</div>
-                            <div class="select-default__item">Tipo 2</div>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td>
-                        <input class="field default block" type="text"/>
-                      </td>
-                      <td><a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""/></a></td>
-                    </tr>
-                  </table>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="valor-unit-3"/>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="igv-3"/>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="total-3"/>
+                        </td>
+                        <td><a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""/></a></td>
+                      </tr>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+            <input type="submit" value="Enviar"/>
+          </form>
         </div>
       </main>
     </div>

@@ -89,42 +89,6 @@ if($('.select-default').length > 0) {
     initSelect()
 }
 
-// Select updated
-// const initSelectFunctions = function(s, e) {
-//     var selectDefault = s,
-//         defaultValue = selectDefault.data('default'),
-//         selected = selectDefault.find($('.select-default__selected'));
-
-//     if(selectDefault.hasClass('active')) {
-//         var elementClicked = $(e.target),
-//             inputHidden = selectDefault.find($('.select__hidden'));
-
-//             if(elementClicked.hasClass('select-default__item')) {
-//                 var newValue = elementClicked.html();
-//                 selected.html(newValue);
-//                 inputHidden.val(newValue);
-//                 selectDefault.removeClass('active');
-//             }
-
-//             // Cerrar si se hace click en selected
-//             if(elementClicked.hasClass('select-default__selected')) {
-//                 selectDefault.removeClass('active');
-//                 if(!inputHidden.val()) {
-//                     selected.html(defaultValue);
-//                 } else {
-//                     selected.html(inputHidden.val());
-//                 }
-//             }
-
-//     } else {
-//         selected.html(defaultValue);
-//         selectDefault.addClass('active');
-//     }
-// }
-
-// $('.select-default').click(function(e) {
-//     initSelectFunctions($(this), e)
-// })
 $(document).on('click', '.select-default', function(e) {
     var selectDefault = $(this),
         defaultValue = selectDefault.data('default'),
@@ -171,6 +135,9 @@ $(document).click(function(e) {
     }
 })
 
+// var tableRows = $('.table tr:last').index() + 1;
+var tableRows = 3;
+
 createNewProduct = function() {
     // 1
     var newRow = document.createElement('tr');
@@ -178,6 +145,7 @@ createNewProduct = function() {
     var newCol1 = document.createElement('td');
     var input1 = document.createElement('input');
     input1.setAttribute('type', 'text');
+    input1.setAttribute('name', 'producto-' + (tableRows + 1));
     input1.classList.add('field', 'default', 'block');
     newCol1.appendChild(input1);
     
@@ -192,6 +160,7 @@ createNewProduct = function() {
 
     var select2Input = document.createElement('input');
     select2Input.setAttribute('type', 'hidden');
+    select2Input.setAttribute('name', 'unid-medida-' + (tableRows + 1));
     select2Input.classList.add('select__hidden');
 
     var select2List = document.createElement('div');
@@ -215,6 +184,7 @@ createNewProduct = function() {
     var newCol3 = document.createElement('td');
     var input3 = document.createElement('input');
     input3.setAttribute('type', 'text');
+    input3.setAttribute('name', 'descripcion-' + (tableRows + 1));
     input3.classList.add('field', 'default', 'block');
     newCol3.appendChild(input3);
 
@@ -222,6 +192,7 @@ createNewProduct = function() {
     var newCol4 = document.createElement('td');
     var input4 = document.createElement('input');
     input4.setAttribute('type', 'text');
+    input4.setAttribute('name', 'cod-' + (tableRows + 1));
     input4.classList.add('field', 'default', 'block');
     newCol4.appendChild(input4);
     
@@ -236,6 +207,7 @@ createNewProduct = function() {
 
     var select5Input = document.createElement('input');
     select5Input.setAttribute('type', 'hidden');
+    select5Input.setAttribute('name', 'tipo-igv-' + (tableRows + 1));
     select5Input.classList.add('select__hidden');
 
     var select5List = document.createElement('div');
@@ -259,6 +231,7 @@ createNewProduct = function() {
     var newCol6 = document.createElement('td');
     var input6 = document.createElement('input');
     input6.setAttribute('type', 'text');
+    input6.setAttribute('name', 'valor-unit-' + (tableRows + 1));
     input6.classList.add('field', 'default', 'block');
     newCol6.appendChild(input6);
 
@@ -266,6 +239,7 @@ createNewProduct = function() {
     var newCol7 = document.createElement('td');
     var input7 = document.createElement('input');
     input7.setAttribute('type', 'text');
+    input7.setAttribute('name', 'igv-' + (tableRows + 1));
     input7.classList.add('field', 'default', 'block');
     newCol7.appendChild(input7);
 
@@ -273,6 +247,7 @@ createNewProduct = function() {
     var newCol8 = document.createElement('td');
     var input8 = document.createElement('input');
     input8.setAttribute('type', 'text');
+    input8.setAttribute('name', 'total-' + (tableRows + 1));
     input8.classList.add('field', 'default', 'block');
     newCol8.appendChild(input8);
 
@@ -297,6 +272,7 @@ createNewProduct = function() {
     newRow.appendChild(newCol8);
     newRow.appendChild(newCol9);
 
+    tableRows++;
     return newRow;
 }
 
@@ -306,18 +282,15 @@ $('.new-product-row').click(function() {
 
     // Iniciar selects de nueva columna
     initSelect();
-    // $('.select-default').click(function(e) {
-    //     initSelectFunctions($(this), e)
-    // })
-    
-    // Iniciar acción de botón eliminar
-    // $('.delete-product').click(function() {
-    //     $(this).parent().parent().remove()
-    // })
 })
 
 $(document).on('click', '.delete-product', function() {
     $(this).parent().parent().remove()
 })
-// $('.delete-product').on('click', function() {
-// })
+
+/** Form */
+$('form').submit(function(e) {
+    e.preventDefault();
+
+    console.log($(this).serializeArray());
+})
