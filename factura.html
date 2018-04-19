@@ -74,27 +74,30 @@
                   </div>
                   <div class="row">
                     <div class="col-md-8">
-                      <div class="select-field inline">
-                        <div class="select-field__selected">Tipo de moneda</div>
-                        <ul class="select-field__list">
-                          <li class="select-field__item"><span class="select-field__value">Soles (S/.)</span></li>
-                          <li class="select-field__item"><span class="select-field__value">Dólares ($)</span></li>
-                          <li class="select-field__item"><span class="select-field__value">Euros (&euro;)</span></li>
-                        </ul>
+                      <div class="select select-field inline" data-default="Tipo de moneda">
+                        <div class="select__selected select-field__selected"></div>
+                        <input class="select__hidden" type="hidden" name="tipo-moneda"/>
+                        <div class="select__list select-field__list">
+                          <div class="select__item select-field__item">Soles (S/.)</div>
+                          <div class="select__item select-field__item">Dólares ($)</div>
+                          <div class="select__item select-field__item">Euros (&euro;)</div>
+                        </div>
                       </div>
-                      <div class="select-field inline">
-                        <div class="select-field__selected">Tipo de factura</div>
-                        <ul class="select-field__list">
-                          <li class="select-field__item"><span class="select-field__value">Bien</span></li>
-                          <li class="select-field__item"><span class="select-field__value">Servicio</span></li>
-                        </ul>
+                      <div class="select select-field inline" data-default="Tipo de factura">
+                        <div class="select__selected select-field__selected">Tipo de factura</div>
+                        <input class="select__hidden" type="hidden" name="tipo-factura"/>
+                        <div class="select__list select-field__list">
+                          <div class="select__item select-field__item">Bien</div>
+                          <div class="select__item select-field__item">Servicio</div>
+                        </div>
                       </div>
-                      <div class="select-field inline">
-                        <div class="select-field__selected">Establecimiento emisor</div>
-                        <ul class="select-field__list">
-                          <li class="select-field__item"><span class="select-field__value">establecimiento 1</span></li>
-                          <li class="select-field__item"><span class="select-field__value">establecimiento 2</span></li>
-                        </ul>
+                      <div class="select select-field inline" data-default="Establecimiento emisor">
+                        <div class="select__selected select-field__selected">Establecimiento emisor</div>
+                        <input class="select__hidden" type="hidden" name="establecimiento-emisor"/>
+                        <div class="select__list select-field__list">
+                          <div class="select__item select-field__item">establecimiento 1</div>
+                          <div class="select__item select-field__item">establecimiento 2</div>
+                        </div>
                       </div>
                     </div>
                     <div class="col-md-2 flex-center">
@@ -144,12 +147,12 @@
                           <input class="field default block" type="text" name="servicio-1"/>
                         </td>
                         <td>
-                          <div class="select-default block" data-default="Seleccionar" data-value="">
-                            <div class="select-default__selected"></div>
+                          <div class="select select-default block" data-default="Seleccionar" data-value="">
+                            <div class="select__selected select-default__selected"></div>
                             <input class="select__hidden" type="hidden" name="unid-medida-1"/>
-                            <div class="select-default__list">
-                              <div class="select-default__item">Kg</div>
-                              <div class="select-default__item">Mts</div>
+                            <div class="select__list select-default__list">
+                              <div class="select__item select-default__item">Kg</div>
+                              <div class="select__item select-default__item">Mts</div>
                             </div>
                           </div>
                         </td>
@@ -160,12 +163,12 @@
                           <input class="field default block" type="text" name="cod-1"/>
                         </td>
                         <td>
-                          <div class="select-default block" data-default="Seleccionar" data-value="">
-                            <div class="select-default__selected"></div>
+                          <div class="select select-default block" data-default="Seleccionar" data-value="">
+                            <div class="select__selected select-default__selected"></div>
                             <input class="select__hidden" type="hidden" name="tipo-igv-1"/>
-                            <div class="select-default__list">
-                              <div class="select-default__item">Tipo 1</div>
-                              <div class="select-default__item">Tipo 2</div>
+                            <div class="select__list select-default__list">
+                              <div class="select__item select-default__item">Tipo 1</div>
+                              <div class="select__item select-default__item">Tipo 2</div>
                             </div>
                           </div>
                         </td>
@@ -185,12 +188,12 @@
                           <input class="field default block" type="text" name="servicio-2"/>
                         </td>
                         <td>
-                          <div class="select-default block" data-default="Seleccionar" data-value="">
-                            <div class="select-default__selected"></div>
+                          <div class="select select-default block" data-default="Seleccionar" data-value="">
+                            <div class="select__selected select-default__selected"></div>
                             <input class="select__hidden" type="hidden" name="unid-medida-2"/>
-                            <div class="select-default__list">
-                              <div class="select-default__item">Kg</div>
-                              <div class="select-default__item">Mts</div>
+                            <div class="select__list select-default__list">
+                              <div class="select__item select-default__item">Kg</div>
+                              <div class="select__item select-default__item">Mts</div>
                             </div>
                           </div>
                         </td>
@@ -201,12 +204,12 @@
                           <input class="field default block" type="text" name="cod-2"/>
                         </td>
                         <td>
-                          <div class="select-default block" data-default="Seleccionar" data-value="">
-                            <div class="select-default__selected"></div>
+                          <div class="select select-default block" data-default="Seleccionar" data-value="">
+                            <div class="select__selected select-default__selected"></div>
                             <input class="select__hidden" type="hidden" name="tipo-igv-2"/>
-                            <div class="select-default__list">
-                              <div class="select-default__item">Tipo 1</div>
-                              <div class="select-default__item">Tipo 2</div>
+                            <div class="select__list select-default__list">
+                              <div class="select__item select-default__item">Tipo 1</div>
+                              <div class="select__item select-default__item">Tipo 2</div>
                             </div>
                           </div>
                         </td>
@@ -226,12 +229,12 @@
                           <input class="field default block" type="text" name="servicio-3"/>
                         </td>
                         <td>
-                          <div class="select-default block" data-default="Seleccionar" data-value="">
-                            <div class="select-default__selected"></div>
+                          <div class="select select-default block" data-default="Seleccionar" data-value="">
+                            <div class="select__selected select-default__selected"></div>
                             <input class="select__hidden" type="hidden" name="unid-medida-3"/>
-                            <div class="select-default__list">
-                              <div class="select-default__item">Kg</div>
-                              <div class="select-default__item">Mts</div>
+                            <div class="select__list select-default__list">
+                              <div class="select__item select-default__item">Kg</div>
+                              <div class="select__item select-default__item">Mts</div>
                             </div>
                           </div>
                         </td>
@@ -242,12 +245,12 @@
                           <input class="field default block" type="text" name="cod-3"/>
                         </td>
                         <td>
-                          <div class="select-default block" data-default="Seleccionar" data-value="">
-                            <div class="select-default__selected"></div>
+                          <div class="select select-default block" data-default="Seleccionar" data-value="">
+                            <div class="select__selected select-default__selected"></div>
                             <input class="select__hidden" type="hidden" name="tipo-igv-3"/>
-                            <div class="select-default__list">
-                              <div class="select-default__item">Tipo 1</div>
-                              <div class="select-default__item">Tipo 2</div>
+                            <div class="select__list select-default__list">
+                              <div class="select__item select-default__item">Tipo 1</div>
+                              <div class="select__item select-default__item">Tipo 2</div>
                             </div>
                           </div>
                         </td>
@@ -267,7 +270,11 @@
                 </div>
               </div>
             </div>
-            <input type="submit" value="Enviar"/>
+            <div class="row mt-2">
+              <div class="col-12">
+                <input class="btn bordered" type="submit" value="GENERAR"/>
+              </div>
+            </div>
           </form>
         </div>
       </main>

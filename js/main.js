@@ -60,64 +60,64 @@ $('.switch').click(function(e) {
 
 
 // Activar por defecto Select personalizado
-if($('.select-field')) {
-    $('.select-field__selected').click(function() {
-        $(this).parent().toggleClass('active') 
-    })
+// if($('.select-field')) {
+//     $('.select-field__selected').click(function() {
+//         $(this).parent().toggleClass('active') 
+//     })
     
-    $('.select-field__item').click(function() {
-        selectedVal = $(this).children().html();
+//     $('.select-field__item').click(function() {
+//         selectedVal = $(this).children().html();
     
-        $(this).parent().prev().html(selectedVal)
-        $(this).parent().parent().removeClass('active')
-    })
-}
+//         $(this).parent().prev().html(selectedVal)
+//         $(this).parent().parent().removeClass('active')
+//     })
+// }
 
 
 /** Select Definitivo */
 const initSelect = function() {
-    $('.select-default').each(function() {
+    $('.select').each(function() {
         var defaultValue = $(this).data('default'),
             realValue = $(this).find($('.select__hidden')).val();
-            selected = $(this).children('.select-default__selected');
+            selected = $(this).children('.select__selected');
         
         selected.html( (realValue == '') ? defaultValue : realValue )
     })
 }
 
-if($('.select-default').length > 0) {
+if($('.select').length > 0) {
     initSelect()
 }
 
-$(document).on('click', '.select-default', function(e) {
-    var selectDefault = $(this),
-        defaultValue = selectDefault.data('default'),
-        selected = selectDefault.find($('.select-default__selected'));
+$(document).on('click', '.select', function(e) {
+    var select = $(this),
+        defaultValue = select.data('default'),
+        selected = select.find($('.select__selected'));
 
-    if(selectDefault.hasClass('active')) {
+    if(select.hasClass('active')) {        
         var elementClicked = $(e.target),
-            inputHidden = selectDefault.find($('.select__hidden'));
-
-            if(elementClicked.hasClass('select-default__item')) {
-                var newValue = elementClicked.html();
-                selected.html(newValue);
-                inputHidden.val(newValue);
-                selectDefault.removeClass('active');
+        inputHidden = select.find($('.select__hidden'));
+        
+        if(elementClicked.hasClass('select__item')) {
+            var newValue = elementClicked.html();
+            selected.html(newValue);
+            inputHidden.val(newValue);
+            select.removeClass('active');
+        }
+        
+        // Cerrar si se hace click en selected
+        if(elementClicked.hasClass('select__selected')) {
+            select.removeClass('active');
+            if(!inputHidden.val()) {
+                selected.html(defaultValue);
+            } else {
+                selected.html(inputHidden.val());
             }
-
-            // Cerrar si se hace click en selected
-            if(elementClicked.hasClass('select-default__selected')) {
-                selectDefault.removeClass('active');
-                if(!inputHidden.val()) {
-                    selected.html(defaultValue);
-                } else {
-                    selected.html(inputHidden.val());
-                }
-            }
-
+        }
+        
     } else {
         selected.html(defaultValue);
-        selectDefault.addClass('active');
+        select.addClass('active');
     }
 })
 
@@ -126,11 +126,11 @@ clickCount = 0;
 $(document).click(function(e) {
 
     if(clickCount == 1) {
-        $('.select-default.active').removeClass('active')
+        $('.select.active').removeClass('active')
         clickCount = 0;
     }
 
-    if($('.select-default.active').length > 0) {
+    if($('.select.active').length > 0) {
         clickCount++;
     }
 })
@@ -153,10 +153,10 @@ createNewProduct = function() {
     var newCol2 = document.createElement('td');
     var select2 = document.createElement('div');
     select2.setAttribute('data-default', 'Seleccionar')
-    select2.classList.add('select-default', 'block');
+    select2.classList.add('select', 'select-default', 'block');
 
     var select2Selected = document.createElement('div');
-    select2Selected.classList.add('select-default__selected');
+    select2Selected.classList.add('select__selected', 'select-default__selected');
 
     var select2Input = document.createElement('input');
     select2Input.setAttribute('type', 'hidden');
@@ -164,12 +164,12 @@ createNewProduct = function() {
     select2Input.classList.add('select__hidden');
 
     var select2List = document.createElement('div');
-    select2List.classList.add('select-default__list');
+    select2List.classList.add('select__list', 'select-default__list');
 
     var options = ['kg', 'mts'];
     for(option in options) {
         var selectOption = document.createElement('div');
-        selectOption.classList.add('select-default__item');
+        selectOption.classList.add('select__item', 'select-default__item');
         selectOption.innerHTML = options[option];
 
         select2List.appendChild(selectOption);
@@ -200,10 +200,10 @@ createNewProduct = function() {
     var newCol5 = document.createElement('td');
     var select5 = document.createElement('div');
     select5.setAttribute('data-default', 'Seleccionar')
-    select5.classList.add('select-default', 'block');
+    select5.classList.add('select', 'select-default', 'block');
 
     var select5Selected = document.createElement('div');
-    select5Selected.classList.add('select-default__selected');
+    select5Selected.classList.add('select__selected', 'select-default__selected');
 
     var select5Input = document.createElement('input');
     select5Input.setAttribute('type', 'hidden');
@@ -211,12 +211,12 @@ createNewProduct = function() {
     select5Input.classList.add('select__hidden');
 
     var select5List = document.createElement('div');
-    select5List.classList.add('select-default__list');
+    select5List.classList.add('select__list', 'select-default__list');
 
     var options = ['Tipo 1', 'Tipo 2'];
     for(option in options) {
         var selectOption = document.createElement('div');
-        selectOption.classList.add('select-default__item');
+        selectOption.classList.add('select__item', 'select-default__item');
         selectOption.innerHTML = options[option];
 
         select5List.appendChild(selectOption);
