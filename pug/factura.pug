@@ -4,7 +4,7 @@ append config
     -var currentPage = "factura"
 
 block content
-    form(method="POST", name="form")
+    form(method="POST", action="/invoice/issue" name="form")
         .tab
             .tab__top
                 span.tab__title EMITIR FACTURA ELECTRÓNICA
@@ -122,12 +122,76 @@ block content
                                     td: a.delete-product(href="#"): img.delete-product__icon(src="./img/trash.svg", alt="")
                             - }
 
-        .row.mt-2
-            .col-12
-                //- input.btn.bordered(type="submit", value="REGRESAR")
-                //- | &nbsp;
-                //- input.btn.bordered(type="submit", value="PREVISUALIZAR")
-                //- | &nbsp;
-                input.btn.bordered(type="submit", value="GENERAR")
-                //- .test test
-        //- input(type="submit", value="Enviar")
+        .row.mt-3
+            .col-md-7
+                .tab
+                    .tab__content.tab__content--alternative
+                        .container-fluid
+                            .field__label.vertical
+                                span.field__tag.mb-1 Añadir Observación
+                                textarea.field.default.block.textarea(name="observacion")
+                
+                .row.mt-3
+                    .col-12
+                        a.btn.bordered(href="#") REGRESAR
+                        //- input.btn.bordered(type="submit", value="REGRESAR")
+                        | &nbsp;
+                        a.btn.bordered(href="#") PREVISUALIZAR
+                        //- input.btn.bordered(type="submit", value="PREVISUALIZAR")
+                        | &nbsp;
+                        input.btn.bordered(type="submit", value="GENERAR")
+                
+            .col-md-3.offset-md-2
+                .tab
+                    .tab__content.tab__content--alternative
+                        .container-fluid
+                            .row.mtb-1
+                                .col-6
+                                    span.field__tag.normal-w % Descuento
+                                .col-6
+                                    input.field.default.block(type="text", name="descuento")
+                            .row.mtb-1
+                                .col-6
+                                    span.field__tag.normal-w Anticipo (-)
+                                .col-6
+                                    input.field.default.small-height.block(type="text", name="anticipo")
+                            .row.mtb-1
+                                .col-6
+                                    span.field__tag.normal-w Exonerada
+                                .col-6
+                                    input.field.default.small-height.block(type="text", name="exonerada")
+                            .row.mtb-1
+                                .col-6
+                                    span.field__tag.normal-w Inafecta
+                                .col-6
+                                    input.field.default.small-height.block(type="text", name="inafecta")
+                            .row.mtb-1
+                                .col-6
+                                    span.field__tag.normal-w Gravada
+                                .col-6
+                                    input.field.default.small-height.block(type="text", name="gravada")
+                            .row.mtb-1
+                                .col-6
+                                    span.field__tag.normal-w IGV
+                                .col-6
+                                    input.field.default.small-height.block(type="text", name="igv")
+                            .row.mtb-1
+                                .col-6
+                                    span.field__tag.normal-w Gratuita
+                                .col-6
+                                    input.field.default.small-height.block(type="text", name="gratuita")
+                            .row.mtb-1
+                                .col-6
+                                    span.field__tag.normal-w Otros cargos
+                                .col-6
+                                    input.field.default.small-height.block(type="text", name="otros-cargos")
+                            .row.mtb-1
+                                .col-6
+                                    span.field__tag.normal-w Descuento total (-)
+                                .col-6
+                                    input.field.default.small-height.block(type="text", name="descuento-total")
+                            .row.mtb-1
+                                .col-6
+                                    span.field__tag TOTAL
+                                .col-6
+                                    input.field.default.small-height.block(type="text", name="total")

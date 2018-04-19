@@ -32,7 +32,7 @@
           </div>
         </div>
         <div class="main__content">
-          <form method="POST" name="form">
+          <form method="POST" action="/invoice/issue" name="form">
             <div class="tab">
               <div class="tab__top"><span class="tab__title">EMITIR FACTURA ELECTRÓNICA</span></div>
               <div class="tab__content">
@@ -270,9 +270,90 @@
                 </div>
               </div>
             </div>
-            <div class="row mt-2">
-              <div class="col-12">
-                <input class="btn bordered" type="submit" value="GENERAR"/>
+            <div class="row mt-3">
+              <div class="col-md-7">
+                <div class="tab">
+                  <div class="tab__content tab__content--alternative">
+                    <div class="container-fluid">
+                      <div class="field__label vertical"><span class="field__tag mb-1">Añadir Observación</span>
+                        <textarea class="field default block textarea" name="observacion"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-12"><a class="btn bordered" href="#">REGRESAR</a>&nbsp;<a class="btn bordered" href="#">PREVISUALIZAR</a>&nbsp;
+                    <input class="btn bordered" type="submit" value="GENERAR"/>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 offset-md-2">
+                <div class="tab">
+                  <div class="tab__content tab__content--alternative">
+                    <div class="container-fluid">
+                      <div class="row mtb-1">
+                        <div class="col-6"><span class="field__tag normal-w">% Descuento</span></div>
+                        <div class="col-6">
+                          <input class="field default block" type="text" name="descuento"/>
+                        </div>
+                      </div>
+                      <div class="row mtb-1">
+                        <div class="col-6"><span class="field__tag normal-w">Anticipo (-)</span></div>
+                        <div class="col-6">
+                          <input class="field default small-height block" type="text" name="anticipo"/>
+                        </div>
+                      </div>
+                      <div class="row mtb-1">
+                        <div class="col-6"><span class="field__tag normal-w">Exonerada</span></div>
+                        <div class="col-6">
+                          <input class="field default small-height block" type="text" name="exonerada"/>
+                        </div>
+                      </div>
+                      <div class="row mtb-1">
+                        <div class="col-6"><span class="field__tag normal-w">Inafecta</span></div>
+                        <div class="col-6">
+                          <input class="field default small-height block" type="text" name="inafecta"/>
+                        </div>
+                      </div>
+                      <div class="row mtb-1">
+                        <div class="col-6"><span class="field__tag normal-w">Gravada</span></div>
+                        <div class="col-6">
+                          <input class="field default small-height block" type="text" name="gravada"/>
+                        </div>
+                      </div>
+                      <div class="row mtb-1">
+                        <div class="col-6"><span class="field__tag normal-w">IGV</span></div>
+                        <div class="col-6">
+                          <input class="field default small-height block" type="text" name="igv"/>
+                        </div>
+                      </div>
+                      <div class="row mtb-1">
+                        <div class="col-6"><span class="field__tag normal-w">Gratuita</span></div>
+                        <div class="col-6">
+                          <input class="field default small-height block" type="text" name="gratuita"/>
+                        </div>
+                      </div>
+                      <div class="row mtb-1">
+                        <div class="col-6"><span class="field__tag normal-w">Otros cargos</span></div>
+                        <div class="col-6">
+                          <input class="field default small-height block" type="text" name="otros-cargos"/>
+                        </div>
+                      </div>
+                      <div class="row mtb-1">
+                        <div class="col-6"><span class="field__tag normal-w">Descuento total (-)</span></div>
+                        <div class="col-6">
+                          <input class="field default small-height block" type="text" name="descuento-total"/>
+                        </div>
+                      </div>
+                      <div class="row mtb-1">
+                        <div class="col-6"><span class="field__tag">TOTAL</span></div>
+                        <div class="col-6">
+                          <input class="field default small-height block" type="text" name="total"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </form>

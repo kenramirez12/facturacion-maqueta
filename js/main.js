@@ -279,6 +279,7 @@ invoiceDetails = [];
 
 $('form').submit(function(e) {
     e.preventDefault();
+    const invoiceForm = $(this);
 
     // Resetear variables cada vez que se haga submit
     invoiceDetailsCount = 1;
@@ -321,22 +322,57 @@ $('form').submit(function(e) {
         tipoFactura = $('input[name="tipo-factura"]').val(),
         establecimientoEmisor = $('input[name="establecimiento-emisor"]').val(),
         pagado = $('input[name="pagado"]').val(),
-        detraccion = $('input[name="detraccion"]').val();
+        detraccion = $('input[name="detraccion"]').val(),
+        observacion = $('textarea[name="observacion"]').val(),
+        descuento = $('input[name="descuento"]').val(),
+        anticipo = $('input[name="anticipo"]').val(),
+        exonerada = $('input[name="exonerada"]').val(),
+        inafecta = $('input[name="inafecta"]').val(),
+        gravada = $('input[name="gravada"]').val(),
+        igv = $('input[name="igv"]').val(),
+        gratuita = $('input[name="gratuita"]').val(),
+        otrosCargos = $('input[name="otros-cargos"]').val(),
+        descuentoTotal = $('input[name="descuento-total"]').val(),
+        total = $('input[name="total"]').val()
+
 
     // Elabora JSON
-    var resp = new Object();
-    resp.numeroDocumento = numeroDocumento;
-    resp.razonSocial = razonSocial;
-    resp.serie = serie;
-    resp.fechaVencimiento = fechaVencimiento;
-    resp.fechaEmision = fechaEmision;
-    resp.tipoMoneda = tipoMoneda;
-    resp.tipoFactura = tipoFactura;
-    resp.establecimientoEmisor = establecimientoEmisor;
-    resp.pagado = pagado;
-    resp.detraccion = detraccion;
-    resp.invoiceDetails = invoiceDetails;
+    var data1 = new Object();
+    data1.numeroDocumento = numeroDocumento;
+    data1.razonSocial = razonSocial;
+    data1.serie = serie;
+    data1.fechaVencimiento = fechaVencimiento;
+    data1.fechaEmision = fechaEmision;
+    data1.tipoMoneda = tipoMoneda;
+    data1.tipoFactura = tipoFactura;
+    data1.establecimientoEmisor = establecimientoEmisor;
+    data1.pagado = pagado;
+    data1.detraccion = detraccion;
+    data1.invoiceDetails = invoiceDetails;
+    data1.observacion = observacion;
+    data1.descuento = descuento;
+    data1.anticipo = anticipo;
+    data1.exonerada = exonerada;
+    data1.inafecta = inafecta;
+    data1.gravada = gravada;
+    data1.igv = igv;
+    data1.gratuita = gratuita;
+    data1.otrosCargos = otrosCargos;
+    data1.descuentoTotal = descuentoTotal;
+    data1.total = total;
 
-    resp = JSON.stringify(resp);
-    console.log(resp);
+    data1 = JSON.stringify(data1);
+
+    $.ajax({
+        method: 'POST',
+        dataType : 'json',
+        url: invoiceForm.attr('action'),
+        data: data1,
+        beforeSend: function () {
+            console.log("data1: "+data1);
+        },
+        success: function (data) {
+            alert("data.status : "+ data);
+        }
+    });
 });
