@@ -59,21 +59,6 @@ $('.switch').click(function(e) {
 })
 
 
-// Activar por defecto Select personalizado
-// if($('.select-field')) {
-//     $('.select-field__selected').click(function() {
-//         $(this).parent().toggleClass('active') 
-//     })
-    
-//     $('.select-field__item').click(function() {
-//         selectedVal = $(this).children().html();
-    
-//         $(this).parent().prev().html(selectedVal)
-//         $(this).parent().parent().removeClass('active')
-//     })
-// }
-
-
 /** Select Definitivo */
 const initSelect = function() {
     $('.select').each(function() {
@@ -289,8 +274,69 @@ $(document).on('click', '.delete-product', function() {
 })
 
 /** Form */
+invoiceDetailsCount = 1;
+invoiceDetails = [];
+
 $('form').submit(function(e) {
     e.preventDefault();
 
-    console.log($(this).serializeArray());
-})
+    // Resetear variables cada vez que se haga submit
+    invoiceDetailsCount = 1;
+    invoiceDetails = [];
+
+    // Elaborar array invoiceDetails
+    $('.table > tbody > tr').each(function() {
+        var servicio = $(this).children('td:nth-child(1)').children('input').val(),
+            unidMedida = $(this).children('td:nth-child(2)').children('div').children('input').val(),
+            descripcion = $(this).children('td:nth-child(3)').children('input').val(),
+            cod = $(this).children('td:nth-child(4)').children('input').val(),
+            tipoIgv = $(this).children('td:nth-child(5)').children('div').children('input').val(),
+            valorUnit = $(this).children('td:nth-child(6)').children('input').val(),
+            igv = $(this).children('td:nth-child(7)').children('input').val(),
+            total = $(this).children('td:nth-child(8)').children('input').val(),
+
+        newInvoice = {
+            'order': invoiceDetailsCount,
+            'servicio' : servicio,
+            'unid-medida': unidMedida,
+            'descripcion': descripcion,
+            'cod': cod,
+            'tipo-igv': tipoIgv,
+            'valor-unit': valorUnit,
+            'igv': igv,
+            'total': total,
+        }
+
+        invoiceDetails.push(newInvoice);
+        invoiceDetailsCount++;
+    })
+
+    // Obtener valores del formulario
+    var numeroDocumento = $('input[name="numero-documento"]').val(),
+        razonSocial = $('input[name="razon-social"]').val(),
+        serie = $('input[name="serie"]').val(),
+        fechaVencimiento = $('input[name="fecha-vencimiento"]').val(),
+        fechaEmision = $('input[name="fecha-emision"]').val(),
+        tipoMoneda = $('input[name="tipo-moneda"]').val(),
+        tipoFactura = $('input[name="tipo-factura"]').val(),
+        establecimientoEmisor = $('input[name="establecimiento-emisor"]').val(),
+        pagado = $('input[name="pagado"]').val(),
+        detraccion = $('input[name="detraccion"]').val();
+
+    // Elabora JSON
+    var resp = new Object();
+    resp.numeroDocumento = numeroDocumento;
+    resp.razonSocial = razonSocial;
+    resp.serie = serie;
+    resp.fechaVencimiento = fechaVencimiento;
+    resp.fechaEmision = fechaEmision;
+    resp.tipoMoneda = tipoMoneda;
+    resp.tipoFactura = tipoFactura;
+    resp.establecimientoEmisor = establecimientoEmisor;
+    resp.pagado = pagado;
+    resp.detraccion = detraccion;
+    resp.invoiceDetails = invoiceDetails;
+
+    resp = JSON.stringify(resp);
+    console.log(resp);
+});
