@@ -2083,6 +2083,8 @@ input[type="checkbox"]:checked + .slider:before,
   padding: 0 15px; }
   .table thead tr > td {
     text-align: center; }
+  .table .min-w {
+    min-width: 200px; }
 
 .delete-product__icon {
   --size: 1.2rem;
