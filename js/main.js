@@ -363,8 +363,8 @@ $('form').submit(function(e) {
         tipoMoneda = $('input[name="tipo-moneda"]').val(),
         tipoFactura = $('input[name="tipo-factura"]').val(),
         establecimientoEmisor = $('input[name="establecimiento-emisor"]').val(),
-        pagado = $('input[name="pagado"]').val(),
-        detraccion = $('input[name="detraccion"]').val(),
+        pagado = $('input[name="pagado"]').attr('checked') ? 1 : 0,
+        detraccion = $('input[name="detraccion"]').attr('checked') ? 1 : 0;
         observacion = $('textarea[name="observacion"]').val(),
         descuento = $('input[name="descuento"]').val(),
         anticipo = $('input[name="anticipo"]').val(),
