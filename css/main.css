@@ -2123,18 +2123,23 @@ input[type="checkbox"]:checked + .slider:before,
   -ms-flex-align: center;
   align-items: center;
   height: 4rem;
-  padding: 0 2em;
+  padding: 0 2em 0 0;
   background-color: #f3f6fc;
   border-bottom: 1px solid #d2d6d7; }
   .client-bar__info {
     position: relative;
-    margin-left: auto;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center; }
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end; }
   .client-bar__name {
     font-weight: 700; }
   .client-bar__avatar {
@@ -2174,6 +2179,26 @@ input[type="checkbox"]:checked + .slider:before,
     color: #222636;
     font-size: 0.9rem;
     line-height: 2rem; }
+  .client-bar__response {
+    background-color: #73a5db;
+    height: 100%;
+    width: 100%;
+    -webkit-box-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    padding: 0.8rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .client-bar__response-p {
+      margin: 0;
+      color: #e4ebf7;
+      font-size: 0.75rem; }
+    .client-bar__response-btn {
+      margin-left: 1rem; }
 
 .body-login {
   height: 100%;

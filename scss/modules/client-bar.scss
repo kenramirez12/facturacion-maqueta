@@ -3,15 +3,17 @@
     align-items: center;
 
     height: 4rem;
-    padding: 0 2em;
+    padding: 0 2em 0 0;
     background-color: $white-bg;
     border-bottom: 1px solid $shadow-c;
 
     &__info {
         position: relative;
-        margin-left: auto;
+        // margin-left: auto;
+        flex: 1;
         display: flex;
         align-items: center;
+        justify-content: flex-end;
     }
 
     &__name {
@@ -67,5 +69,26 @@
         color: $alt-c;
         font-size: 0.9rem;
         line-height: 2rem;
+    }
+
+    &__response {
+        background-color: $btn-alt-bg;
+        height: 100%;
+        width: 100%;
+        flex: 3;
+        padding: 0.8rem;
+
+        display: flex;
+        align-items: center;
+
+        &-p {
+            margin: 0;
+            color: $white-text;
+            font-size: 0.75rem;
+        }
+
+        &-btn {
+            margin-left: 1rem;
+        }
     }
 }

@@ -418,5 +418,24 @@ $('form').submit(function(e) {
         success: function (data) {
             alert("data.status : "+ data);
         }
-    });
+    }); 
 });
+
+const noConnAlert = () => {
+    var alert = '<div class="client-bar__response">';
+    alert += '<p class="client-bar__response-p">No se ha detectado conexión a internet. El Software intentará volver a conectarse y envíar tus emisiones automaticante cuando detecte una conexión a internet, se recomienda llenar los campos de forma manual.</p>';
+    alert += '<a class="client-bar__response-btn" href="#">';
+    alert += '<img src="./img/close-response.png">';
+    alert += '</a>';
+    alert += '</div>';
+    
+    $('.client-bar__info').before(alert);
+    close = $('.client-bar__response-btn').click(function(e) {
+        e.preventDefault();
+        $('.client-bar__response').remove();
+    })
+}
+
+$(window).ready(function() {
+    noConnAlert();
+})
