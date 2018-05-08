@@ -40,6 +40,12 @@ const toggleClientMenu = function() {
     }
 }
 
+/** Input Description alt */
+$('.field-description').on('keyup', function() {
+    val = $(this).val();
+    $(this).attr('title', val)
+})
+
 /** Switch buttons */
 $('.switch').click(function(e) {
     e.preventDefault();
@@ -159,8 +165,8 @@ createNewProduct = function() {
     // 2
     var newCol2 = document.createElement('td');
     var select2 = document.createElement('div');
-    select2.setAttribute('data-default', 'Seleccionar')
-    select2.classList.add('select', 'select-default', 'block');
+    select2.setAttribute('data-default', 'Selec')
+    select2.classList.add('select', 'select-default', 'select-default--small', 'block');
 
     var select2Selected = document.createElement('div');
     select2Selected.classList.add('select__selected', 'select-default__selected');
@@ -232,13 +238,77 @@ createNewProduct = function() {
 
     var options = [
         {
-            'optionTag' : 'Tipo 1',
-            'optionValue' : 1,
+            "optionTag" : "Gravado - Operación Onerosa",
+            "optionValue" : "10"
         },
         {
-            'optionTag' : 'Tipo 2',
-            'optionValue' : 2,
-        }
+            "optionTag" : "Gravado – Retiro por premio",
+            "optionValue" : "11"
+        },
+        {
+            "optionTag" : "Gravado – Retiro por donación",
+            "optionValue" : "12"
+        },
+        {
+            "optionTag" : "Gravado – Retiro ",
+            "optionValue" : "13"
+        },
+        {
+            "optionTag" : "Gravado – Retiro por publicidad",
+            "optionValue" : "14"
+        },
+        {
+            "optionTag" : "Gravado – Bonificaciones",
+            "optionValue" : "15"
+        },
+        {
+            "optionTag" : "Gravado – Retiro por entrega a trabajadores",
+            "optionValue" : "16"
+        },
+        {
+            "optionTag" : "Gravado – IVAP",
+            "optionValue" : "17"
+        },
+        {
+            "optionTag" : "Exonerado - Operación Onerosa",
+            "optionValue" : "20"
+        },
+        {
+            "optionTag" : "Exonerado – Transferencia Gratuita",
+            "optionValue" : "21"
+        },
+        {
+            "optionTag" : "Inafecto - Operación Onerosa",
+            "optionValue" : "30"
+        },
+        {
+            "optionTag" : "Inafecto – Retiro por Bonificación",
+            "optionValue" : "31"
+        },
+        {
+            "optionTag" : "Inafecto – Retiro",
+            "optionValue" : "32"
+        },
+        {
+            "optionTag" : "Inafecto – Retiro por Muestras Médicas",
+            "optionValue" : "33"
+        },
+        {
+            "optionTag" : "Inafecto - Retiro por Convenio Colectivo",
+            "optionValue" : "34"
+        },
+        {
+            "optionTag" : "Inafecto – Retiro por premio",
+            "optionValue" : "35"
+        },
+        {
+            "optionTag" : "Inafecto - Retiro por publicidad",
+            "optionValue" : "36"
+        },
+        {
+            "optionTag" : "Exportación",
+            "optionValue" : "36"
+        },
     ];
     for(option in options) {
         var selectOption = document.createElement('div');
@@ -311,8 +381,13 @@ $('.new-product-row').click(function() {
     initSelect();
 })
 
-$(document).on('click', '.delete-product', function() {
-    $(this).parent().parent().remove()
+$(document).on('click', '.delete-product', function(e) {
+    e.preventDefault();
+    if(confirm('Seguro que deseas eliminar esta fila?')) {
+        $(this).parent().parent().remove()
+    } else {
+        //
+    }
 })
 
 /** Form */
@@ -422,12 +497,10 @@ $('form').submit(function(e) {
 });
 
 const noConnAlert = () => {
-    var alert = '<div class="client-bar__response">';
-    alert += '<p class="client-bar__response-p">No se ha detectado conexión a internet. El Software intentará volver a conectarse y envíar tus emisiones automaticante cuando detecte una conexión a internet, se recomienda llenar los campos de forma manual.</p>';
-    alert += '<a class="client-bar__response-btn" href="#">';
-    alert += '<img src="./img/close-response.png">';
-    alert += '</a>';
-    alert += '</div>';
+    var alert = `<div class="client-bar__response">
+        <p class="client-bar__response-p">No se ha detectado conexión a internet. El Software intentará volver a conectarse y envíar tus emisiones automaticante cuando detecte una conexión a internet, se recomienda llenar los campos de forma manual.</p>
+        <a class="client-bar__response-btn" href="#"><img src="./img/close-response.png"></a>
+    </div>`;
     
     $('.client-bar__info').before(alert);
     close = $('.client-bar__response-btn').click(function(e) {

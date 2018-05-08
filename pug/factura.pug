@@ -87,38 +87,56 @@ block content
                         table.table
                             thead
                                 tr
-                                    td.min-w: span.field__tag Bien/Servicio
-                                    td: span.field__tag U. de medida
-                                    td.min-w: span.field__tag Descripción
-                                    td: span.field__tag Código
-                                    td: span.field__tag Tipo de IGV
-                                    td: span.field__tag Valor Unit.
-                                    td: span.field__tag IGV
-                                    td: span.field__tag Total
+                                    td.min-w-200: span.field__tag Bien/Servicio
+                                    td.w-50: span.field__tag U. de medida
+                                    td.min-w-200: span.field__tag Descripción
+                                    td.w-50: span.field__tag Código
+                                    td.min-w-200: span.field__tag Tipo de IGV
+                                    td.w-110: span.field__tag Valor Unit.
+                                    td.w-110: span.field__tag IGV
+                                    td.w-110: span.field__tag Total
                                     td
                             tbody
                             - for(i = 0; i < 3; i++) {
                                 tr
-                                    td: input(type="text", name="servicio-" + (i + 1)).field.default.block
+                                    td: input(type="text", name="servicio-" + (i + 1), value="Servicio de consultoría").field.default.block
                                     td
-                                        .select.select-default.block(data-default="Seleccionar", data-value="")
-                                                .select__selected.select-default__selected
+                                        .select.select-default.select-default--small.block(data-default="Selec", data-value="3")
+                                                .select__selected.select-default__selected UND
                                                 input.select__hidden(type="hidden", name="unid-medida-" + (i + 1))
                                                 .select__list.select-default__list
                                                     .select__item.select-default__item(data-value="1") Kg
                                                     .select__item.select-default__item(data-value="2") Mts
-                                    td: input(type="text", name="description-" + (i + 1)).field.default.block
-                                    td: input(type="text", name="cod-" + (i + 1)).field.default.block
+                                                    .select__item.select-default__item(data-value="3") UND
+                                    td: input(type="text", class="field-description" name="description-" + (i + 1), value="Servicio encargado de ver todo lo referente con seguridad para poder pasar los permisos municipales requeridos por la zona a la cual se esta aprobando").field.default.block
+                                    td: input(type="text", name="cod-" + (i + 1), value="001").field.default.block
                                     td
                                         .select.select-default.block(data-default="Seleccionar", data-value="")
                                                 .select__selected.select-default__selected
                                                 input.select__hidden(type="hidden", name="tipo-igv-" + (i + 1))
-                                                .select__list.select-default__list
-                                                    .select__item.select-default__item(data-value="1") Tipo 1
-                                                    .select__item.select-default__item(data-value="2") Tipo 2
-                                    td: input(type="text", name="valor-unit-" + (i + 1)).field.default.block
-                                    td: input(type="text", name="igv-" + (i + 1)).field.default.block
-                                    td: input(type="text", name="total-" + (i + 1)).field.default.block
+                                                .select__list.select-default__list.select-default__list--special-list
+                                                    .select__item.select-default__item(data-value="10") Gravado - Operación Onerosa
+                                                    .select__item.select-default__item(data-value="11") Gravado – Retiro por premio
+                                                    .select__item.select-default__item(data-value="12") Gravado – Retiro por donación
+                                                    .select__item.select-default__item(data-value="13") Gravado – Retiro 
+                                                    .select__item.select-default__item(data-value="14") Gravado – Retiro por publicidad
+                                                    .select__item.select-default__item(data-value="15") Gravado – Bonificaciones
+                                                    .select__item.select-default__item(data-value="16") Gravado – Retiro por entrega a trabajadores
+                                                    .select__item.select-default__item(data-value="17") Gravado – IVAP
+                                                    .select__item.select-default__item(data-value="20") Exonerado - Operación Onerosa
+                                                    .select__item.select-default__item(data-value="21") Exonerado – Transferencia Gratuita
+                                                    .select__item.select-default__item(data-value="30") Inafecto - Operación Onerosa
+                                                    .select__item.select-default__item(data-value="31") Inafecto – Retiro por Bonificación
+                                                    .select__item.select-default__item(data-value="32") Inafecto – Retiro
+                                                    .select__item.select-default__item(data-value="33") Inafecto – Retiro por Muestras Médicas
+                                                    .select__item.select-default__item(data-value="34") Inafecto - Retiro por Convenio Colectivo
+                                                    .select__item.select-default__item(data-value="35") Inafecto – Retiro por premio
+                                                    .select__item.select-default__item(data-value="36") Inafecto - Retiro por publicidad
+                                                    .select__item.select-default__item(data-value="36") Exportación
+
+                                    td: input(type="text", name="valor-unit-" + (i + 1), value="100,000.00").field.default.block
+                                    td: input(type="text", name="igv-" + (i + 1), value="18,000.00").field.default.block
+                                    td: input(type="text", name="total-" + (i + 1), value="118,000.00").field.default.block
                                     td: a.delete-product(href="#"): img.delete-product__icon(src="./img/trash.svg", alt="")
                             - }
 

@@ -1905,6 +1905,8 @@ select {
   color: #515974;
   font-size: 0.9rem;
   line-height: 2rem; }
+  .select-default--small {
+    min-width: 0; }
   .select-default::before {
     content: '';
     position: absolute;
@@ -1926,16 +1928,25 @@ select {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     overflow: hidden; }
+    .select-default__list--special-list {
+      max-height: 200px;
+      overflow-y: scroll; }
+      .select-default__list--special-list .select-default__item {
+        padding: 10px;
+        line-height: 1.2rem; }
   .select-default__selected {
     background-color: #e2e6ef;
     padding: 0 10px;
     border-radius: 0.4rem;
     color: #515974;
     cursor: pointer;
+    padding-right: 2rem;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none; }
+    user-select: none;
+    height: 2rem;
+    overflow: hidden; }
   .select-default__item {
     font-size: 0.8rem;
     width: 100%;
@@ -2039,7 +2050,12 @@ input[type="checkbox"]:checked + .slider:before,
   .btn.bordered {
     background-color: transparent;
     border: 2px solid #a4a4b9;
-    font-weight: 700; }
+    font-weight: 700;
+    -webkit-transition: background 0.2s;
+    -o-transition: background 0.2s;
+    transition: background 0.2s; }
+    .btn.bordered:hover {
+      background-color: #e2e6ef; }
   .btn.disabled {
     background-color: #d2d6d7; }
   .btn.alt {
@@ -2083,14 +2099,22 @@ input[type="checkbox"]:checked + .slider:before,
   padding: 0 15px; }
   .table thead tr > td {
     text-align: center; }
-  .table .min-w {
+  .table .w-50 {
+    width: 50px; }
+  .table .w-90 {
+    width: 90px; }
+  .table .w-110 {
+    width: 110px; }
+  .table .min-w-200 {
     min-width: 200px; }
+  .table .w-280 {
+    width: 280px; }
 
 .delete-product__icon {
   --size: 1.2rem;
   width: var(--size);
   height: var(--size);
-  margin-left: 1rem;
+  margin-left: .2rem;
   opacity: 0.6;
   -webkit-transition: opacity 0.2s;
   -o-transition: opacity 0.2s;
