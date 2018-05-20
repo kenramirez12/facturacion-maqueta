@@ -24,21 +24,12 @@ const toggleMenu = function(header, logo, options) {
     }
 }
 
-clientMenuBtn = $('.client-bar__menu-btn');
+/** Show Client Menu */
+const   clientMenuBtn = document.getElementById('clientMenuBtn'),
+        clientMenu = document.querySelector('.client-bar__menu'),
+        showClientMenu = () => clientMenu.classList.toggle('active')
 
-clientMenuBtn.click(function() {
-    toggleClientMenu()
-})
-
-const toggleClientMenu = function() {
-    clientBarMenu = $('.client-bar__menu');
-
-    if(clientBarMenu.hasClass('active')) {
-        clientBarMenu.removeClass('active')
-    } else {
-        clientBarMenu.addClass('active')
-    }
-}
+clientMenuBtn.addEventListener('click', showClientMenu)
 
 /** Input Description alt */
 $('.field-description').on('keyup', function() {
@@ -66,308 +57,368 @@ $('.switch').click(function(e) {
 
 
 /** Select Definitivo */
-const initSelect = function() {
-    $('.select').each(function() {
-        var selectList = $(this).children('.select__list'),
-            defaultValue = $(this).data('default'),
-            realValue = $(this).find($('.select__hidden')).val();
-            selected = $(this).children('.select__selected');
+// const initSelect = function() {
+//     $('.select').each(function() {
+//         var selectList = $(this).children('.select__list'),
+//             defaultValue = $(this).data('default'),
+//             realValue = $(this).find($('.select__hidden')).val();
+//             selected = $(this).children('.select__selected');
         
-            if(realValue == '') {
-                selected.html(defaultValue)
-            } else {
-                var realValueTag = '';
-                selectList.children('.select__item').each(function() {
-                    if( $(this).data('value') == realValue ) {
-                        realValueTag = $(this).html();
-                    }
-                })
-                selected.html(realValueTag)
-            }
-    })
-}
+//             if(realValue == '') {
+//                 selected.html(defaultValue)
+//             } else {
+//                 var realValueTag = '';
+//                 selectList.children('.select__item').each(function() {
+//                     if( $(this).data('value') == realValue ) {
+//                         realValueTag = $(this).html();
+//                     }
+//                 })
+//                 selected.html(realValueTag)
+//             }
+//     })
+// }
 
-if($('.select').length > 0) {
-    initSelect()
-}
+// if($('.select').length > 0) {
+//     initSelect()
+// }
 
-$(document).on('click', '.select', function(e) {
-    var select = $(this),
-        selectList = $(this).children('.select__list'),
-        defaultValue = select.data('default'),
-        selected = select.find($('.select__selected')),
-        elementClicked = $(e.target),
-        inputHidden = select.find($('.select__hidden'));
+// $(document).on('click', '.select', function(e) {
+//     var select = $(this),
+//         selectList = $(this).children('.select__list'),
+//         defaultValue = select.data('default'),
+//         selected = select.find($('.select__selected')),
+//         elementClicked = $(e.target),
+//         inputHidden = select.find($('.select__hidden'));
 
-    if(select.hasClass('active')) {        
+//     if(select.hasClass('active')) {        
         
-        if(elementClicked.hasClass('select__item')) {
-            var newValue = elementClicked.data('value'),
-                newValueTag = elementClicked.html();
+//         if(elementClicked.hasClass('select__item')) {
+//             var newValue = elementClicked.data('value'),
+//                 newValueTag = elementClicked.html();
 
-            selected.html(newValueTag);
-            inputHidden.val(newValue);
-            select.removeClass('active');
-        }
+//             selected.html(newValueTag);
+//             inputHidden.val(newValue);
+//             select.removeClass('active');
+//         }
         
-        // Cerrar si se hace click en selected
-        if(elementClicked.hasClass('select__selected')) {
-            if(inputHidden.val() == '') {
-                selected.html(defaultValue);
-                inputHidden.val('');
+//         // Cerrar si se hace click en selected
+//         if(elementClicked.hasClass('select__selected')) {
+//             if(inputHidden.val() == '') {
+//                 selected.html(defaultValue);
+//                 inputHidden.val('');
                 
-            } else {
-                var realValueTag = '';
-                selectList.children('.select__item').each(function() {
-                    if( $(this).data('value') == inputHidden.val() ) {
-                        realValueTag = $(this).html();
-                    }
-                })
-                selected.html(realValueTag);
-            }
-            select.removeClass('active');
-        }
+//             } else {
+//                 var realValueTag = '';
+//                 selectList.children('.select__item').each(function() {
+//                     if( $(this).data('value') == inputHidden.val() ) {
+//                         realValueTag = $(this).html();
+//                     }
+//                 })
+//                 selected.html(realValueTag);
+//             }
+//             select.removeClass('active');
+//         }
         
-    } else {
-        selected.html(defaultValue);
-        select.addClass('active');
-    }
-})
+//     } else {
+//         selected.html(defaultValue);
+//         select.addClass('active');
+//     }
+// })
 
-// Cerrar select desplegado si se hace click afuera
-clickCount = 0;
-$(document).click(function(e) {
+// // Cerrar select desplegado si se hace click afuera
+// clickCount = 0;
+// $(document).click(function(e) {
 
-    if(clickCount == 1) {
-        $('.select.active').removeClass('active')
-        clickCount = 0;
-    }
+//     if(clickCount == 1) {
+//         $('.select.active').removeClass('active')
+//         clickCount = 0;
+//     }
 
-    if($('.select.active').length > 0) {
-        clickCount++;
-    }
-})
+//     if($('.select.active').length > 0) {
+//         clickCount++;
+//     }
+// })
 
 // var tableRows = $('.table tr:last').index() + 1;
 var tableRows = 3;
 
 createNewProduct = function() {
-    // 1
-    var newRow = document.createElement('tr');
+    let rowId = tableRows + 1,
+        newRow = `
+        <tr>
+            <td>
+                <input class="field default block" type="text" name="servicio-${rowId}">
+            </td>
+            <td>
+                <select class="native-select default" name="unid-medida-${rowId}">
+                    <option value="" disabled="disabled" selected="selected">—</option>
+                    <option value="1">Kg</option>
+                    <option value="2">Mts</option>
+                    <option value="3">UND</option>
+                </select>
+            </td>
+            <td>
+                <input class="field default block" type="text" name="cantidad-${rowId}">
+            </td>
+            <td>
+            <input class="field-description field default block" type="text" name="description-${rowId}">
+            </td>
+            <td>
+                <input class="field default block" type="text" name="cod-${rowId}">
+            </td>
+            <td>
+            <select class="native-select default" name="tipo-igv-${rowId}">
+                <option value="" disabled="disabled" selected="selected">Seleccionar</option>
+                <option value="10">Gravado - Operación Onerosa</option>
+                <option value="11">Gravado – Retiro por premio</option>
+                <option value="12">Gravado – Retiro por donación</option>
+                <option value="13">Gravado – Retiro </option>
+                <option value="14">Gravado – Retiro por publicidad</option>
+                <option value="15">Gravado – Bonificaciones</option>
+                <option value="16">Gravado – Retiro por entrega a trabajadores</option>
+                <option value="17">Gravado – IVAP</option>
+                <option value="20">Exonerado - Operación Onerosa</option>
+                <option value="21">Exonerado – Transferencia Gratuita</option>
+                <option value="30">Inafecto - Operación Onerosa</option>
+                <option value="31">Inafecto – Retiro por Bonificación</option>
+                <option value="32">Inafecto – Retiro</option>
+                <option value="33">Inafecto – Retiro por Muestras Médicas</option>
+                <option value="34">Inafecto - Retiro por Convenio Colectivo</option>
+                <option value="35">Inafecto – Retiro por premio</option>
+                <option value="36">Inafecto - Retiro por publicidad</option>
+                <option value="36">Exportación</option>
+            </select>
+            </td>
+            <td>
+                <input class="field default block" type="text" name="valor-unit-${rowId}">
+            </td>
+            <td>
+                <input class="field default block" type="text" name="igv-${rowId}">
+            </td>
+            <td>
+                <input class="field default block" type="text" name="total-${rowId}">
+            </td>
+            <td>
+                <a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""></a>
+            </td>
+        </tr>
+        `;
+    // // 1
+    // var newRow = document.createElement('tr');
 
-    var newCol1 = document.createElement('td');
-    var input1 = document.createElement('input');
-    input1.setAttribute('type', 'text');
-    input1.setAttribute('name', 'producto-' + (tableRows + 1));
-    input1.classList.add('field', 'default', 'block');
-    newCol1.appendChild(input1);
+    // var newCol1 = document.createElement('td');
+    // var input1 = document.createElement('input');
+    // input1.setAttribute('type', 'text');
+    // input1.setAttribute('name', 'producto-' + (tableRows + 1));
+    // input1.classList.add('field', 'default', 'block');
+    // newCol1.appendChild(input1);
     
-    // 2
-    var newCol2 = document.createElement('td');
-    var select2 = document.createElement('div');
-    select2.setAttribute('data-default', 'Selec')
-    select2.classList.add('select', 'select-default', 'select-default--small', 'block');
+    // // 2
+    // var newCol2 = document.createElement('td');
+    // var select2 = document.createElement('div');
+    // select2.setAttribute('data-default', 'Selec')
+    // select2.classList.add('select', 'select-default', 'select-default--small', 'block');
 
-    var select2Selected = document.createElement('div');
-    select2Selected.classList.add('select__selected', 'select-default__selected');
+    // var select2Selected = document.createElement('div');
+    // select2Selected.classList.add('select__selected', 'select-default__selected');
 
-    var select2Input = document.createElement('input');
-    select2Input.setAttribute('type', 'hidden');
-    select2Input.setAttribute('name', 'unid-medida-' + (tableRows + 1));
-    select2Input.classList.add('select__hidden');
+    // var select2Input = document.createElement('input');
+    // select2Input.setAttribute('type', 'hidden');
+    // select2Input.setAttribute('name', 'unid-medida-' + (tableRows + 1));
+    // select2Input.classList.add('select__hidden');
 
-    var select2List = document.createElement('div');
-    select2List.classList.add('select__list', 'select-default__list');
+    // var select2List = document.createElement('div');
+    // select2List.classList.add('select__list', 'select-default__list');
 
-    var options = [
-        {
-            'optionTag' : 'Kgs',
-            'optionValue' : 1,
-        },
-        {
-            'optionTag' : 'Mts',
-            'optionValue' : 2,
-        }
-    ];
-    for(option in options) {
-        var selectOption = document.createElement('div');
-        selectOption.classList.add('select__item', 'select-default__item');
-        selectOption.setAttribute('data-value', options[option].optionValue);
-        selectOption.innerHTML = options[option].optionTag;
+    // var options = [
+    //     {
+    //         'optionTag' : 'Kgs',
+    //         'optionValue' : 1,
+    //     },
+    //     {
+    //         'optionTag' : 'Mts',
+    //         'optionValue' : 2,
+    //     }
+    // ];
+    // for(option in options) {
+    //     var selectOption = document.createElement('div');
+    //     selectOption.classList.add('select__item', 'select-default__item');
+    //     selectOption.setAttribute('data-value', options[option].optionValue);
+    //     selectOption.innerHTML = options[option].optionTag;
 
-        select2List.appendChild(selectOption);
-    }
+    //     select2List.appendChild(selectOption);
+    // }
 
-    select2.appendChild(select2Selected);
-    select2.appendChild(select2Input);
-    select2.appendChild(select2List);
-    newCol2.appendChild(select2);
+    // select2.appendChild(select2Selected);
+    // select2.appendChild(select2Input);
+    // select2.appendChild(select2List);
+    // newCol2.appendChild(select2);
     
-    // 3
-    var newCol3 = document.createElement('td');
-    var input3 = document.createElement('input');
-    input3.setAttribute('type', 'text');
-    input3.setAttribute('name', 'descripcion-' + (tableRows + 1));
-    input3.classList.add('field', 'default', 'block');
-    newCol3.appendChild(input3);
+    // // 3
+    // var newCol3 = document.createElement('td');
+    // var input3 = document.createElement('input');
+    // input3.setAttribute('type', 'text');
+    // input3.setAttribute('name', 'descripcion-' + (tableRows + 1));
+    // input3.classList.add('field', 'default', 'block');
+    // newCol3.appendChild(input3);
 
-    // 4
-    var newCol4 = document.createElement('td');
-    var input4 = document.createElement('input');
-    input4.setAttribute('type', 'text');
-    input4.setAttribute('name', 'cod-' + (tableRows + 1));
-    input4.classList.add('field', 'default', 'block');
-    newCol4.appendChild(input4);
+    // // 4
+    // var newCol4 = document.createElement('td');
+    // var input4 = document.createElement('input');
+    // input4.setAttribute('type', 'text');
+    // input4.setAttribute('name', 'cod-' + (tableRows + 1));
+    // input4.classList.add('field', 'default', 'block');
+    // newCol4.appendChild(input4);
     
-    // 5
-    var newCol5 = document.createElement('td');
-    var select5 = document.createElement('div');
-    select5.setAttribute('data-default', 'Seleccionar')
-    select5.classList.add('select', 'select-default', 'block');
+    // // 5
+    // var newCol5 = document.createElement('td');
+    // var select5 = document.createElement('div');
+    // select5.setAttribute('data-default', 'Seleccionar')
+    // select5.classList.add('select', 'select-default', 'block');
 
-    var select5Selected = document.createElement('div');
-    select5Selected.classList.add('select__selected', 'select-default__selected');
+    // var select5Selected = document.createElement('div');
+    // select5Selected.classList.add('select__selected', 'select-default__selected');
 
-    var select5Input = document.createElement('input');
-    select5Input.setAttribute('type', 'hidden');
-    select5Input.setAttribute('name', 'tipo-igv-' + (tableRows + 1));
-    select5Input.classList.add('select__hidden');
+    // var select5Input = document.createElement('input');
+    // select5Input.setAttribute('type', 'hidden');
+    // select5Input.setAttribute('name', 'tipo-igv-' + (tableRows + 1));
+    // select5Input.classList.add('select__hidden');
 
-    var select5List = document.createElement('div');
-    select5List.classList.add('select__list', 'select-default__list');
+    // var select5List = document.createElement('div');
+    // select5List.classList.add('select__list', 'select-default__list');
 
-    var options = [
-        {
-            "optionTag" : "Gravado - Operación Onerosa",
-            "optionValue" : "10"
-        },
-        {
-            "optionTag" : "Gravado – Retiro por premio",
-            "optionValue" : "11"
-        },
-        {
-            "optionTag" : "Gravado – Retiro por donación",
-            "optionValue" : "12"
-        },
-        {
-            "optionTag" : "Gravado – Retiro ",
-            "optionValue" : "13"
-        },
-        {
-            "optionTag" : "Gravado – Retiro por publicidad",
-            "optionValue" : "14"
-        },
-        {
-            "optionTag" : "Gravado – Bonificaciones",
-            "optionValue" : "15"
-        },
-        {
-            "optionTag" : "Gravado – Retiro por entrega a trabajadores",
-            "optionValue" : "16"
-        },
-        {
-            "optionTag" : "Gravado – IVAP",
-            "optionValue" : "17"
-        },
-        {
-            "optionTag" : "Exonerado - Operación Onerosa",
-            "optionValue" : "20"
-        },
-        {
-            "optionTag" : "Exonerado – Transferencia Gratuita",
-            "optionValue" : "21"
-        },
-        {
-            "optionTag" : "Inafecto - Operación Onerosa",
-            "optionValue" : "30"
-        },
-        {
-            "optionTag" : "Inafecto – Retiro por Bonificación",
-            "optionValue" : "31"
-        },
-        {
-            "optionTag" : "Inafecto – Retiro",
-            "optionValue" : "32"
-        },
-        {
-            "optionTag" : "Inafecto – Retiro por Muestras Médicas",
-            "optionValue" : "33"
-        },
-        {
-            "optionTag" : "Inafecto - Retiro por Convenio Colectivo",
-            "optionValue" : "34"
-        },
-        {
-            "optionTag" : "Inafecto – Retiro por premio",
-            "optionValue" : "35"
-        },
-        {
-            "optionTag" : "Inafecto - Retiro por publicidad",
-            "optionValue" : "36"
-        },
-        {
-            "optionTag" : "Exportación",
-            "optionValue" : "36"
-        },
-    ];
-    for(option in options) {
-        var selectOption = document.createElement('div');
-        selectOption.classList.add('select__item', 'select-default__item');
-        selectOption.setAttribute('data-value', options[option].optionValue);
-        selectOption.innerHTML = options[option].optionTag;
+    // var options = [
+    //     {
+    //         "optionTag" : "Gravado - Operación Onerosa",
+    //         "optionValue" : "10"
+    //     },
+    //     {
+    //         "optionTag" : "Gravado – Retiro por premio",
+    //         "optionValue" : "11"
+    //     },
+    //     {
+    //         "optionTag" : "Gravado – Retiro por donación",
+    //         "optionValue" : "12"
+    //     },
+    //     {
+    //         "optionTag" : "Gravado – Retiro ",
+    //         "optionValue" : "13"
+    //     },
+    //     {
+    //         "optionTag" : "Gravado – Retiro por publicidad",
+    //         "optionValue" : "14"
+    //     },
+    //     {
+    //         "optionTag" : "Gravado – Bonificaciones",
+    //         "optionValue" : "15"
+    //     },
+    //     {
+    //         "optionTag" : "Gravado – Retiro por entrega a trabajadores",
+    //         "optionValue" : "16"
+    //     },
+    //     {
+    //         "optionTag" : "Gravado – IVAP",
+    //         "optionValue" : "17"
+    //     },
+    //     {
+    //         "optionTag" : "Exonerado - Operación Onerosa",
+    //         "optionValue" : "20"
+    //     },
+    //     {
+    //         "optionTag" : "Exonerado – Transferencia Gratuita",
+    //         "optionValue" : "21"
+    //     },
+    //     {
+    //         "optionTag" : "Inafecto - Operación Onerosa",
+    //         "optionValue" : "30"
+    //     },
+    //     {
+    //         "optionTag" : "Inafecto – Retiro por Bonificación",
+    //         "optionValue" : "31"
+    //     },
+    //     {
+    //         "optionTag" : "Inafecto – Retiro",
+    //         "optionValue" : "32"
+    //     },
+    //     {
+    //         "optionTag" : "Inafecto – Retiro por Muestras Médicas",
+    //         "optionValue" : "33"
+    //     },
+    //     {
+    //         "optionTag" : "Inafecto - Retiro por Convenio Colectivo",
+    //         "optionValue" : "34"
+    //     },
+    //     {
+    //         "optionTag" : "Inafecto – Retiro por premio",
+    //         "optionValue" : "35"
+    //     },
+    //     {
+    //         "optionTag" : "Inafecto - Retiro por publicidad",
+    //         "optionValue" : "36"
+    //     },
+    //     {
+    //         "optionTag" : "Exportación",
+    //         "optionValue" : "36"
+    //     },
+    // ];
+    // for(option in options) {
+    //     var selectOption = document.createElement('div');
+    //     selectOption.classList.add('select__item', 'select-default__item');
+    //     selectOption.setAttribute('data-value', options[option].optionValue);
+    //     selectOption.innerHTML = options[option].optionTag;
 
-        select5List.appendChild(selectOption);
-    }
+    //     select5List.appendChild(selectOption);
+    // }
 
-    select5.appendChild(select5Selected);
-    select5.appendChild(select5Input);
-    select5.appendChild(select5List);
-    newCol5.appendChild(select5);
+    // select5.appendChild(select5Selected);
+    // select5.appendChild(select5Input);
+    // select5.appendChild(select5List);
+    // newCol5.appendChild(select5);
 
-    // 6
-    var newCol6 = document.createElement('td');
-    var input6 = document.createElement('input');
-    input6.setAttribute('type', 'text');
-    input6.setAttribute('name', 'valor-unit-' + (tableRows + 1));
-    input6.classList.add('field', 'default', 'block');
-    newCol6.appendChild(input6);
+    // // 6
+    // var newCol6 = document.createElement('td');
+    // var input6 = document.createElement('input');
+    // input6.setAttribute('type', 'text');
+    // input6.setAttribute('name', 'valor-unit-' + (tableRows + 1));
+    // input6.classList.add('field', 'default', 'block');
+    // newCol6.appendChild(input6);
 
-    // 7
-    var newCol7 = document.createElement('td');
-    var input7 = document.createElement('input');
-    input7.setAttribute('type', 'text');
-    input7.setAttribute('name', 'igv-' + (tableRows + 1));
-    input7.classList.add('field', 'default', 'block');
-    newCol7.appendChild(input7);
+    // // 7
+    // var newCol7 = document.createElement('td');
+    // var input7 = document.createElement('input');
+    // input7.setAttribute('type', 'text');
+    // input7.setAttribute('name', 'igv-' + (tableRows + 1));
+    // input7.classList.add('field', 'default', 'block');
+    // newCol7.appendChild(input7);
 
-    // 8
-    var newCol8 = document.createElement('td');
-    var input8 = document.createElement('input');
-    input8.setAttribute('type', 'text');
-    input8.setAttribute('name', 'total-' + (tableRows + 1));
-    input8.classList.add('field', 'default', 'block');
-    newCol8.appendChild(input8);
+    // // 8
+    // var newCol8 = document.createElement('td');
+    // var input8 = document.createElement('input');
+    // input8.setAttribute('type', 'text');
+    // input8.setAttribute('name', 'total-' + (tableRows + 1));
+    // input8.classList.add('field', 'default', 'block');
+    // newCol8.appendChild(input8);
 
-    // 9
-    var newCol9 = document.createElement('td');
-    var deleteAnchor = document.createElement('a');
-    deleteAnchor.setAttribute('href', '#');
-    deleteAnchor.classList.add('delete-product');
-    var deleteIcon = document.createElement('img');
-    deleteIcon.setAttribute('src', './img/trash.svg');
-    deleteIcon.classList.add('delete-product__icon');
-    deleteAnchor.appendChild(deleteIcon);
-    newCol9.appendChild(deleteAnchor);
+    // // 9
+    // var newCol9 = document.createElement('td');
+    // var deleteAnchor = document.createElement('a');
+    // deleteAnchor.setAttribute('href', '#');
+    // deleteAnchor.classList.add('delete-product');
+    // var deleteIcon = document.createElement('img');
+    // deleteIcon.setAttribute('src', './img/trash.svg');
+    // deleteIcon.classList.add('delete-product__icon');
+    // deleteAnchor.appendChild(deleteIcon);
+    // newCol9.appendChild(deleteAnchor);
 
-    newRow.appendChild(newCol1);
-    newRow.appendChild(newCol2);
-    newRow.appendChild(newCol3);
-    newRow.appendChild(newCol4);
-    newRow.appendChild(newCol5);
-    newRow.appendChild(newCol6);
-    newRow.appendChild(newCol7);
-    newRow.appendChild(newCol8);
-    newRow.appendChild(newCol9);
+    // newRow.appendChild(newCol1);
+    // newRow.appendChild(newCol2);
+    // newRow.appendChild(newCol3);
+    // newRow.appendChild(newCol4);
+    // newRow.appendChild(newCol5);
+    // newRow.appendChild(newCol6);
+    // newRow.appendChild(newCol7);
+    // newRow.appendChild(newCol8);
+    // newRow.appendChild(newCol9);
 
     tableRows++;
     return newRow;
@@ -377,8 +428,8 @@ $('.new-product-row').click(function() {
     // Agregar nueva columna de producto
     $('.table > tbody:last-child').append(createNewProduct);
 
-    // Iniciar selects de nueva columna
-    initSelect();
+    // // Iniciar selects de nueva columna
+    // initSelect();
 })
 
 $(document).on('click', '.delete-product', function(e) {
@@ -511,4 +562,25 @@ const noConnAlert = () => {
 
 $(window).ready(function() {
     noConnAlert();
+})
+
+/* Validate RUC */
+const   inputRUC = document.getElementsByName('numero-documento')[0],
+        spinner = document.getElementsByClassName('spinner')[0],
+        maxLength = 11
+
+inputRUC.addEventListener('keyup', () => {
+    if(inputRUC.value.length == maxLength) {
+
+        inputRUC.disabled = "disabled"
+        spinner.style.display = "block"
+        
+        setTimeout(() => {
+            inputRUC.disabled = ""
+            inputRUC.classList.add("success")
+            spinner.style.display = "none"
+        }, 1000)
+    } else {
+        if(inputRUC.classList.contains('success')) inputRUC.classList.remove('success')
+    }
 })

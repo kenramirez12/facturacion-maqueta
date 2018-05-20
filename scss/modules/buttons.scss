@@ -41,6 +41,7 @@
         color: $white-text;
         font-weight: 600;
         transition: background 0.2s;
+        border: 0;
 
         &:hover {
             background-color: darken($btn-alt-bg, 10);

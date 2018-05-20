@@ -11,22 +11,22 @@
     <div class="page">
       <div class="sidebar">
         <header class="main-header"><span class="main-header__logo">SOFTWARE V 1.0</span><img class="main-header__menu-btn" src="./img/menu-icons/toggle-btn.svg"/></header>
-        <ul class="main-menu">
-          <li class="main-menu__item"><a class="main-menu__link" href="dashboard.html"><img class="main-menu__icon" src="./img/menu-icons/dashboard.svg"/><span class="main-menu__span">Dashboard</span></a></li>
-          <li class="main-menu__item active"><a class="main-menu__link" href="factura.html"><img class="main-menu__icon" src="./img/menu-icons/factura.svg"/><span class="main-menu__span">Factura</span></a></li>
-          <li class="main-menu__item"><a class="main-menu__link" href="boleta.html"><img class="main-menu__icon" src="./img/menu-icons/boleta.svg"/><span class="main-menu__span">Boleta</span></a></li>
-          <li class="main-menu__item"><a class="main-menu__link" href="nota-credito.html"><img class="main-menu__icon" src="./img/menu-icons/nota-credito.svg"/><span class="main-menu__span">Nota de Crédito</span></a></li>
-          <li class="main-menu__item"><a class="main-menu__link" href="nota-debito.html"><img class="main-menu__icon" src="./img/menu-icons/nota-debito.svg"/><span class="main-menu__span">Nota de Débito</span></a></li>
+        <ul class="main-menu"><a class="main-menu__link" href="dashboard.html">
+            <li class="main-menu__item"><img class="main-menu__icon" src="./img/menu-icons/dashboard.svg"/><span class="main-menu__span">Dashboard</span></li></a><a class="main-menu__link" href="factura.html">
+            <li class="main-menu__item active"><img class="main-menu__icon" src="./img/menu-icons/factura.svg"/><span class="main-menu__span">Factura</span></li></a><a class="main-menu__link" href="boleta.html">
+            <li class="main-menu__item"><img class="main-menu__icon" src="./img/menu-icons/boleta.svg"/><span class="main-menu__span">Boleta</span></li></a><a class="main-menu__link" href="nota-credito.html">
+            <li class="main-menu__item"><img class="main-menu__icon" src="./img/menu-icons/nota-credito.svg"/><span class="main-menu__span">Nota de Crédito</span></li></a><a class="main-menu__link" href="nota-debito.html">
+            <li class="main-menu__item"><img class="main-menu__icon" src="./img/menu-icons/nota-debito.svg"/><span class="main-menu__span">Nota de Débito</span></li></a>
         </ul>
       </div>
       <main class="main__container">
         <div class="client-bar">
-          <div class="client-bar__info">
+          <div class="client-bar__info" id="clientMenuBtn">
             <div class="client-bar__name">Constructora Aguirre</div><img class="client-bar__avatar" src="./img/avatar/user.jpg"/><img class="client-bar__menu-btn" src="./img/down-arrow.svg"/>
             <ul class="client-bar__menu">
               <li class="client-bar__menu-item"><a class="client-bar__menu-link" href="perfil.html">Mi Perfil</a></li>
               <li class="client-bar__menu-item"><a class="client-bar__menu-link" href="productos-servicios.html">Mis productos y Servicios</a></li>
-              <li class="client-bar__menu-item"><a class="client-bar__menu-link" href="historial-emisiones.html">Historial de Emisiones</a></li>
+              <li class="client-bar__menu-item"><a class="client-bar__menu-link" href="resumen-emisiones.html">Resumen de Emisiones</a></li>
               <li class="client-bar__menu-item"><a class="client-bar__menu-link" href="./login.html">Cerrar Sesión</a></li>
             </ul>
           </div>
@@ -37,90 +37,91 @@
               <div class="tab__top"><span class="tab__title">EMITIR FACTURA ELECTRÓNICA</span></div>
               <div class="tab__content">
                 <div class="container-fluid">
-                  <div class="row mb-1">
-                    <div class="col-md-2">
-                      <div class="field__tag">Número de RUC</div>
-                    </div>
-                    <div class="col-md-3">
-                      <input class="field bordered block" type="text" name="numero-documento"/>
-                    </div>
-                    <div class="col-md-3">
-                      <label class="field__label horizontal">
-                        <div class="field__tag">Serie</div>
-                        <input class="field disabled" type="text" size="3" disabled="disabled" value="F001"/>&nbsp;
-                        <input class="field bordered" type="text" name="serie" size="12"/>
-                      </label>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="field__tag">Fecha de vencimiento</div>
-                    </div>
-                    <div class="col-md-2">
-                      <input class="field bordered" type="date" name="fecha-vencimiento"/>
-                    </div>
-                  </div>
-                  <div class="row mb-1">
-                    <div class="col-md-2">
-                      <div class="field__tag">Razón social</div>
-                    </div>
-                    <div class="col-md-3">
-                      <input class="field bordered block" type="text" name="razon-social"/>
-                    </div>
-                    <div class="col-md-2 offset-md-3">
-                      <div class="field__tag">Fecha de emisión</div>
-                    </div>
-                    <div class="col-md-2">
-                      <input class="field bordered" type="date" name="fecha-emision"/>
-                    </div>
-                  </div>
                   <div class="row">
-                    <div class="col-md-8">
-                      <div class="select select-field inline" data-default="Tipo de moneda">
-                        <div class="select__selected select-field__selected"></div>
-                        <input class="select__hidden" type="hidden" name="tipo-moneda" value=""/>
-                        <div class="select__list select-field__list">
-                          <div class="select__item select-field__item" data-value="1">Soles (S/.)</div>
-                          <div class="select__item select-field__item" data-value="2">Dólares ($)</div>
-                          <div class="select__item select-field__item" data-value="3">Euros (&euro;)</div>
+                    <div class="col-md-5">
+                      <div class="row mtb-1">
+                        <div class="col-md-6">
+                          <div class="field__tag">Número de RUC</div>
+                        </div>
+                        <div class="col-md-6">
+                          <input class="field bordered block" type="text" name="numero-documento" maxlength="11"/>
+                          <div class="spinner"><img src="./img/spinner.webp"/></div><span class="response error">Debe ingresar un número de RUC</span>
                         </div>
                       </div>
-                      <div class="select select-field inline" data-default="Tipo de factura">
-                        <div class="select__selected select-field__selected">Tipo de factura</div>
-                        <input class="select__hidden" type="hidden" name="tipo-factura"/>
-                        <div class="select__list select-field__list">
-                          <div class="select__item select-field__item" data-value="1">Bien</div>
-                          <div class="select__item select-field__item" data-value="2">Servicio</div>
+                      <div class="row mtb-1">
+                        <div class="col-md-6">
+                          <div class="field__tag">Razón Social</div>
+                        </div>
+                        <div class="col-md-6">
+                          <input class="field bordered block" type="text" name="razon-social"/><span class="response error">Debe ingresar una razón social</span>
                         </div>
                       </div>
-                      <div class="select select-field inline" data-default="Establecimiento emisor">
-                        <div class="select__selected select-field__selected">Establecimiento emisor</div>
-                        <input class="select__hidden" type="hidden" name="establecimiento-emisor"/>
-                        <div class="select__list select-field__list">
-                          <div class="select__item select-field__item" data-value="1">establecimiento 1</div>
-                          <div class="select__item select-field__item" data-value="2">establecimiento 2</div>
+                      <div class="row mtb-1">
+                        <div class="col-md-6">
+                          <select class="native-select bordered" name="tipo-moneda">
+                            <option value="" disabled="disabled" selected="selected">Moneda</option>
+                            <option value="1">Soles (S/.)</option>
+                            <option value="2">Dólares ($)</option>
+                            <option value="3">Euros (&euro;)</option>
+                          </select><span class="response error">Debe elegir un tipo de moneda</span>
+                        </div>
+                        <div class="col-md-6">
+                          <select class="native-select bordered error" name="tipo-factura">
+                            <option value="" disabled="disabled" selected="selected">Tipo de Factura</option>
+                            <option value="1">Bien</option>
+                            <option value="2">Servicio</option>
+                          </select><span class="response error">Debe elegir un tipo de factura</span>
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-2 flex-center">
-                      <div class="field__tag">Pagado</div>
-                      <label class="switch">
-                        <input class="switch__checkbox" type="checkbox" name="pagado" value="on"/>
-                        <input type="hidden" name="_pagado"/><span class="slider round"></span>
-                      </label>
+                    <div class="col-md-3">
+                      <div class="row mtb-1">
+                        <div class="col-md-3">
+                          <div class="field__tag">Serie</div>
+                        </div>
+                        <div class="col-md-9">
+                          <label class="serie" data-serie="F001-" name="serie">
+                            <input class="field bordered block" type="text" name="serie" size="12"/><span class="response error">Debe ingresar un número de serie</span>
+                          </label>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-md-2 flex-center">
-                      <div class="field__tag">Detracción</div>
-                      <label class="switch">
-                        <input class="switch__checkbox" type="checkbox" name="detraccion" value="on"/>
-                        <input type="hidden" name="_detraccion"/><span class="slider round"></span>
-                      </label>
+                    <div class="col-md-4">
+                      <div class="row mtb-1">
+                        <div class="col-md-6">
+                          <div class="field__tag">Fecha de vencimiento</div>
+                        </div>
+                        <div class="col-md-6">
+                          <input class="field bordered error" type="date" name="fecha-vencimiento"/><span class="response error">Debe elegir la fecha de vencimiento</span>
+                        </div>
+                      </div>
+                      <div class="row mtb-1">
+                        <div class="col-md-6">
+                          <div class="field__tag">Fecha de emisión</div>
+                        </div>
+                        <div class="col-md-6">
+                          <input class="field bordered" type="date" name="fecha-emision"/><span class="response error">Debe elegir la fecha de emisión</span>
+                        </div>
+                      </div>
+                      <div class="row mtb-1">
+                        <div class="col-md-6 flex-center">
+                          <div class="field__tag">Pagado</div>
+                          <label class="switch">
+                            <input class="switch__checkbox" type="checkbox" name="pagado" value="on"/>
+                            <input type="hidden" name="_pagado"/><span class="slider round"></span>
+                          </label>
+                        </div>
+                        <div class="col-md-6 flex-center">
+                          <div class="field__tag">Detracción</div>
+                          <label class="switch">
+                            <input class="switch__checkbox" type="checkbox" name="detraccion" value="on"/>
+                            <input type="hidden" name="_detraccion"/><span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="row mt-1">
-              <div class="col-12">
-                <button class="btn alt float-right new-product-row"><img class="btn__icon" src="./img/buttons/plus-button.svg"/>Añadir Producto/Servicio</button>
               </div>
             </div>
             <div class="tab mt-1">
@@ -130,32 +131,33 @@
                     <table class="table">
                       <thead>
                         <tr>
-                          <td class="min-w-200"><span class="field__tag">Bien/Servicio</span></td>
-                          <td class="w-50"><span class="field__tag">U. de medida</span></td>
-                          <td class="min-w-200"><span class="field__tag">Descripción</span></td>
-                          <td class="w-50"><span class="field__tag">Código</span></td>
-                          <td class="min-w-200"><span class="field__tag">Tipo de IGV</span></td>
-                          <td class="w-110"><span class="field__tag">Valor Unit.</span></td>
-                          <td class="w-110"><span class="field__tag">IGV</span></td>
-                          <td class="w-110"><span class="field__tag">Total</span></td>
+                          <td class="min-w-180"><span class="field__tag center">Bien/Servicio</span></td>
+                          <td class="w-50"><span class="field__tag center">U. Medida</span></td>
+                          <td class="w-50"><span class="field__tag center">Cantidad</span></td>
+                          <td class="min-w-180"><span class="field__tag center">Descripción</span></td>
+                          <td class="w-50"><span class="field__tag center">Código</span></td>
+                          <td class="min-w-180"><span class="field__tag center">Tipo de IGV</span></td>
+                          <td class="w-100"><span class="field__tag center">Valor Unit.</span></td>
+                          <td class="w-100"><span class="field__tag center">IGV</span></td>
+                          <td class="w-100"><span class="field__tag center">Total</span></td>
                           <td></td>
                         </tr>
                       </thead>
                       <tbody></tbody>
                       <tr>
                         <td>
-                          <input class="field default block" type="text" name="servicio-1" value="Servicio de consultoría"/>
+                          <input class="field default block error" type="text" name="servicio-1" value="Servicio de consultoría"/>
                         </td>
                         <td>
-                          <div class="select select-default select-default--small block" data-default="Selec" data-value="3">
-                            <div class="select__selected select-default__selected">UND</div>
-                            <input class="select__hidden" type="hidden" name="unid-medida-1"/>
-                            <div class="select__list select-default__list">
-                              <div class="select__item select-default__item" data-value="1">Kg</div>
-                              <div class="select__item select-default__item" data-value="2">Mts</div>
-                              <div class="select__item select-default__item" data-value="3">UND</div>
-                            </div>
-                          </div>
+                          <select class="native-select default error" name="unid-medida-1">
+                            <option value="" disabled="disabled" selected="selected">—</option>
+                            <option value="1">Kg</option>
+                            <option value="2">Mts</option>
+                            <option value="3">UND</option>
+                          </select>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="cantidad-1" value=""/>
                         </td>
                         <td>
                           <input class="field-description field default block" type="text" name="description-1" value="Servicio encargado de ver todo lo referente con seguridad para poder pasar los permisos municipales requeridos por la zona a la cual se esta aprobando"/>
@@ -164,30 +166,27 @@
                           <input class="field default block" type="text" name="cod-1" value="001"/>
                         </td>
                         <td>
-                          <div class="select select-default block" data-default="Seleccionar" data-value="">
-                            <div class="select__selected select-default__selected"></div>
-                            <input class="select__hidden" type="hidden" name="tipo-igv-1"/>
-                            <div class="select__list select-default__list select-default__list--special-list">
-                              <div class="select__item select-default__item" data-value="10">Gravado - Operación Onerosa</div>
-                              <div class="select__item select-default__item" data-value="11">Gravado – Retiro por premio</div>
-                              <div class="select__item select-default__item" data-value="12">Gravado – Retiro por donación</div>
-                              <div class="select__item select-default__item" data-value="13">Gravado – Retiro </div>
-                              <div class="select__item select-default__item" data-value="14">Gravado – Retiro por publicidad</div>
-                              <div class="select__item select-default__item" data-value="15">Gravado – Bonificaciones</div>
-                              <div class="select__item select-default__item" data-value="16">Gravado – Retiro por entrega a trabajadores</div>
-                              <div class="select__item select-default__item" data-value="17">Gravado – IVAP</div>
-                              <div class="select__item select-default__item" data-value="20">Exonerado - Operación Onerosa</div>
-                              <div class="select__item select-default__item" data-value="21">Exonerado – Transferencia Gratuita</div>
-                              <div class="select__item select-default__item" data-value="30">Inafecto - Operación Onerosa</div>
-                              <div class="select__item select-default__item" data-value="31">Inafecto – Retiro por Bonificación</div>
-                              <div class="select__item select-default__item" data-value="32">Inafecto – Retiro</div>
-                              <div class="select__item select-default__item" data-value="33">Inafecto – Retiro por Muestras Médicas</div>
-                              <div class="select__item select-default__item" data-value="34">Inafecto - Retiro por Convenio Colectivo</div>
-                              <div class="select__item select-default__item" data-value="35">Inafecto – Retiro por premio</div>
-                              <div class="select__item select-default__item" data-value="36">Inafecto - Retiro por publicidad</div>
-                              <div class="select__item select-default__item" data-value="36">Exportación</div>
-                            </div>
-                          </div>
+                          <select class="native-select default" name="tipo-igv-1">
+                            <option value="" disabled="disabled" selected="selected">Seleccionar</option>
+                            <option value="10">Gravado - Operación Onerosa</option>
+                            <option value="11">Gravado – Retiro por premio</option>
+                            <option value="12">Gravado – Retiro por donación</option>
+                            <option value="13">Gravado – Retiro </option>
+                            <option value="14">Gravado – Retiro por publicidad</option>
+                            <option value="15">Gravado – Bonificaciones</option>
+                            <option value="16">Gravado – Retiro por entrega a trabajadores</option>
+                            <option value="17">Gravado – IVAP</option>
+                            <option value="20">Exonerado - Operación Onerosa</option>
+                            <option value="21">Exonerado – Transferencia Gratuita</option>
+                            <option value="30">Inafecto - Operación Onerosa</option>
+                            <option value="31">Inafecto – Retiro por Bonificación</option>
+                            <option value="32">Inafecto – Retiro</option>
+                            <option value="33">Inafecto – Retiro por Muestras Médicas</option>
+                            <option value="34">Inafecto - Retiro por Convenio Colectivo</option>
+                            <option value="35">Inafecto – Retiro por premio</option>
+                            <option value="36">Inafecto - Retiro por publicidad</option>
+                            <option value="36">Exportación</option>
+                          </select>
                         </td>
                         <td>
                           <input class="field default block" type="text" name="valor-unit-1" value="100,000.00"/>
@@ -202,18 +201,18 @@
                       </tr>
                       <tr>
                         <td>
-                          <input class="field default block" type="text" name="servicio-2" value="Servicio de consultoría"/>
+                          <input class="field default block error" type="text" name="servicio-2" value="Servicio de consultoría"/>
                         </td>
                         <td>
-                          <div class="select select-default select-default--small block" data-default="Selec" data-value="3">
-                            <div class="select__selected select-default__selected">UND</div>
-                            <input class="select__hidden" type="hidden" name="unid-medida-2"/>
-                            <div class="select__list select-default__list">
-                              <div class="select__item select-default__item" data-value="1">Kg</div>
-                              <div class="select__item select-default__item" data-value="2">Mts</div>
-                              <div class="select__item select-default__item" data-value="3">UND</div>
-                            </div>
-                          </div>
+                          <select class="native-select default error" name="unid-medida-2">
+                            <option value="" disabled="disabled" selected="selected">—</option>
+                            <option value="1">Kg</option>
+                            <option value="2">Mts</option>
+                            <option value="3">UND</option>
+                          </select>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="cantidad-2" value=""/>
                         </td>
                         <td>
                           <input class="field-description field default block" type="text" name="description-2" value="Servicio encargado de ver todo lo referente con seguridad para poder pasar los permisos municipales requeridos por la zona a la cual se esta aprobando"/>
@@ -222,30 +221,27 @@
                           <input class="field default block" type="text" name="cod-2" value="001"/>
                         </td>
                         <td>
-                          <div class="select select-default block" data-default="Seleccionar" data-value="">
-                            <div class="select__selected select-default__selected"></div>
-                            <input class="select__hidden" type="hidden" name="tipo-igv-2"/>
-                            <div class="select__list select-default__list select-default__list--special-list">
-                              <div class="select__item select-default__item" data-value="10">Gravado - Operación Onerosa</div>
-                              <div class="select__item select-default__item" data-value="11">Gravado – Retiro por premio</div>
-                              <div class="select__item select-default__item" data-value="12">Gravado – Retiro por donación</div>
-                              <div class="select__item select-default__item" data-value="13">Gravado – Retiro </div>
-                              <div class="select__item select-default__item" data-value="14">Gravado – Retiro por publicidad</div>
-                              <div class="select__item select-default__item" data-value="15">Gravado – Bonificaciones</div>
-                              <div class="select__item select-default__item" data-value="16">Gravado – Retiro por entrega a trabajadores</div>
-                              <div class="select__item select-default__item" data-value="17">Gravado – IVAP</div>
-                              <div class="select__item select-default__item" data-value="20">Exonerado - Operación Onerosa</div>
-                              <div class="select__item select-default__item" data-value="21">Exonerado – Transferencia Gratuita</div>
-                              <div class="select__item select-default__item" data-value="30">Inafecto - Operación Onerosa</div>
-                              <div class="select__item select-default__item" data-value="31">Inafecto – Retiro por Bonificación</div>
-                              <div class="select__item select-default__item" data-value="32">Inafecto – Retiro</div>
-                              <div class="select__item select-default__item" data-value="33">Inafecto – Retiro por Muestras Médicas</div>
-                              <div class="select__item select-default__item" data-value="34">Inafecto - Retiro por Convenio Colectivo</div>
-                              <div class="select__item select-default__item" data-value="35">Inafecto – Retiro por premio</div>
-                              <div class="select__item select-default__item" data-value="36">Inafecto - Retiro por publicidad</div>
-                              <div class="select__item select-default__item" data-value="36">Exportación</div>
-                            </div>
-                          </div>
+                          <select class="native-select default" name="tipo-igv-2">
+                            <option value="" disabled="disabled" selected="selected">Seleccionar</option>
+                            <option value="10">Gravado - Operación Onerosa</option>
+                            <option value="11">Gravado – Retiro por premio</option>
+                            <option value="12">Gravado – Retiro por donación</option>
+                            <option value="13">Gravado – Retiro </option>
+                            <option value="14">Gravado – Retiro por publicidad</option>
+                            <option value="15">Gravado – Bonificaciones</option>
+                            <option value="16">Gravado – Retiro por entrega a trabajadores</option>
+                            <option value="17">Gravado – IVAP</option>
+                            <option value="20">Exonerado - Operación Onerosa</option>
+                            <option value="21">Exonerado – Transferencia Gratuita</option>
+                            <option value="30">Inafecto - Operación Onerosa</option>
+                            <option value="31">Inafecto – Retiro por Bonificación</option>
+                            <option value="32">Inafecto – Retiro</option>
+                            <option value="33">Inafecto – Retiro por Muestras Médicas</option>
+                            <option value="34">Inafecto - Retiro por Convenio Colectivo</option>
+                            <option value="35">Inafecto – Retiro por premio</option>
+                            <option value="36">Inafecto - Retiro por publicidad</option>
+                            <option value="36">Exportación</option>
+                          </select>
                         </td>
                         <td>
                           <input class="field default block" type="text" name="valor-unit-2" value="100,000.00"/>
@@ -260,18 +256,18 @@
                       </tr>
                       <tr>
                         <td>
-                          <input class="field default block" type="text" name="servicio-3" value="Servicio de consultoría"/>
+                          <input class="field default block error" type="text" name="servicio-3" value="Servicio de consultoría"/>
                         </td>
                         <td>
-                          <div class="select select-default select-default--small block" data-default="Selec" data-value="3">
-                            <div class="select__selected select-default__selected">UND</div>
-                            <input class="select__hidden" type="hidden" name="unid-medida-3"/>
-                            <div class="select__list select-default__list">
-                              <div class="select__item select-default__item" data-value="1">Kg</div>
-                              <div class="select__item select-default__item" data-value="2">Mts</div>
-                              <div class="select__item select-default__item" data-value="3">UND</div>
-                            </div>
-                          </div>
+                          <select class="native-select default error" name="unid-medida-3">
+                            <option value="" disabled="disabled" selected="selected">—</option>
+                            <option value="1">Kg</option>
+                            <option value="2">Mts</option>
+                            <option value="3">UND</option>
+                          </select>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="cantidad-3" value=""/>
                         </td>
                         <td>
                           <input class="field-description field default block" type="text" name="description-3" value="Servicio encargado de ver todo lo referente con seguridad para poder pasar los permisos municipales requeridos por la zona a la cual se esta aprobando"/>
@@ -280,30 +276,27 @@
                           <input class="field default block" type="text" name="cod-3" value="001"/>
                         </td>
                         <td>
-                          <div class="select select-default block" data-default="Seleccionar" data-value="">
-                            <div class="select__selected select-default__selected"></div>
-                            <input class="select__hidden" type="hidden" name="tipo-igv-3"/>
-                            <div class="select__list select-default__list select-default__list--special-list">
-                              <div class="select__item select-default__item" data-value="10">Gravado - Operación Onerosa</div>
-                              <div class="select__item select-default__item" data-value="11">Gravado – Retiro por premio</div>
-                              <div class="select__item select-default__item" data-value="12">Gravado – Retiro por donación</div>
-                              <div class="select__item select-default__item" data-value="13">Gravado – Retiro </div>
-                              <div class="select__item select-default__item" data-value="14">Gravado – Retiro por publicidad</div>
-                              <div class="select__item select-default__item" data-value="15">Gravado – Bonificaciones</div>
-                              <div class="select__item select-default__item" data-value="16">Gravado – Retiro por entrega a trabajadores</div>
-                              <div class="select__item select-default__item" data-value="17">Gravado – IVAP</div>
-                              <div class="select__item select-default__item" data-value="20">Exonerado - Operación Onerosa</div>
-                              <div class="select__item select-default__item" data-value="21">Exonerado – Transferencia Gratuita</div>
-                              <div class="select__item select-default__item" data-value="30">Inafecto - Operación Onerosa</div>
-                              <div class="select__item select-default__item" data-value="31">Inafecto – Retiro por Bonificación</div>
-                              <div class="select__item select-default__item" data-value="32">Inafecto – Retiro</div>
-                              <div class="select__item select-default__item" data-value="33">Inafecto – Retiro por Muestras Médicas</div>
-                              <div class="select__item select-default__item" data-value="34">Inafecto - Retiro por Convenio Colectivo</div>
-                              <div class="select__item select-default__item" data-value="35">Inafecto – Retiro por premio</div>
-                              <div class="select__item select-default__item" data-value="36">Inafecto - Retiro por publicidad</div>
-                              <div class="select__item select-default__item" data-value="36">Exportación</div>
-                            </div>
-                          </div>
+                          <select class="native-select default" name="tipo-igv-3">
+                            <option value="" disabled="disabled" selected="selected">Seleccionar</option>
+                            <option value="10">Gravado - Operación Onerosa</option>
+                            <option value="11">Gravado – Retiro por premio</option>
+                            <option value="12">Gravado – Retiro por donación</option>
+                            <option value="13">Gravado – Retiro </option>
+                            <option value="14">Gravado – Retiro por publicidad</option>
+                            <option value="15">Gravado – Bonificaciones</option>
+                            <option value="16">Gravado – Retiro por entrega a trabajadores</option>
+                            <option value="17">Gravado – IVAP</option>
+                            <option value="20">Exonerado - Operación Onerosa</option>
+                            <option value="21">Exonerado – Transferencia Gratuita</option>
+                            <option value="30">Inafecto - Operación Onerosa</option>
+                            <option value="31">Inafecto – Retiro por Bonificación</option>
+                            <option value="32">Inafecto – Retiro</option>
+                            <option value="33">Inafecto – Retiro por Muestras Médicas</option>
+                            <option value="34">Inafecto - Retiro por Convenio Colectivo</option>
+                            <option value="35">Inafecto – Retiro por premio</option>
+                            <option value="36">Inafecto - Retiro por publicidad</option>
+                            <option value="36">Exportación</option>
+                          </select>
                         </td>
                         <td>
                           <input class="field default block" type="text" name="valor-unit-3" value="100,000.00"/>
@@ -321,7 +314,12 @@
                 </div>
               </div>
             </div>
-            <div class="row mt-3">
+            <div class="row mt-1">
+              <div class="col-12">
+                <button class="btn alt float-right new-product-row"><img class="btn__icon" src="./img/buttons/plus-button.svg"/>Añadir Producto/Servicio</button>
+              </div>
+            </div>
+            <div class="row mt-2">
               <div class="col-md-7">
                 <div class="tab">
                   <div class="tab__content tab__content--alternative">
@@ -333,7 +331,7 @@
                   </div>
                 </div>
                 <div class="row mt-3">
-                  <div class="col-12"><a class="btn bordered" href="#">REGRESAR</a>&nbsp;<a class="btn bordered" href="#">PREVISUALIZAR</a>&nbsp;
+                  <div class="col-12"><a class="btn bordered alt" href="#">BORRADOR</a>&nbsp;<a class="btn bordered" href="#">PREVISUALIZAR</a>&nbsp;
                     <input class="btn bordered" type="submit" value="GENERAR"/>
                   </div>
                 </div>

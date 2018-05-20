@@ -1,0 +1,40 @@
+.native-select {
+    width: 100%;
+    min-height: 2rem;
+    transition: background 0.3s;
+    cursor: pointer;
+    
+    color: $black-text;
+    
+    &.default {
+        background-color: $alt-bg;
+        border: 0;
+        border-radius: 0.4rem;
+        padding: 0 0.4rem;
+        
+        &.error {
+            background-color: rgba($main-c, 0.12);
+        }
+    }
+    
+    &.bordered {
+        background-color: $white-bg;
+        border: 2px solid $alt-c-l;
+        border-radius: 0.9rem;
+        padding: 0 15px;
+        
+        font-weight: 700;
+        
+        &.error {
+            background-color: rgba($main-c, 0.09);
+            border-color: lighten($main-c, 20);
+            // color: $main-c;
+        }
+    }
+
+
+    &:hover {
+        background-color: $alt-bg;
+    }
+
+}

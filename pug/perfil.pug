@@ -7,59 +7,59 @@ block content
     .container
         .row
             .col-md-8.offset-md-2
-                .tab.negative
+                .tab
                     .tab__top
                         span.tab__title USUARIO
                     .tab__content.tab__content--alternative
                         .container-fluid
-                            .row.no-gutters
+                            .row
                                 .col-md-4
                                     .profile-avatar
-                                        label.profile-avatar__label
-                                            img.profile-avatar__upload-icon(src="./img/upload-icon.svg")
-                                            span.profile-avatar__upload-tag SUBIR IMAGEN
-                                            input.profile-avatar__input(type="file")
-                                        //- img.profile-avatar__img(src="./img/avatar/user.jpg")
                                         img.profile-avatar__img(src="./img/avatar/avatar-default.svg")
-                                .col-md-5.offset-md-1
+                                        input.profile-avatar__input(type="file")
+                                        //- label.profile-avatar__label
+                                        //-     img.profile-avatar__upload-icon(src="./img/upload-icon.svg")
+                                        //-     span.profile-avatar__upload-tag SUBIR IMAGEN
+                                        //-     input.profile-avatar__input(type="file")
+                                        //- //- img.profile-avatar__img(src="./img/avatar/user.jpg")
+                                        //- img.profile-avatar__img(src="./img/avatar/avatar-default.svg")
+                                .col-md-7.offset-md-1
                                     label.field__label.vertical
                                         .field__tag Nombre de la empresa
                                         input.field.default.block(type="text", value="Constructora Aguirre")
 
                                     label.field__label.vertical.mt-1
                                         .field__tag Categoría
-                                        .select-default(data-default="CATEGORÍA", data-value="")
-                                            .select-default__selected
-                                            .select-default__list
-                                                .select-default__item FINANZAS
-                                                .select-default__item CONSTRUCCIÓN
-                                                .select-default__item INFORMÁTICA
+                                        select.native-select.default.block
+                                            option(selected, disabled) CATEGORÍA
+                                            option FINANZAS
+                                            option CONSTRUCCIÓN
+                                            option INFORMÁTICA
 
                                     label.field__label.vertical.mt-1
                                         .field__tag Descripción
                                         textarea.field.default.textarea.block
-                            
-                            .row.no-gutters
-                                .col-md-5.offset-md-5
+
                                     label.field__label.vertical.mt-1
                                         button.btn.alt.float-right GUARDAR
+                            
 
-                .tab.negative.mt-1
+                .tab.mt-1
                     .tab__top
                         span.tab__title ADMINISTRADOR
                     .tab__content.tab__content--alternative
                         .container-fluid
-                            .row.no-gutters
+                            .row
                                 .col-md-4
                                     span.span-3 Crear Nuevos Usuarios
                                     label.field__label.vertical.mt-2
-                                        input.field.default.block(type="text", placeholder="USUARIO", value="")
+                                        input.field.default.block(type="email", placeholder="CORREO ELECTRÓNICO", value="")
                                     label.field__label.vertical.mt-1
                                         input.field.default.block(type="text", placeholder="CONTRASEÑA", value="")
-                                    label.field__label.vertical.mt-3
+                                    label.field__label.vertical.mt-1
                                         button.btn.alt.float-right CREAR
                         
-                                .col-md-5.offset-md-1
+                                .col-md-7.offset-md-1
                                     span.span-3 Mis Usuarios
                                     ul.users-list
                                         li.users-list__item
