@@ -193,10 +193,10 @@ createNewProduct = function() {
                 <input class="field default block" type="text" name="valor-unit-${rowId}">
             </td>
             <td>
-                <input class="field default block" type="text" name="igv-${rowId}">
+                <input class="field default block" type="text" name="igv-${rowId}" disabled>
             </td>
             <td>
-                <input class="field default block" type="text" name="total-${rowId}">
+                <input class="field default block" type="text" name="total-${rowId}" disabled>
             </td>
             <td>
                 <a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""></a>
@@ -584,3 +584,74 @@ inputRUC.addEventListener('keyup', () => {
         if(inputRUC.classList.contains('success')) inputRUC.classList.remove('success')
     }
 })
+
+/* Pop up*/
+const popup = $('.popup');
+$('.preview').click((e) => {
+    e.preventDefault()
+    popup.fadeIn('fast')
+})
+
+const closePopup = p => p.fadeOut('fast')
+
+$(document).keyup((e) => {
+    if(e.keyCode == 27) closePopup(popup)
+})
+
+$(document).click((e) => {
+    if(popup.is(':visible')) {
+        if( $(e.target).hasClass('popup') ) closePopup(popup)
+    }
+})
+
+    /* Popup autofill */
+    const   fechaVencimiento = $('input[name=fecha-vencimiento]'),
+            fechaEmision = $('input[name=fecha-emision]'),
+            numeroDocumento = $('input[name=numero-documento]'),
+            serie = $('input[name=serie]'),
+            observacion = $('textarea[name=observacion]')
+
+        // recorrer productos
+        $('.table.products tbody tr').each(() => {
+            // console.log($(this).find("td > input[name=^='servicio-']"))
+            // console.log($(this).find("td:eq(0)"))
+        })
+
+    $('.preview').click(() => {
+        $('.fecha-vencimiento-p').html(fechaVencimiento.val())
+        $('.fecha-emision-p').html(fechaEmision.val())
+        $('.ruc-p').html(numeroDocumento.val())
+        $('.serie-p').html(serie.val())
+        $('textarea[name=observacion-p]').html(observacion.val())
+    })
+
+/* Cálculos según IGV */
+    function calcularValores(valorUnit, tipoIgv, campoIgv, campoTotal) {
+
+        valorIgv = 0 // Valor inicial de IGV
+        if(tipoIgv == 10) valorIgv = valorUnit * 0.18 // Calcular IGV 
+        valorTotal = valorUnit + valorIgv // Calcular valor Total
+
+        // Setear valores
+        campoIgv.value = valorIgv
+        campoTotal.value = valorTotal
+    }
+
+    $("input[name^='valor-unit-']").keyup(function(e) {
+        tipoIgv = this.parentElement.previousElementSibling.children[0].value
+        campoIgv = this.parentElement.nextElementSibling.children[0]
+        campoTotal = this.parentElement.nextElementSibling.nextElementSibling.children[0]
+        
+        calcularValores(parseInt(this.value), tipoIgv, campoIgv, campoTotal)
+
+    })
+
+    $("select[name^='tipo-igv-']").change(function() {
+        valorUnit = parseInt(this.parentElement.nextElementSibling.children[0].value)
+        tipoIgv = this.value
+        campoIgv = this.parentElement.nextElementSibling.nextElementSibling.children[0]
+        campoTotial = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.children[0]
+
+        calcularValores(valorUnit, tipoIgv, campoIgv, campoTotal)
+
+    })
