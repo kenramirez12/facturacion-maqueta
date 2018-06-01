@@ -486,8 +486,8 @@ $('form').submit(function(e) {
         serie = $('input[name="serie"]').val(),
         fechaVencimiento = $('input[name="fecha-vencimiento"]').val(),
         fechaEmision = $('input[name="fecha-emision"]').val(),
-        tipoMoneda = $('input[name="tipo-moneda"]').val(),
-        tipoFactura = $('input[name="tipo-factura"]').val(),
+        tipoMoneda = $('select[name="tipo-moneda"]').val(),
+        tipoFactura = $('select[name="tipo-factura"]').val(),
         establecimientoEmisor = $('input[name="establecimiento-emisor"]').val(),
         pagadoSwitch = $('input[name="pagado"]'),
         pagado = pagadoSwitch.attr('checked') ? pagadoSwitch.val() : 0,
@@ -605,11 +605,11 @@ $(document).click((e) => {
 })
 
     /* Popup autofill */
-    const   fechaVencimiento = $('input[name=fecha-vencimiento]'),
-            fechaEmision = $('input[name=fecha-emision]'),
-            numeroDocumento = $('input[name=numero-documento]'),
-            serie = $('input[name=serie]'),
-            observacion = $('textarea[name=observacion]')
+    const   fechaVencimientoValue = $('input[name=fecha-vencimiento]').val(),
+            fechaEmisionValue = $('input[name=fecha-emision]').val(),
+            numeroDocumentoValue = $('input[name=numero-documento]').val(),
+            serieValue = $('input[name=serie]').val(),
+            observacionValue = $('textarea[name=observacion]').val()
 
         // recorrer productos
         $('.table.products tbody tr').each(() => {
@@ -618,11 +618,11 @@ $(document).click((e) => {
         })
 
     $('.preview').click(() => {
-        $('.fecha-vencimiento-p').html(fechaVencimiento.val())
-        $('.fecha-emision-p').html(fechaEmision.val())
-        $('.ruc-p').html(numeroDocumento.val())
-        $('.serie-p').html(serie.val())
-        $('textarea[name=observacion-p]').html(observacion.val())
+        $('.fecha-vencimiento-p').html(fechaVencimientoValue)
+        $('.fecha-emision-p').html(fechaEmisionValue)
+        $('.ruc-p').html(numeroDocumentoValue)
+        $('.serie-p').html(serieValue)
+        $('textarea[name=observacion-p]').html(observacionValue)
     })
 
 /* Cálculos según IGV */
