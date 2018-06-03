@@ -30,13 +30,13 @@ block content
                                 .preview__client-info
                                     p
                                         b Señor(es): 
-                                        | CLIENTE S.A.C.
+                                        span.razon-social-factura
                                     p
                                         b RUC No: 
-                                        | 10486478085
+                                        span.ruc-factura
                                     p
                                         b Dirección: 
-                                        | DIRECCION DEL ESTABLECIMIENTO EMISOR
+                                        span.direccion-factura
 
                             .col-4
                                 .preview__client-date
@@ -142,13 +142,13 @@ block content
                                 .col-md-6
                                     input.field.bordered.block(type="text", name="numero-documento", maxlength="11")
                                     .spinner: img(src="./img/spinner.webp")
-                                    span.response.error Debe ingresar un número de RUC
+                                    //- span.response.error Debe ingresar un número de RUC
                             .row.mtb-1
                                 .col-md-6
                                     .field__tag Razón Social
                                 .col-md-6
                                     input.field.bordered.block(type="text", name="razon-social")
-                                    span.response.error Debe ingresar una razón social
+                                    //- span.response.error Debe ingresar una razón social
                             .row.mtb-1
                                 .col-md-6
                                     select.native-select.bordered(name="tipo-moneda")
@@ -156,26 +156,15 @@ block content
                                         option(value="1") Soles (S/.)
                                         option(value="2") Dólares ($)
                                         option(value="3") Euros (&euro;)
-                                    span.response.error Debe elegir un tipo de moneda
-                                    //- .select.select-field.block.error(data-default="Tipo de moneda")
-                                    //-     .select__selected.select-field__selected
-                                    //-     input.select__hidden(type="hidden", name="tipo-moneda", value="")
-                                    //-     .select__list.select-field__list
-                                    //-         .select__item.select-field__item(data-value="1") Soles (S/.)
-                                    //-         .select__item.select-field__item(data-value="2") Dólares ($)
-                                    //-         .select__item.select-field__item(data-value="3") Euros (&euro;)
+                                    //- span.response.error Debe elegir un tipo de moneda
+
                                 .col-md-6
-                                    select.native-select.bordered.error(name="tipo-factura")
+                                    select.native-select.bordered(name="tipo-factura")
                                         option(value="", disabled, selected) Tipo de Factura
                                         option(value="1") Bien
                                         option(value="2") Servicio
-                                    span.response.error Debe elegir un tipo de factura
-                                    //- .select.select-field.block(data-default="Tipo de factura")
-                                    //-     .select__selected.select-field__selected Tipo de factura
-                                    //-     input.select__hidden(type="hidden", name="tipo-factura")
-                                    //-     .select__list.select-field__list
-                                    //-         .select__item.select-field__item(data-value="1") Bien
-                                    //-         .select__item.select-field__item(data-value="2") Servicio
+                                    //- span.response.error Debe elegir un tipo de factura
+
                         //- Serie
                         .col-md-3
                             .row.mtb-1
@@ -186,21 +175,21 @@ block content
                                         //- | &nbsp;
                                         label.serie(data-serie="F001-", name="serie")
                                             input.field.bordered.block(type="text", name="serie", size="12")
-                                            span.response.error Debe ingresar un número de serie
+                                            //- span.response.error Debe ingresar un número de serie
                         //- Vencimiento, Emisión, Pagado y Detracción
                         .col-md-4
                             .row.mtb-1
                                 .col-md-6
                                     .field__tag Fecha de vencimiento
                                 .col-md-6
-                                    input.field.bordered.error(type="date", name="fecha-vencimiento")
-                                    span.response.error Debe elegir la fecha de vencimiento
+                                    input.field.bordered(type="date", name="fecha-vencimiento")
+                                    //- span.response.error Debe elegir la fecha de vencimiento
                             .row.mtb-1
                                 .col-md-6
                                     .field__tag Fecha de emisión
                                 .col-md-6
                                     input.field.bordered(type="date", name="fecha-emision")
-                                    span.response.error Debe elegir la fecha de emisión
+                                    //- span.response.error Debe elegir la fecha de emisión
                             .row.mtb-1
                                 .col-md-6.flex-center
                                     .field__tag Pagado
@@ -236,23 +225,17 @@ block content
                             tbody
                             - for(i = 0; i < 3; i++) {
                                 tr
-                                    td: input(type="text", name="servicio-" + (i + 1), value="Servicio de consultoría").field.default.block.error
+                                    td: input(type="text", name="servicio-" + (i + 1), value="").field.default.block
                                     td
-                                        select.native-select.default.error(name="unid-medida-" + (i + 1))
+                                        select.native-select.default(name="unid-medida-" + (i + 1))
                                             option(value="", disabled, selected) —
                                             option(value="1") Kg
                                             option(value="2") Mts
                                             option(value="3") UND
-                                        //- .select.select-default.select-default--small.block(data-default="Selec", data-value="3")
-                                        //-         .select__selected.select-default__selected UND
-                                        //-         input.select__hidden(type="hidden", name="unid-medida-" + (i + 1))
-                                        //-         .select__list.select-default__list
-                                        //-             .select__item.select-default__item(data-value="1") Kg
-                                        //-             .select__item.select-default__item(data-value="2") Mts
-                                        //-             .select__item.select-default__item(data-value="3") UND
-                                    td: input(type="text", name="cantidad-" + (i + 1), value="").field.default.block
-                                    td: input(type="text", class="field-description" name="description-" + (i + 1), value="Servicio encargado de ver todo lo referente con seguridad para poder pasar los permisos municipales requeridos por la zona a la cual se esta aprobando").field.default.block
-                                    td: input(type="text", name="cod-" + (i + 1), value="001").field.default.block
+
+                                    td: input(type="text", name="cantidad-" + (i + 1), value="1").field.default.block
+                                    td: input(type="text", class="field-description" name="description-" + (i + 1), value="").field.default.block
+                                    td: input(type="text", name="cod-" + (i + 1), value="").field.default.block
                                     td
                                         select.native-select.default(name="tipo-igv-" + (i + 1))
                                             option(value="", disabled, selected) Seleccionar
@@ -274,29 +257,6 @@ block content
                                             option(value="35") Inafecto – Retiro por premio
                                             option(value="36") Inafecto - Retiro por publicidad
                                             option(value="36") Exportación
-
-                                        //- .select.select-default.block.error(data-default="Seleccionar", data-value="")
-                                        //-         .select__selected.select-default__selected
-                                        //-         input.select__hidden(type="hidden", name="tipo-igv-" + (i + 1))
-                                        //-         .select__list.select-default__list.select-default__list--special-list
-                                        //-             .select__item.select-default__item(data-value="10") Gravado - Operación Onerosa
-                                        //-             .select__item.select-default__item(data-value="11") Gravado – Retiro por premio
-                                        //-             .select__item.select-default__item(data-value="12") Gravado – Retiro por donación
-                                        //-             .select__item.select-default__item(data-value="13") Gravado – Retiro 
-                                        //-             .select__item.select-default__item(data-value="14") Gravado – Retiro por publicidad
-                                        //-             .select__item.select-default__item(data-value="15") Gravado – Bonificaciones
-                                        //-             .select__item.select-default__item(data-value="16") Gravado – Retiro por entrega a trabajadores
-                                        //-             .select__item.select-default__item(data-value="17") Gravado – IVAP
-                                        //-             .select__item.select-default__item(data-value="20") Exonerado - Operación Onerosa
-                                        //-             .select__item.select-default__item(data-value="21") Exonerado – Transferencia Gratuita
-                                        //-             .select__item.select-default__item(data-value="30") Inafecto - Operación Onerosa
-                                        //-             .select__item.select-default__item(data-value="31") Inafecto – Retiro por Bonificación
-                                        //-             .select__item.select-default__item(data-value="32") Inafecto – Retiro
-                                        //-             .select__item.select-default__item(data-value="33") Inafecto – Retiro por Muestras Médicas
-                                        //-             .select__item.select-default__item(data-value="34") Inafecto - Retiro por Convenio Colectivo
-                                        //-             .select__item.select-default__item(data-value="35") Inafecto – Retiro por premio
-                                        //-             .select__item.select-default__item(data-value="36") Inafecto - Retiro por publicidad
-                                        //-             .select__item.select-default__item(data-value="36") Exportación
 
                                     td: input(type="text", name="valor-unit-" + (i + 1)).field.default.block
                                     td: input(type="text", name="igv-" + (i + 1), disabled).field.default.block

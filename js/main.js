@@ -158,7 +158,7 @@ createNewProduct = function() {
                 </select>
             </td>
             <td>
-                <input class="field default block" type="text" name="cantidad-${rowId}">
+                <input class="field default block" type="text" name="cantidad-${rowId}" value="1">
             </td>
             <td>
             <input class="field-description field default block" type="text" name="description-${rowId}">
@@ -575,11 +575,27 @@ inputRUC.addEventListener('keyup', () => {
         inputRUC.disabled = "disabled"
         spinner.style.display = "block"
         
-        setTimeout(() => {
-            inputRUC.disabled = ""
-            inputRUC.classList.add("success")
-            spinner.style.display = "none"
-        }, 1000)
+
+        url = 'https://www.api.sunat.recave.pe/v1/ruc/20503321280';
+        datosEmpresa = {};
+        $.getJSON(url, datosEmpresa, function(response){
+
+            if(response['error'] == '') {
+                inputRUC.disabled = ""
+                inputRUC.classList.add("error")
+                spinner.style.display = "none"
+            } else {
+                inputRUC.disabled = ""
+                inputRUC.classList.add("success")
+                spinner.style.display = "none"
+
+                $("input[name='razon-social']").val(response['razon_social'])
+                $('.razon-social-factura').text(response['razon_social'])
+                $('.ruc-factura').text(response['ruc'])
+                $('.direccion-factura').text(response['direccion'])
+            }
+        });
+
     } else {
         if(inputRUC.classList.contains('success')) inputRUC.classList.remove('success')
     }
@@ -612,7 +628,7 @@ $(document).click((e) => {
             observacionValue = $('textarea[name=observacion]').val()
 
         // recorrer productos
-        $('.table.products tbody tr').each(() => {
+        $('.table.products tbody tr').each(function() {
             // console.log($(this).find("td > input[name=^='servicio-']"))
             // console.log($(this).find("td:eq(0)"))
         })
@@ -626,32 +642,77 @@ $(document).click((e) => {
     })
 
 /* Cálculos según IGV */
-    function calcularValores(valorUnit, tipoIgv, campoIgv, campoTotal) {
+    function calcularValores(cantidad, valorUnit, tipoIgv, campoIgv, campoTotal) {
 
         valorIgv = 0 // Valor inicial de IGV
-        if(tipoIgv == 10) valorIgv = valorUnit * 0.18 // Calcular IGV 
-        valorTotal = valorUnit + valorIgv // Calcular valor Total
+        valorUnitTotal = valorUnit * cantidad
+        if(tipoIgv == 10) valorIgv = valorUnitTotal * 0.18 // Calcular IGV 
+        valorTotal = valorUnitTotal + valorIgv
 
         // Setear valores
         campoIgv.value = valorIgv
         campoTotal.value = valorTotal
     }
 
+
+    $("input[name^='cantidad-']").keyup(function(e) {
+        cantidad = parseInt(this.value)
+        valorUnit = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.children[0].value
+        tipoIgv = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.children[0].value
+        campoIgv = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.children[0]
+        campoTotal = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.children[0]
+        
+        calcularValores(cantidad, valorUnit, tipoIgv, campoIgv, campoTotal)
+    })
+
     $("input[name^='valor-unit-']").keyup(function(e) {
+        cantidad = this.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.children[0].value
+        valorUnit = parseInt(this.value)
         tipoIgv = this.parentElement.previousElementSibling.children[0].value
         campoIgv = this.parentElement.nextElementSibling.children[0]
         campoTotal = this.parentElement.nextElementSibling.nextElementSibling.children[0]
         
-        calcularValores(parseInt(this.value), tipoIgv, campoIgv, campoTotal)
+        calcularValores(cantidad, valorUnit, tipoIgv, campoIgv, campoTotal)
 
     })
 
     $("select[name^='tipo-igv-']").change(function() {
+        cantidad = this.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.children[0].value
         valorUnit = parseInt(this.parentElement.nextElementSibling.children[0].value)
         tipoIgv = this.value
         campoIgv = this.parentElement.nextElementSibling.nextElementSibling.children[0]
         campoTotial = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.children[0]
 
-        calcularValores(valorUnit, tipoIgv, campoIgv, campoTotal)
+        calcularValores(cantidad, valorUnit, tipoIgv, campoIgv, campoTotal)
 
     })
+
+/** Cálculos de tabla totales */
+    // Gravado - Operación Onerosa , value 10
+    // Gravado – Retiro por premio , value 11
+    // Gravado – Retiro por donación , value 12
+    // Gravado – Retiro  , value 13
+    // Gravado – Retiro por publicidad , value 14
+    // Gravado – Bonificaciones , value 15
+    // Gravado – Retiro por entrega a trabajadores , value 16
+    // Gravado – IVAP , value 17
+    // Exonerado - Operación Onerosa , value 20
+    // Exonerado – Transferencia Gratuita , value 21
+    // Inafecto - Operación Onerosa , value 30
+    // Inafecto – Retiro por Bonificación , value 31
+    // Inafecto – Retiro , value 32
+    // Inafecto – Retiro por Muestras Médicas , value 33
+    // Inafecto - Retiro por Convenio Colectivo , value 34
+    // Inafecto – Retiro por premio , value 35
+    // Inafecto - Retiro por publicidad , value 36
+
+    // % Descuento
+    // Anticipo (-)
+    // Exonerada 
+    // Inafecta 
+    // Gravada
+    // IGV
+    // Gratuita 36, 35, 34, 33, 
+    // Otros cargos
+    // Descuento total (-)
+    // TOTAL

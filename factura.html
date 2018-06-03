@@ -56,9 +56,9 @@
                     <div class="row preview__client">
                       <div class="col-8">
                         <div class="preview__client-info">
-                          <p><b>Señor(es): </b>CLIENTE S.A.C.</p>
-                          <p><b>RUC No: </b>10486478085</p>
-                          <p><b>Dirección: </b>DIRECCION DEL ESTABLECIMIENTO EMISOR</p>
+                          <p><b>Señor(es): </b><span class="razon-social-factura"></span></p>
+                          <p><b>RUC No: </b><span class="ruc-factura"></span></p>
+                          <p><b>Dirección: </b><span class="direccion-factura"></span></p>
                         </div>
                       </div>
                       <div class="col-4">
@@ -210,7 +210,7 @@
                         </div>
                         <div class="col-md-6">
                           <input class="field bordered block" type="text" name="numero-documento" maxlength="11"/>
-                          <div class="spinner"><img src="./img/spinner.webp"/></div><span class="response error">Debe ingresar un número de RUC</span>
+                          <div class="spinner"><img src="./img/spinner.webp"/></div>
                         </div>
                       </div>
                       <div class="row mtb-1">
@@ -218,7 +218,7 @@
                           <div class="field__tag">Razón Social</div>
                         </div>
                         <div class="col-md-6">
-                          <input class="field bordered block" type="text" name="razon-social"/><span class="response error">Debe ingresar una razón social</span>
+                          <input class="field bordered block" type="text" name="razon-social"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
@@ -228,14 +228,14 @@
                             <option value="1">Soles (S/.)</option>
                             <option value="2">Dólares ($)</option>
                             <option value="3">Euros (&euro;)</option>
-                          </select><span class="response error">Debe elegir un tipo de moneda</span>
+                          </select>
                         </div>
                         <div class="col-md-6">
-                          <select class="native-select bordered error" name="tipo-factura">
+                          <select class="native-select bordered" name="tipo-factura">
                             <option value="" disabled="disabled" selected="selected">Tipo de Factura</option>
                             <option value="1">Bien</option>
                             <option value="2">Servicio</option>
-                          </select><span class="response error">Debe elegir un tipo de factura</span>
+                          </select>
                         </div>
                       </div>
                     </div>
@@ -246,7 +246,7 @@
                         </div>
                         <div class="col-md-9">
                           <label class="serie" data-serie="F001-" name="serie">
-                            <input class="field bordered block" type="text" name="serie" size="12"/><span class="response error">Debe ingresar un número de serie</span>
+                            <input class="field bordered block" type="text" name="serie" size="12"/>
                           </label>
                         </div>
                       </div>
@@ -257,7 +257,7 @@
                           <div class="field__tag">Fecha de vencimiento</div>
                         </div>
                         <div class="col-md-6">
-                          <input class="field bordered error" type="date" name="fecha-vencimiento"/><span class="response error">Debe elegir la fecha de vencimiento</span>
+                          <input class="field bordered" type="date" name="fecha-vencimiento"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
@@ -265,7 +265,7 @@
                           <div class="field__tag">Fecha de emisión</div>
                         </div>
                         <div class="col-md-6">
-                          <input class="field bordered" type="date" name="fecha-emision"/><span class="response error">Debe elegir la fecha de emisión</span>
+                          <input class="field bordered" type="date" name="fecha-emision"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
@@ -311,10 +311,10 @@
                       <tbody></tbody>
                       <tr>
                         <td>
-                          <input class="field default block error" type="text" name="servicio-1" value="Servicio de consultoría"/>
+                          <input class="field default block" type="text" name="servicio-1" value=""/>
                         </td>
                         <td>
-                          <select class="native-select default error" name="unid-medida-1">
+                          <select class="native-select default" name="unid-medida-1">
                             <option value="" disabled="disabled" selected="selected">—</option>
                             <option value="1">Kg</option>
                             <option value="2">Mts</option>
@@ -322,13 +322,13 @@
                           </select>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="cantidad-1" value=""/>
+                          <input class="field default block" type="text" name="cantidad-1" value="1"/>
                         </td>
                         <td>
-                          <input class="field-description field default block" type="text" name="description-1" value="Servicio encargado de ver todo lo referente con seguridad para poder pasar los permisos municipales requeridos por la zona a la cual se esta aprobando"/>
+                          <input class="field-description field default block" type="text" name="description-1" value=""/>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="cod-1" value="001"/>
+                          <input class="field default block" type="text" name="cod-1" value=""/>
                         </td>
                         <td>
                           <select class="native-select default" name="tipo-igv-1">
@@ -366,10 +366,10 @@
                       </tr>
                       <tr>
                         <td>
-                          <input class="field default block error" type="text" name="servicio-2" value="Servicio de consultoría"/>
+                          <input class="field default block" type="text" name="servicio-2" value=""/>
                         </td>
                         <td>
-                          <select class="native-select default error" name="unid-medida-2">
+                          <select class="native-select default" name="unid-medida-2">
                             <option value="" disabled="disabled" selected="selected">—</option>
                             <option value="1">Kg</option>
                             <option value="2">Mts</option>
@@ -377,13 +377,13 @@
                           </select>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="cantidad-2" value=""/>
+                          <input class="field default block" type="text" name="cantidad-2" value="1"/>
                         </td>
                         <td>
-                          <input class="field-description field default block" type="text" name="description-2" value="Servicio encargado de ver todo lo referente con seguridad para poder pasar los permisos municipales requeridos por la zona a la cual se esta aprobando"/>
+                          <input class="field-description field default block" type="text" name="description-2" value=""/>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="cod-2" value="001"/>
+                          <input class="field default block" type="text" name="cod-2" value=""/>
                         </td>
                         <td>
                           <select class="native-select default" name="tipo-igv-2">
@@ -421,10 +421,10 @@
                       </tr>
                       <tr>
                         <td>
-                          <input class="field default block error" type="text" name="servicio-3" value="Servicio de consultoría"/>
+                          <input class="field default block" type="text" name="servicio-3" value=""/>
                         </td>
                         <td>
-                          <select class="native-select default error" name="unid-medida-3">
+                          <select class="native-select default" name="unid-medida-3">
                             <option value="" disabled="disabled" selected="selected">—</option>
                             <option value="1">Kg</option>
                             <option value="2">Mts</option>
@@ -432,13 +432,13 @@
                           </select>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="cantidad-3" value=""/>
+                          <input class="field default block" type="text" name="cantidad-3" value="1"/>
                         </td>
                         <td>
-                          <input class="field-description field default block" type="text" name="description-3" value="Servicio encargado de ver todo lo referente con seguridad para poder pasar los permisos municipales requeridos por la zona a la cual se esta aprobando"/>
+                          <input class="field-description field default block" type="text" name="description-3" value=""/>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="cod-3" value="001"/>
+                          <input class="field default block" type="text" name="cod-3" value=""/>
                         </td>
                         <td>
                           <select class="native-select default" name="tipo-igv-3">
