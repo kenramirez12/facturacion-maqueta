@@ -1888,6 +1888,9 @@ input::-webkit-inner-spin-button {
     background-color: #f3f6fc;
     border: 2px solid #a4a4b9;
     border-radius: 0.9rem; }
+    .field.bordered:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px #f3f6fc inset !important;
+      -webkit-text-fill-color: #515974 !important; }
     .field.bordered.error {
       background-color: rgba(214, 91, 99, 0.09);
       border-color: #eaadb1; }
@@ -1895,6 +1898,11 @@ input::-webkit-inner-spin-button {
       border-color: #90C695; }
   .field.default {
     background-color: #e2e6ef; }
+    .field.default:disabled {
+      background-color: #dadee6; }
+    .field.default:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px #e2e6ef inset !important;
+      -webkit-text-fill-color: #515974 !important; }
     .field.default.error {
       background-color: rgba(214, 91, 99, 0.12); }
   .field.disabled {

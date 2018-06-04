@@ -36,30 +36,28 @@
             <div class="tab__top"><span class="tab__title">EMITIR NOTA DE CRÉDITO</span></div>
             <div class="tab__content">
               <div class="container to-left">
-                <div class="col-md-9 plr-0">
+                <form action="index.html" method="POST">
                   <div class="row">
-                    <div class="col-md-4">
-                      <div class="select-field block">
-                        <div class="select-field__selected">Tipo de Nota de Crédito</div>
-                        <ul class="select-field__list">
-                          <li class="select-field__item"><span class="select-field__value">Lorem ipsum</span></li>
-                          <li class="select-field__item"><span class="select-field__value">Dolor sit</span></li>
-                        </ul>
-                      </div>
+                    <div class="col-md-3">
+                      <select class="native-select bordered" name="tipo-nota">
+                        <option value="" disabled="disabled" selected="selected">Tipo de Nota de Crédito</option>
+                        <option value="1">Factura</option>
+                        <option value="2">Boleta</option>
+                      </select>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                       <label class="field__label horizontal">
                         <div class="field__tag">Serie</div>
-                        <input class="field disabled" type="text" size="3" disabled="disabled" value="F001"/>&nbsp;
-                        <input class="field bordered" type="text" size="12"/>
+                        <input class="field disabled" type="text" size="3" name="serie-cod" disabled="disabled" value="—"/>&nbsp;
+                        <input class="field bordered" type="text" size="12" name="serie" value=""/>
                       </label>
                     </div>
-                    <div class="col-md-3">
-                      <button class="btn alt"><img class="btn__icon" src="./img/buttons/plus-button.svg"/>Ver Factura</button>
+                    <div class="col-md-2">
+                      <button class="btn alt"><img class="btn__icon" src="./img/buttons/watch.png"/>Ver</button>
                     </div>
                   </div>
                   <div class="row mtb-2">
-                    <div class="col-md-9">
+                    <div class="col-md-7">
                       <label class="field__label vertical">
                         <div class="field__tag">Motivo o sustento por el cual se emitirá la Nota de Crédito</div>
                         <textarea class="field bordered block textarea" name=""></textarea>
@@ -68,11 +66,11 @@
                   </div>
                   <div class="row">
                     <div class="col-12">
-                      <input class="btn bordered" type="submit" value="CANCELAR"/>
-                      <input class="btn bordered disabled" type="submit" value="EMITIR"/>
+                      <button class="btn bordered" type="button">PREVISUALIZAR</button>
+                      <input class="btn bordered" type="submit" value="EMITIR"/>
                     </div>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>
@@ -82,4 +80,5 @@
   </body>
   <script src="js/vendors/jquery-3.3.1.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/nota-credito.js"></script>
 </html>

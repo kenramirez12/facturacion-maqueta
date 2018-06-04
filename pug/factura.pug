@@ -42,11 +42,11 @@ block content
                                 .preview__client-date
                                     table
                                         tr
-                                            td.w-50p: b Fecha de vencimiento
-                                            td.w-50p.text-right.fecha-vencimiento-p 20/06/2017
-                                        tr
                                             td.w-50p: b Fecha de emisión
                                             td.w-50p.text-right.fecha-emision-p
+                                        tr
+                                            td.w-50p: b Fecha de vencimiento
+                                            td.w-50p.text-right.fecha-vencimiento-p 20/06/2017
 
                         .row.preview__products
                             .col-12
@@ -126,8 +126,12 @@ block content
                                             span.field__tag TOTAL
                                         .col-6
                                             input.field.default.small-height.block(type="text", name="total", disabled, value="1450.90")
-        
+
     form(method="POST", action="/invoice/issue" name="form")
+        input(type="hidden", name="razon-social-local")
+        input(type="hidden", name="ruc-local")
+        input(type="hidden", name="direccion-local")
+
         .tab
             .tab__top
                 span.tab__title EMITIR FACTURA ELECTRÓNICA
@@ -140,7 +144,7 @@ block content
                                 .col-md-6
                                     .field__tag Número de RUC
                                 .col-md-6
-                                    input.field.bordered.block(type="text", name="numero-documento", maxlength="11")
+                                    input.field.bordered.block(type="number", name="numero-documento", max="99999999999")
                                     .spinner: img(src="./img/spinner.webp")
                                     //- span.response.error Debe ingresar un número de RUC
                             .row.mtb-1
@@ -307,27 +311,27 @@ block content
                                 .col-6
                                     span.field__tag.normal-w Exonerada
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="exonerada")
+                                    input.field.default.small-height.block(type="text", name="exonerada", disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Inafecta
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="inafecta")
+                                    input.field.default.small-height.block(type="text", name="inafecta", disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Gravada
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="gravada")
+                                    input.field.default.small-height.block(type="text", name="gravada", disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w IGV
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="igv")
+                                    input.field.default.small-height.block(type="text", name="igv", disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Gratuita
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="gratuita")
+                                    input.field.default.small-height.block(type="text", name="gratuita", disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Otros cargos
@@ -337,9 +341,12 @@ block content
                                 .col-6
                                     span.field__tag.normal-w Descuento total (-)
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="descuento-total")
+                                    input.field.default.small-height.block(type="text", name="descuento-total", disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag TOTAL
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="total")
+                                    input.field.default.small-height.block(type="text", name="total", disabled)
+
+block scripts
+    script(src="js/factura.js")

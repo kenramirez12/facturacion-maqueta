@@ -65,12 +65,12 @@
                         <div class="preview__client-date">
                           <table>
                             <tr>
-                              <td class="w-50p"><b>Fecha de vencimiento</b></td>
-                              <td class="w-50p text-right fecha-vencimiento-p">20/06/2017</td>
-                            </tr>
-                            <tr>
                               <td class="w-50p"><b>Fecha de emisión</b></td>
                               <td class="w-50p text-right fecha-emision-p"></td>
+                            </tr>
+                            <tr>
+                              <td class="w-50p"><b>Fecha de vencimiento</b></td>
+                              <td class="w-50p text-right fecha-vencimiento-p">20/06/2017</td>
                             </tr>
                           </table>
                         </div>
@@ -198,6 +198,9 @@
             </div>
           </div>
           <form method="POST" action="/invoice/issue" name="form">
+            <input type="hidden" name="razon-social-local"/>
+            <input type="hidden" name="ruc-local"/>
+            <input type="hidden" name="direccion-local"/>
             <div class="tab">
               <div class="tab__top"><span class="tab__title">EMITIR FACTURA ELECTRÓNICA</span></div>
               <div class="tab__content">
@@ -209,7 +212,7 @@
                           <div class="field__tag">Número de RUC</div>
                         </div>
                         <div class="col-md-6">
-                          <input class="field bordered block" type="text" name="numero-documento" maxlength="11"/>
+                          <input class="field bordered block" type="number" name="numero-documento" max="99999999999"/>
                           <div class="spinner"><img src="./img/spinner.webp"/></div>
                         </div>
                       </div>
@@ -520,31 +523,31 @@
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Exonerada</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="exonerada"/>
+                          <input class="field default small-height block" type="text" name="exonerada" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Inafecta</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="inafecta"/>
+                          <input class="field default small-height block" type="text" name="inafecta" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Gravada</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="gravada"/>
+                          <input class="field default small-height block" type="text" name="gravada" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">IGV</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="igv"/>
+                          <input class="field default small-height block" type="text" name="igv" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Gratuita</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="gratuita"/>
+                          <input class="field default small-height block" type="text" name="gratuita" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
@@ -556,13 +559,13 @@
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Descuento total (-)</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="descuento-total"/>
+                          <input class="field default small-height block" type="text" name="descuento-total" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag">TOTAL</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="total"/>
+                          <input class="field default small-height block" type="text" name="total" disabled="disabled"/>
                         </div>
                       </div>
                     </div>
@@ -577,4 +580,5 @@
   </body>
   <script src="js/vendors/jquery-3.3.1.min.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/factura.js"></script>
 </html>

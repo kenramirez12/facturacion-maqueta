@@ -9,34 +9,36 @@ block content
             span.tab__title EMITIR NOTA DE DÉBITO
         .tab__content
             .container.to-left
-                .col-md-9.plr-0
+                form(action="index.html", method="POST")
                     .row
+                        .col-md-3
+                            select.native-select.bordered(name="tipo-nota")
+                                option(value="", disabled, selected) Tipo de Nota de Débito
+                                option(value="1") Factura
+                                option(value="2") Boleta
+                            
                         .col-md-4
-                            .select-field.block
-                                .select-field__selected Tipo de Nota de Débito
-                                ul.select-field__list
-                                    li.select-field__item: span.select-field__value Lorem ipsum
-                                    li.select-field__item: span.select-field__value Dolor sit
-                        
-                        .col-md-5
                             label.field__label.horizontal
                                 .field__tag Serie
-                                input.field.disabled(type="text", size="3" disabled="disabled", value="F001")
+                                input.field.disabled(type="text", size="3", name="serie-cod", disabled="disabled", value="—")
                                 | &nbsp;
-                                input.field.bordered(type="text", size="12")
+                                input.field.bordered(type="text", size="12", name="serie", value="")
                         
-                        .col-md-3
+                        .col-md-2
                             button.btn.alt
-                                img.btn__icon(src="./img/buttons/plus-button.svg")
-                                | Ver Factura
+                                img.btn__icon(src="./img/buttons/watch.png")
+                                | Ver
 
                     .row.mtb-2
-                        .col-md-9
+                        .col-md-7
                             label.field__label.vertical
-                                .field__tag Motivo o sustento por el cual se emitirá la Nota de Débito
+                                .field__tag Motivo o sustento por el cual se emitirá la Nota de Crédito
                                 textarea.field.bordered.block.textarea(name="")
                     
                     .row
                         .col-12
-                            input.btn.bordered(type="submit", value="CANCELAR")
-                            input.btn.bordered.disabled(type="submit", value="EMITIR")
+                            button.btn.bordered(type="button") PREVISUALIZAR
+                            input.btn.bordered(type="submit", value="EMITIR")
+                
+block scripts
+    script(src="js/nota-debito.js")
