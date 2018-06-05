@@ -11,32 +11,31 @@ block content
                 .tab__content
                     .container-fluid
                         .row.preview__top
-                            .col-8
+                            .col-6
                                 .preview__top-left
                                     //- img(src="#", alt="")
-                                    P EMPRESA S.A.C.
-                                    p AV. OSCAR BENAVIDES 1059. RESIDENCIAL LOS ALAMOS
-                                    p CERCADO-LIMA-LIMA
-                            .col-4
+                                    P.razon-social-local-p
+                                    p.direccion-local-p
+                            .col-4.offset-2
                                 .preview__top-right
                                     p RUC: 
-                                        span.ruc-p 20483178085
+                                        span.ruc-local-p
                                     p FACTURA ELECTRÓNICA
                                     P F001-
-                                        span.serie-p 0000007
+                                        span.serie-p
                         
                         .row.preview__client
                             .col-8
                                 .preview__client-info
                                     p
                                         b Señor(es): 
-                                        span.razon-social-factura
+                                        span.razon-social-p
                                     p
                                         b RUC No: 
-                                        span.ruc-factura
+                                        span.ruc-p
                                     p
                                         b Dirección: 
-                                        span.direccion-factura
+                                        span.direccion-p
 
                             .col-4
                                 .preview__client-date
@@ -128,9 +127,10 @@ block content
                                             input.field.default.small-height.block(type="text", name="total", disabled, value="1450.90")
 
     form(method="POST", action="/invoice/issue" name="form")
-        input(type="hidden", name="razon-social-local")
-        input(type="hidden", name="ruc-local")
-        input(type="hidden", name="direccion-local")
+        input(type="hidden", name="razon-social-local" value="NOMBRE DE EMPRESA S.A.C.")
+        input(type="hidden", name="ruc-local", value="00000000000")
+        input(type="hidden", name="direccion-local", value="AV. OSCAR BENAVIDES 1059. RESIDENCIAL LOS ALAMOS CERCADO-LIMA-LIMA")
+        input(type="hidden", name="direccion")
 
         .tab
             .tab__top
@@ -184,16 +184,16 @@ block content
                         .col-md-4
                             .row.mtb-1
                                 .col-md-6
-                                    .field__tag Fecha de vencimiento
-                                .col-md-6
-                                    input.field.bordered(type="date", name="fecha-vencimiento")
-                                    //- span.response.error Debe elegir la fecha de vencimiento
-                            .row.mtb-1
-                                .col-md-6
                                     .field__tag Fecha de emisión
                                 .col-md-6
                                     input.field.bordered(type="date", name="fecha-emision")
                                     //- span.response.error Debe elegir la fecha de emisión
+                            .row.mtb-1
+                                .col-md-6
+                                    .field__tag Fecha de vencimiento
+                                .col-md-6
+                                    input.field.bordered(type="date", name="fecha-vencimiento")
+                                    //- span.response.error Debe elegir la fecha de vencimiento
                             .row.mtb-1
                                 .col-md-6.flex-center
                                     .field__tag Pagado
@@ -209,17 +209,17 @@ block content
                                         span.slider.round
 
         .tab.mt-1
-            .tab__content.tab__content--alternative
+            .tab__content.tab__content--alternative.products-table-list
                 .container-fluid
                     .row
                         //- .table-responsive
-                        table.table.products
+                        table.table#products-table
                             thead
                                 tr
                                     td.min-w-180: span.field__tag.center Bien/Servicio
                                     td.w-50: span.field__tag.center U. Medida
                                     td.w-50: span.field__tag.center Cantidad
-                                    td.min-w-180: span.field__tag.center Descripción
+                                    td.min-w-180.w-100p: span.field__tag.center Descripción
                                     td.w-50: span.field__tag.center Código
                                     td.min-w-180: span.field__tag.center Tipo de IGV
                                     td.w-100: span.field__tag.center Valor Unit.

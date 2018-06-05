@@ -29,9 +29,7 @@ $(document).ready(function() {
                     spinner.style.display = "none"
 
                     $("input[name='razon-social']").val(response['razon_social'])
-                    $('.razon-social-factura').text(response['razon_social'])
-                    $('.ruc-factura').text(response['ruc'])
-                    $('.direccion-factura').text(response['direccion'])
+                    $("input[name='direccion']").val(response['direccion'])
                 }
             })
 
@@ -159,7 +157,7 @@ $(document).ready(function() {
     }
 
     $('.new-product-row').click(function() { // Agregar nueva columna de producto al DOM
-        $('.table > tbody:last-child').append(createNewProduct);
+        $('#products-table > tbody:last-child').append(createNewProduct);
     })
 
     $(document).on('click', '.delete-product', function(e) {
@@ -276,22 +274,44 @@ $(document).ready(function() {
     });
 
     /* Elaborar vista previa */
-    const fechaVencimientoValue = $('input[name=fecha-vencimiento]').val(),
-        fechaEmisionValue = $('input[name=fecha-emision]').val(),
-        numeroDocumentoValue = $('input[name=numero-documento]').val(),
-        serieValue = $('input[name=serie]').val(),
-        observacionValue = $('textarea[name=observacion]').val()
 
     // recorrer productos
     $('.table.products tbody tr').each(function() {
         // En proceso...
     })
 
-    $('.preview').click(function() { // Insertar datos en Pop Up
-        $('.fecha-vencimiento-p').html(fechaVencimientoValue)
-        $('.fecha-emision-p').html(fechaEmisionValue)
-        $('.ruc-p').html(numeroDocumentoValue)
+    // Insertar datos en Pop Up
+    $('.preview').click(function() {
+
+        // Obtener Data
+            // Información del usuario
+            razonSocialLocalValue = $('input[name=razon-social-local]').val()
+            ruclocalValue = $('input[name=ruc-local]').val()
+            direccionLocalValue= $('input[name=direccion-local]').val()
+    
+            // Información del cliente
+            rucValue = $('input[name=numero-documento]').val()
+            razonSocialValue = $('input[name=razon-social]').val()
+            direccionValue = $('input[name=direccion]').val()
+    
+            // Datos de la Factura
+            serieValue = $('input[name=serie]').val()
+            fechaEmisionValue = $('input[name=fecha-emision]').val()
+            fechaVencimientoValue = $('input[name=fecha-vencimiento]').val()
+            observacionValue = $('textarea[name=observacion]').val()        
+
+
+        $('.razon-social-local-p').text(razonSocialLocalValue)
+        $('.direccion-local-p').text(direccionLocalValue)
+        $('.ruc-local-p').text(ruclocalValue)
+
+        $('.ruc-p').text(rucValue)
+        $('.razon-social-p').text(razonSocialValue)
+        $('.direccion-p').text(direccionValue)
+
         $('.serie-p').html(serieValue)
+        $('.fecha-emision-p').html(fechaEmisionValue)
+        $('.fecha-vencimiento-p').html(fechaVencimientoValue)
         $('textarea[name=observacion-p]').html(observacionValue)
     })
 })

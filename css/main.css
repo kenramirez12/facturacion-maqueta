@@ -1707,7 +1707,6 @@ input:-webkit-autofill {
   min-width: 100px; }
 
 .min-w-180 {
-  width: 100%;
   min-width: 180px; }
 
 .w-180 {
@@ -1718,6 +1717,9 @@ input:-webkit-autofill {
 
 .w-280 {
   width: 280px; }
+
+.w-100p {
+  width: 100%; }
 
 .page {
   display: -webkit-box;
@@ -2070,6 +2072,11 @@ input[type="checkbox"]:checked + .slider:before,
   border-spacing: 0; }
   .table thead tr > td {
     text-align: center; }
+
+.products-table-list {
+  --max-products: 10;
+  height: calc(var(--max-products)*2rem + 5rem);
+  overflow-y: scroll; }
 
 .delete-product__icon {
   --size: 1.2rem;

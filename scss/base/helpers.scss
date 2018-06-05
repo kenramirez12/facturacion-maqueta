@@ -80,8 +80,6 @@
         min-width: 100px;
     }
     .min-w-180 {
-        width: 100%;
-        // width: 180px;
         min-width: 180px;
     }
     .w-180 {
@@ -92,4 +90,8 @@
     }
     .w-280 {
         width: 280px;
+    }
+
+    .w-100p {
+        width: 100%;
     }
