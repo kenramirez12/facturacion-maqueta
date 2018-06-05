@@ -1901,7 +1901,7 @@ input::-webkit-inner-spin-button {
   .field.default {
     background-color: #e2e6ef; }
     .field.default:disabled {
-      background-color: #dadee6; }
+      background-color: #cdd3e0; }
     .field.default:-webkit-autofill {
       -webkit-box-shadow: 0 0 0px 1000px #e2e6ef inset !important;
       -webkit-text-fill-color: #515974 !important; }

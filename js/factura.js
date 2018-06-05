@@ -328,4 +328,13 @@ $(document).ready(function() {
         e.preventDefault
         obtenerProductos()
     })
+
+    $('#primerboton, #segundoboton').click(function() {
+        // e.preventDefault
+        if($(this).is('#primerboton')) {
+            console.log('ola')
+        } else {
+            console.log('chao')
+        }
+    })
 })

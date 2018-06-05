@@ -157,32 +157,41 @@
             <input type="hidden" name="razon-social-local" value="NOMBRE DE EMPRESA S.A.C."/>
             <input type="hidden" name="ruc-local" value="00000000000"/>
             <input type="hidden" name="direccion-local" value="AV. OSCAR BENAVIDES 1059. RESIDENCIAL LOS ALAMOS CERCADO-LIMA-LIMA"/>
-            <input type="hidden" name="direccion"/>
             <div class="tab">
               <div class="tab__top"><span class="tab__title">EMITIR FACTURA ELECTRÓNICA</span></div>
               <div class="tab__content">
                 <div class="container-fluid">
                   <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                       <div class="row mtb-1">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                           <div class="field__tag">Número de RUC</div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                           <input class="field bordered block" type="number" name="numero-documento" max="99999999999"/>
                           <div class="spinner"><img src="./img/spinner.webp"/></div>
                         </div>
                       </div>
                       <div class="row mtb-1">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                           <div class="field__tag">Razón Social</div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                           <input class="field bordered block" type="text" name="razon-social"/>
                         </div>
                       </div>
+                    </div>
+                    <div class="col-md-4">
                       <div class="row mtb-1">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
+                          <div class="field__tag">Dirección</div>
+                        </div>
+                        <div class="col-md-7">
+                          <input class="field bordered block" type="text" name="direccion"/>
+                        </div>
+                      </div>
+                      <div class="row mtb-1">
+                        <div class="col-md-5">
                           <select class="native-select bordered" name="tipo-moneda">
                             <option value="" disabled="disabled" selected="selected">Moneda</option>
                             <option value="1">Soles (S/.)</option>
@@ -190,24 +199,12 @@
                             <option value="3">Euros (&euro;)</option>
                           </select>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                           <select class="native-select bordered" name="tipo-factura">
                             <option value="" disabled="disabled" selected="selected">Tipo de Factura</option>
                             <option value="1">Bien</option>
                             <option value="2">Servicio</option>
                           </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-3">
-                      <div class="row mtb-1">
-                        <div class="col-md-3">
-                          <div class="field__tag">Serie</div>
-                        </div>
-                        <div class="col-md-9">
-                          <label class="serie" data-serie="F001-" name="serie">
-                            <input class="field bordered block" type="text" name="serie" size="12"/>
-                          </label>
                         </div>
                       </div>
                     </div>

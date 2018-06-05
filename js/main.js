@@ -27,9 +27,26 @@ const toggleMenu = function(header, logo, options) {
 /** Show Client Menu */
 const   clientMenuBtn = document.getElementById('clientMenuBtn'),
         clientMenu = document.querySelector('.client-bar__menu'),
-        showClientMenu = function() { clientMenu.classList.toggle('active') }
+        clientMenuFlag = 0
 
-clientMenuBtn.addEventListener('click', showClientMenu)
+        showClientMenu = function() {
+            clientMenu.classList.toggle('active')
+        }
+
+clientMenuBtn.addEventListener('click', function() {
+    showClientMenu()
+
+    if(clientMenuFlag == 1) {
+        document.addEventListener('click', function() {
+            if(clientMenu.classList.contains('active')) {
+                clientMenu.classList.remove('active')
+                clientMenuFlag = 0
+            }
+        })
+    }
+
+    clientMenuFlag = 1
+})
 
 /** Input Description alt */
 $('.field-description').on('keyup', function() {

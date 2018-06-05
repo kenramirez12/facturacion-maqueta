@@ -124,7 +124,7 @@ block content
         input(type="hidden", name="razon-social-local" value="NOMBRE DE EMPRESA S.A.C.")
         input(type="hidden", name="ruc-local", value="00000000000")
         input(type="hidden", name="direccion-local", value="AV. OSCAR BENAVIDES 1059. RESIDENCIAL LOS ALAMOS CERCADO-LIMA-LIMA")
-        input(type="hidden", name="direccion")
+        //- input(type="hidden", name="direccion")
 
         .tab
             .tab__top
@@ -133,22 +133,30 @@ block content
                 .container-fluid
                     .row
                         //- RUC, Razón Social, Moneda, Factura
-                        .col-md-5
+                        .col-md-4
                             .row.mtb-1
-                                .col-md-6
+                                .col-md-5
                                     .field__tag Número de RUC
-                                .col-md-6
+                                .col-md-7
                                     input.field.bordered.block(type="number", name="numero-documento", max="99999999999")
                                     .spinner: img(src="./img/spinner.webp")
                                     //- span.response.error Debe ingresar un número de RUC
                             .row.mtb-1
-                                .col-md-6
+                                .col-md-5
                                     .field__tag Razón Social
-                                .col-md-6
+                                .col-md-7
                                     input.field.bordered.block(type="text", name="razon-social")
                                     //- span.response.error Debe ingresar una razón social
+
+                        //- Dirección, Moneda, factura
+                        .col-md-4
                             .row.mtb-1
-                                .col-md-6
+                                .col-md-5
+                                    .field__tag Dirección
+                                .col-md-7
+                                        input.field.bordered.block(type="text", name="direccion")
+                            .row.mtb-1
+                                .col-md-5
                                     select.native-select.bordered(name="tipo-moneda")
                                         option(value="", disabled, selected) Moneda
                                         option(value="1") Soles (S/.)
@@ -156,24 +164,13 @@ block content
                                         option(value="3") Euros (&euro;)
                                     //- span.response.error Debe elegir un tipo de moneda
 
-                                .col-md-6
+                                .col-md-7
                                     select.native-select.bordered(name="tipo-factura")
                                         option(value="", disabled, selected) Tipo de Factura
                                         option(value="1") Bien
                                         option(value="2") Servicio
                                     //- span.response.error Debe elegir un tipo de factura
 
-                        //- Serie
-                        .col-md-3
-                            .row.mtb-1
-                                .col-md-3
-                                    .field__tag Serie
-                                .col-md-9
-                                        //- input.field.disabled(type="text", size="3" disabled="disabled", value="F001")
-                                        //- | &nbsp;
-                                        label.serie(data-serie="F001-", name="serie")
-                                            input.field.bordered.block(type="text", name="serie", size="12")
-                                            //- span.response.error Debe ingresar un número de serie
                         //- Vencimiento, Emisión, Pagado y Detracción
                         .col-md-4
                             .row.mtb-1
