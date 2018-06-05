@@ -314,4 +314,18 @@ $(document).ready(function() {
         $('.fecha-vencimiento-p').html(fechaVencimientoValue)
         $('textarea[name=observacion-p]').html(observacionValue)
     })
+
+    obtenerProductos = function() {
+        $('#products-table > tbody > tr').each(function() {
+            cantidad = $(this).children('td').eq(2).children().val()
+            uMedida = $(this).children('td').eq(1).children().val()
+            descripcion = $(this).children('td').eq(3).children().val()
+            valorUnit = $(this).children('td').eq(6).children().val()
+        })
+    }
+
+    $('#getProducts').click(function(e) {
+        e.preventDefault
+        obtenerProductos()
+    })
 })

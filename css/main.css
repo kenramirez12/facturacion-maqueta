@@ -2075,7 +2075,7 @@ input[type="checkbox"]:checked + .slider:before,
 
 .products-table-list {
   --max-products: 10;
-  height: calc(var(--max-products)*2rem + 5rem);
+  max-height: calc(var(--max-products)*2rem + 5rem);
   overflow-y: scroll; }
 
 .delete-product__icon {
