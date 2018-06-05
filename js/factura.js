@@ -181,19 +181,21 @@ $(document).ready(function() {
 
         // Elaborar array invoiceDetails
         $('.table > tbody > tr').each(function() {
-            var servicio = $(this).children('td:nth-child(1)').children('input').val(),
-                unidMedida = $(this).children('td:nth-child(2)').children('div').children('input').val(),
-                descripcion = $(this).children('td:nth-child(3)').children('input').val(),
-                cod = $(this).children('td:nth-child(4)').children('input').val(),
-                tipoIgv = $(this).children('td:nth-child(5)').children('div').children('input').val(),
-                valorUnit = $(this).children('td:nth-child(6)').children('input').val(),
-                igv = $(this).children('td:nth-child(7)').children('input').val(),
-                total = $(this).children('td:nth-child(8)').children('input').val(),
+            var servicio = $(this).children('td').eq(0).children().val(),
+                unidMedida = $(this).children('td').eq(1).children().val(),
+                cantidad = $(this).children('td').eq(2).children().val(),
+                descripcion = $(this).children('td').eq(3).children().val(),
+                cod = $(this).children('td').eq(4).children().val(),
+                tipoIgv = $(this).children('td').eq(5).children().val(),
+                valorUnit = $(this).children('td').eq(6).children().val(),
+                igv = $(this).children('td').eq(7).children().val(),
+                total = $(this).children('td').eq(8).children().val(),
 
             newInvoice = {
                 'order': invoiceDetailsCount,
                 'servicio' : servicio,
                 'unid-medida': unidMedida,
+                'cantidad': cantidad,
                 'descripcion': descripcion,
                 'cod': cod,
                 'tipo-igv': tipoIgv,
@@ -209,7 +211,7 @@ $(document).ready(function() {
         // Obtener valores del formulario
         var numeroDocumento = $('input[name="numero-documento"]').val(),
             razonSocial = $('input[name="razon-social"]').val(),
-            serie = $('input[name="serie"]').val(),
+            // serie = $('input[name="serie"]').val(),
             fechaVencimiento = $('input[name="fecha-vencimiento"]').val(),
             fechaEmision = $('input[name="fecha-emision"]').val(),
             tipoMoneda = $('select[name="tipo-moneda"]').val(),
@@ -236,7 +238,7 @@ $(document).ready(function() {
         var data1 = new Object();
         data1.numeroDocumento = numeroDocumento;
         data1.razonSocial = razonSocial;
-        data1.serie = serie;
+        // data1.serie = serie;
         data1.fechaVencimiento = fechaVencimiento;
         data1.fechaEmision = fechaEmision;
         data1.tipoMoneda = tipoMoneda;
@@ -295,7 +297,7 @@ $(document).ready(function() {
             direccionValue = $('input[name=direccion]').val()
     
             // Datos de la Factura
-            serieValue = $('input[name=serie]').val()
+            // serieValue = $('input[name=serie]').val()
             fechaEmisionValue = $('input[name=fecha-emision]').val()
             fechaVencimientoValue = $('input[name=fecha-vencimiento]').val()
             observacionValue = $('textarea[name=observacion]').val()        
@@ -309,7 +311,7 @@ $(document).ready(function() {
         $('.razon-social-p').text(razonSocialValue)
         $('.direccion-p').text(direccionValue)
 
-        $('.serie-p').html(serieValue)
+        $('.serie-p').html("###")
         $('.fecha-emision-p').html(fechaEmisionValue)
         $('.fecha-vencimiento-p').html(fechaVencimientoValue)
         $('textarea[name=observacion-p]').html(observacionValue)
