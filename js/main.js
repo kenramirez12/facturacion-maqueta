@@ -24,6 +24,32 @@ const toggleMenu = function(header, logo, options) {
     }
 }
 
+/** Alerts */
+$('.alert__close-btn').click(function() {
+    $(this).parent().remove()
+})
+
+/** Copiar texto */
+$('.to-clipboard').click(function(e) {
+    temp = $('<input>')
+    copiar = $(this).text()
+
+    $('body').append(temp)
+    temp.val(copiar).select()
+    document.execCommand("copy")
+
+    toast = $(`<div class="toast" style="top: ${e.pageY}px; left: ${e.pageX}px;">Copiado!</div>`)
+    slideDuration = 200
+
+    $('body').append(toast)
+    toast.fadeIn('fast')
+    setTimeout(function() {
+        toast.fadeOut('fast')
+    }, 500)
+
+    temp.remove()
+})
+
 /** Show Client Menu */
 const   clientMenuBtn = document.getElementById('clientMenuBtn'),
         clientMenu = document.querySelector('.client-bar__menu'),

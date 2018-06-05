@@ -80,7 +80,7 @@ $(document).ready(function() {
         valorUnit = parseInt(this.parentElement.nextElementSibling.children[0].value)
         tipoIgv = this.value
         campoIgv = this.parentElement.nextElementSibling.nextElementSibling.children[0]
-        campoTotial = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.children[0]
+        campoTotal = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.children[0]
 
         calcularValores(cantidad, valorUnit, tipoIgv, campoIgv, campoTotal)
 

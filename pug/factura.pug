@@ -120,6 +120,15 @@ block content
                                         .col-6
                                             input.field.default.small-height.block(type="text", name="total", disabled, value="1450.90")
 
+    .alert.alert--success
+        .alert__content
+            p La factura 
+                span.tag.to-clipboard#serie-factura-generada(title="Copiar") F001-0001
+                |  ha sido generada con éxito.
+        
+        .alert__close-btn
+            img(src="img/close-response.png", title="Cerrar")
+
     form(method="POST", action="/invoice/issue" name="form")
         input(type="hidden", name="razon-social-local" value="NOMBRE DE EMPRESA S.A.C.")
         input(type="hidden", name="ruc-local", value="00000000000")
