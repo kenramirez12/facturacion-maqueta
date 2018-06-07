@@ -43,6 +43,13 @@
         transition: background 0.2s;
         border: 0;
 
+        &:disabled {
+            background-color: $alt-c-l;
+            cursor: default;
+
+            &:hover { background-color: $alt-c-l; }
+        }
+
         &:hover {
             background-color: darken($btn-alt-bg, 10);
         }

@@ -37,27 +37,64 @@
             <div class="tab__content">
               <div class="container to-left">
                 <form action="index.html" method="POST">
-                  <div class="row">
-                    <div class="col-md-3">
-                      <select class="native-select bordered" name="tipo-nota">
-                        <option value="" disabled="disabled" selected="selected">Tipo de Nota de Crédito</option>
+                  <div class="row mb-1">
+                    <div class="col-lg-4">
+                      <select class="native-select bordered" name="tipo-documento">
+                        <option value="" disabled="disabled" selected="selected">Tipo de Documento</option>
                         <option value="1">Factura</option>
                         <option value="2">Boleta</option>
                       </select>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                       <label class="field__label horizontal">
                         <div class="field__tag">Serie</div>
                         <input class="field disabled" type="text" size="3" name="serie-cod" disabled="disabled" value="—"/>&nbsp;
-                        <input class="field bordered" type="text" size="12" name="serie" value=""/>
+                        <input class="field bordered" type="text" size="12" name="serie" value="" disabled="disabled"/>
                       </label>
                     </div>
-                    <div class="col-md-2">
-                      <button class="btn alt"><img class="btn__icon" src="./img/buttons/watch.png"/>Ver</button>
+                    <div class="col-lg-2">
+                      <button class="btn alt" type="button" name="search" disabled="disabled">Buscar</button>
+                      <div class="spinner"><img src="./img/spinner.webp"/></div>
+                    </div>
+                  </div>
+                  <div class="row mb-1">
+                    <div class="col-lg-4">
+                      <select class="native-select bordered" name="tipo-nota">
+                        <option value="" disabled="disabled" selected="selected">Tipo de Nota de Crédito</option>
+                        <option value="1">Anulación de la operación</option>
+                        <option value="2">Anulación por error en el RUC</option>
+                        <option value="3">Corrección por error en la descripción</option>
+                        <option value="4">Descuento global</option>
+                        <option value="5">Descuento por item</option>
+                        <option value="6">Devolución total</option>
+                        <option value="7">Devolución por item</option>
+                        <option value="8">Bonificación</option>
+                        <option value="9">Dismunción en el valor</option>
+                      </select>
+                    </div>
+                    <div class="col-lg-4">
+                      <select class="native-select bordered" name="tipo-operacion">
+                        <option value="" disabled="disabled" selected="selected">Tipo de Operación</option>
+                        <option value="1">Venta interna</option>
+                        <option value="2">Anticipio o deducción de anticipio en venta interna </option>
+                        <option value="3">Exportación</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <label class="label--inline"><span>Fecha de emisión</span>
+                        <input class="field bordered" type="date" name="fecha-emision"/>
+                      </label>
+                    </div>
+                    <div class="col-lg-4">
+                      <label class="label--inline"><span>Fecha de emisión</span>
+                        <input class="field bordered" type="date" name="fecha-emision"/>
+                      </label>
                     </div>
                   </div>
                   <div class="row mtb-2">
-                    <div class="col-md-7">
+                    <div class="col-lg-8">
                       <label class="field__label vertical">
                         <div class="field__tag">Motivo o sustento por el cual se emitirá la Nota de Crédito</div>
                         <textarea class="field bordered block textarea" name=""></textarea>

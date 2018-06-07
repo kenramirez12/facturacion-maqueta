@@ -223,6 +223,16 @@ $(document).click((e) => {
     }
 })
 
+/** Setear HOY como default value en Fecha de emisión */
+    Date.prototype.toDateInputValue = (function() {
+        var local = new Date(this);
+        local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+        return local.toJSON().slice(0,10);
+    });
+
+$('input[name=fecha-emision]').val(new Date().toDateInputValue());
+/** */
+
 /** Cálculos de tabla totales */
     // Gravado - Operación Onerosa , value 10
     // Gravado – Retiro por premio , value 11
