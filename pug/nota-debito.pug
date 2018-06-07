@@ -10,27 +10,53 @@ block content
         .tab__content
             .container.to-left
                 form(action="index.html", method="POST")
-                    .row
-                        .col-md-3
-                            select.native-select.bordered(name="tipo-nota")
-                                option(value="", disabled, selected) Tipo de Nota de Débito
+                    //- Tipo de documento, serie, buscar
+                    .row.mb-1
+                        .col-lg-4
+                            select.native-select.bordered(name="tipo-documento")
+                                option(value="", disabled, selected) Tipo de Documento
                                 option(value="1") Factura
                                 option(value="2") Boleta
-                            
-                        .col-md-4
+                        .col-lg-4
                             label.field__label.horizontal
                                 .field__tag Serie
                                 input.field.disabled(type="text", size="3", name="serie-cod", disabled="disabled", value="—")
                                 | &nbsp;
-                                input.field.bordered(type="text", size="12", name="serie", value="")
-                        
-                        .col-md-2
-                            button.btn.alt
-                                img.btn__icon(src="./img/buttons/watch.png")
-                                | Ver
+                                input.field.bordered(type="text", size="12", name="serie", value="", disabled)
+                        .col-lg-2
+                            button.btn.alt(type="button", name="search", disabled) Buscar
+                            .spinner: img(src="./img/spinner.webp")
+                    
+                    //- Tipo de nota y tipo de operación
+                    .row.mb-1
+                        .col-lg-4
+                            select.native-select.bordered(name="tipo-nota")
+                                option(value="", disabled, selected) Tipo de Nota de Crédito
+                                option(value="1") Interes por mora
+                                option(value="2") Aumento de valor
+                                option(value="3") Penalidades
+                        .col-lg-4
+                            select.native-select.bordered(name="tipo-operacion")
+                                option(value="", disabled, selected) Tipo de Operación
+                                option(value="1") Venta interna
+                                option(value="2") Anticipio o deducción de anticipio en venta interna 
+                                option(value="3") Exportación
+
+                    //- Fechas
+                    .row
+                        .col-lg-4
+                            label.label--inline
+                                span Fecha de emisión
+                                input.field.bordered(type="date", name="fecha-emision")
+                                //- span.response.error Debe elegir la fecha de emisión
+                        .col-lg-4
+                            label.label--inline
+                                span Fecha de vencimiento
+                                input.field.bordered(type="date", name="fecha-vencimiento")
+                                //- span.response.error Debe elegir la fecha de emisión
 
                     .row.mtb-2
-                        .col-md-7
+                        .col-lg-8
                             label.field__label.vertical
                                 .field__tag Motivo o sustento por el cual se emitirá la Nota de Crédito
                                 textarea.field.bordered.block.textarea(name="")
