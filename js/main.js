@@ -231,34 +231,3 @@ $(document).click((e) => {
     });
 
 $('input[name=fecha-emision]').val(new Date().toDateInputValue());
-/** */
-
-/** Cálculos de tabla totales */
-    // Gravado - Operación Onerosa , value 10
-    // Gravado – Retiro por premio , value 11
-    // Gravado – Retiro por donación , value 12
-    // Gravado – Retiro  , value 13
-    // Gravado – Retiro por publicidad , value 14
-    // Gravado – Bonificaciones , value 15
-    // Gravado – Retiro por entrega a trabajadores , value 16
-    // Gravado – IVAP , value 17
-    // Exonerado - Operación Onerosa , value 20
-    // Exonerado – Transferencia Gratuita , value 21
-    // Inafecto - Operación Onerosa , value 30
-    // Inafecto – Retiro por Bonificación , value 31
-    // Inafecto – Retiro , value 32
-    // Inafecto – Retiro por Muestras Médicas , value 33
-    // Inafecto - Retiro por Convenio Colectivo , value 34
-    // Inafecto – Retiro por premio , value 35
-    // Inafecto - Retiro por publicidad , value 36
-
-    // % Descuento
-    // Anticipo (-)
-    // Exonerada 
-    // Inafecta 
-    // Gravada
-    // IGV
-    // Gratuita 36, 35, 34, 33, 
-    // Otros cargos
-    // Descuento total (-)
-    // TOTAL

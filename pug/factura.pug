@@ -229,7 +229,7 @@ block content
                             tbody
                             - for(i = 0; i < 3; i++) {
                                 tr
-                                    td: input(type="text", name="servicio-" + (i + 1), value="").field.default.block
+                                    td: input(type="text", name="servicio-" + (i + 1), value="hola").field.default.block
                                     td
                                         select.native-select.default(name="unid-medida-" + (i + 1))
                                             option(value="", disabled, selected) —
@@ -260,7 +260,7 @@ block content
                                             option(value="34") Inafecto - Retiro por Convenio Colectivo
                                             option(value="35") Inafecto – Retiro por premio
                                             option(value="36") Inafecto - Retiro por publicidad
-                                            option(value="36") Exportación
+                                            option(value="37") Exportación
 
                                     td: input(type="text", name="valor-unit-" + (i + 1)).field.default.block
                                     td: input(type="text", name="igv-" + (i + 1), disabled).field.default.block
@@ -301,7 +301,7 @@ block content
                                 .col-6
                                     span.field__tag.normal-w % Descuento
                                 .col-6
-                                    input.field.default.block(type="text", name="descuento")
+                                    input.field.default.block(type="number", name="descuento")
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Anticipo (-)

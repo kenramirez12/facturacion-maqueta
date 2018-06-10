@@ -90,6 +90,75 @@ $(document).ready(function() {
     /* Crear nueva columna de Producto */
     var tableRows = 3;
 
+    const uMedidaArray = [
+        {
+            value: 1, umedida: 'Kg'
+        },
+        {
+            value: 2, umedida: 'Mts'
+        },
+        {
+            value: 3, umedida: 'UND'
+        }
+    ]
+
+    const tiposIGVArray = [
+        {
+            value: 10, type: 'Gravado - Operación Onerosa'
+        },
+        {
+            value: 11, type: 'Gravado – Retiro por premio'
+        },
+        {
+            value: 12, type: 'Gravado – Retiro por donación'
+        },
+        {
+            value: 13, type: 'Gravado – Retiro '
+        },
+        {
+            value: 14, type: 'Gravado – Retiro por publicidad'
+        },
+        {
+            value: 15, type: 'Gravado – Bonificaciones'
+        },
+        {
+            value: 16, type: 'Gravado – Retiro por entrega a trabajadores'
+        },
+        {
+            value: 17, type: 'Gravado – IVAP'
+        },
+        {
+            value: 20, type: 'Exonerado - Operación Onerosa'
+        },
+        {
+            value: 21, type: 'Exonerado – Transferencia Gratuita'
+        },
+        {
+            value: 30, type: 'Inafecto - Operación Onerosa'
+        },
+        {
+            value: 31, type: 'Inafecto – Retiro por Bonificación'
+        },
+        {
+            value: 32, type: 'Inafecto – Retiro'
+        },
+        {
+            value: 33, type: 'Inafecto – Retiro por Muestras Médicas'
+        },
+        {
+            value: 34, type: 'Inafecto - Retiro por Convenio Colectivo'
+        },
+        {
+            value: 35, type: 'Inafecto – Retiro por premio'
+        },
+        {
+            value: 36, type: 'Inafecto - Retiro por publicidad'
+        },
+        {
+            value: 37, type: 'Exportación'
+        }
+    ]
+
     createNewProduct = function() {
         let rowId = tableRows + 1,
             newRow = `
@@ -99,11 +168,13 @@ $(document).ready(function() {
                 </td>
                 <td>
                     <select class="native-select default" name="unid-medida-${rowId}">
-                        <option value="" disabled="disabled" selected="selected">—</option>
-                        <option value="1">Kg</option>
-                        <option value="2">Mts</option>
-                        <option value="3">UND</option>
-                    </select>
+                        <option value="" disabled="disabled" selected="selected">—</option>`;
+
+                        for(i = 0; i < uMedidaArray.length; i++) {
+                            newRow += `<option value="${uMedidaArray[i]['value']}">${uMedidaArray[i]['umedida']}</option>`
+                        }
+
+                    newRow += `</select>
                 </td>
                 <td>
                     <input class="field default block" type="text" name="cantidad-${rowId}" value="1">
@@ -116,26 +187,14 @@ $(document).ready(function() {
                 </td>
                 <td>
                 <select class="native-select default" name="tipo-igv-${rowId}">
-                    <option value="" disabled="disabled" selected="selected">Seleccionar</option>
-                    <option value="10">Gravado - Operación Onerosa</option>
-                    <option value="11">Gravado – Retiro por premio</option>
-                    <option value="12">Gravado – Retiro por donación</option>
-                    <option value="13">Gravado – Retiro </option>
-                    <option value="14">Gravado – Retiro por publicidad</option>
-                    <option value="15">Gravado – Bonificaciones</option>
-                    <option value="16">Gravado – Retiro por entrega a trabajadores</option>
-                    <option value="17">Gravado – IVAP</option>
-                    <option value="20">Exonerado - Operación Onerosa</option>
-                    <option value="21">Exonerado – Transferencia Gratuita</option>
-                    <option value="30">Inafecto - Operación Onerosa</option>
-                    <option value="31">Inafecto – Retiro por Bonificación</option>
-                    <option value="32">Inafecto – Retiro</option>
-                    <option value="33">Inafecto – Retiro por Muestras Médicas</option>
-                    <option value="34">Inafecto - Retiro por Convenio Colectivo</option>
-                    <option value="35">Inafecto – Retiro por premio</option>
-                    <option value="36">Inafecto - Retiro por publicidad</option>
-                    <option value="36">Exportación</option>
-                </select>
+                    <option value="" disabled="disabled" selected="selected">Seleccionar</option>`;
+
+
+                for(i = 0; i < tiposIGVArray.length; i++) {
+                    newRow += `<option value="${tiposIGVArray[i]['value']}">${tiposIGVArray[i]['type']}</option>`
+                }
+
+                newRow += `</select>
                 </td>
                 <td>
                     <input class="field default block" type="text" name="valor-unit-${rowId}">
@@ -302,6 +361,26 @@ $(document).ready(function() {
             fechaVencimientoValue = $('input[name=fecha-vencimiento]').val()
             observacionValue = $('textarea[name=observacion]').val()        
 
+            // Productos
+            productos = '';
+            $('#products-table > tbody > tr').each(function() {
+                cantidad = $(this).children('td').eq(2).children().val()
+                uMedida = $(this).children('td').eq(1).children().val()
+                descripcion = $(this).children('td').eq(3).children().val()
+                valorUnit = $(this).children('td').eq(6).children().val()
+
+                console.log(cantidad)
+
+                productos += `
+                <tr>
+                    <td class="text-center">${cantidad}</td>
+                    <td class="text-center">${uMedida}</td>
+                    <td class="text-center">${descripcion}</td>
+                    <td class="text-center">${valorUnit}</td>
+                </tr>
+                `
+            })
+
 
         $('.razon-social-local-p').text(razonSocialLocalValue)
         $('.direccion-local-p').text(direccionLocalValue)
@@ -315,6 +394,8 @@ $(document).ready(function() {
         $('.fecha-emision-p').html(fechaEmisionValue)
         $('.fecha-vencimiento-p').html(fechaVencimientoValue)
         $('textarea[name=observacion-p]').html(observacionValue)
+
+        $('#products-table-p > tbody').html(productos)
     })
 
     obtenerProductos = function() {
@@ -339,4 +420,66 @@ $(document).ready(function() {
             console.log('chao')
         }
     })
+
+
+    /** Calculos sub totales */
+    // Gravado - Operación Onerosa , value 10
+    // Gravado – Retiro por premio , value 11
+    // Gravado – Retiro por donación , value 12
+    // Gravado – Retiro, value 13
+    // Gravado – Retiro por publicidad , value 14
+    // Gravado – Bonificaciones , value 15
+    // Gravado – Retiro por entrega a trabajadores , value 16
+    // Gravado – IVAP , value 17 ESTE FALTA
+    // Exonerado - Operación Onerosa , value 20
+    // Exonerado – Transferencia Gratuita , value 21 ESTE FALTA
+    // Inafecto - Operación Onerosa , value 30
+    // Inafecto – Retiro por Bonificación , value 31
+    // Inafecto – Retiro , value 32
+    // Inafecto – Retiro por Muestras Médicas , value 33
+    // Inafecto - Retiro por Convenio Colectivo , value 34
+    // Inafecto – Retiro por premio , value 35
+    // Inafecto - Retiro por publicidad , value 36
+    // Exportación, value 37
+
+    // % Descuento
+    // Anticipo (-)
+    // Exonerada 20
+    // Inafecta 37, 30
+    // Gravada 10
+    // IGV
+    // Gratuita 11, 12, 13, 14, 15, 16, 36, 35, 34, 33, 32, 31
+    // Otros cargos
+    // Descuento total (-)
+    // TOTAL
+
+    
+    function actualizarSubtotales() {
+        tiposParaExonerada = ['20']
+        tiposParaInafecta = [30, 37]
+        tiposParaGravada = [10]
+        tiposParaGratuita = [11, 12, 13, 14, 15, 16, 31, 32, 33, 34, 35, 36]
+        subtotalExonerada = '',
+        subtotalInafecta = '',
+        subtotalGravada = '',
+        subtotalGratuita = ''
+
+        $('select[name^=tipo-igv-').each(function() {
+            total = $(this).parent().next().next().next().children().val()
+            parseFloat(subtotalExonerada)
+            parseFloat(total)
+
+            if(jQuery.inArray('10', tiposParaExonerada)) subtotalExonerada += total
+            if(jQuery.inArray('10', tiposParaInafecta)) subtotalInafecta += total
+            if(jQuery.inArray('10', tiposParaGravada)) subtotalGravada += total
+            if(jQuery.inArray('10', tiposParaGratuita)) subtotalGratuita += total
+        })
+
+        console.log(`Exonerada es: ${subtotalExonerada}`)
+        console.log(`Inafecta es: ${subtotalInafecta}`)
+        console.log(`Gravada es: ${subtotalGravada}`)
+        console.log(`Gratuita es: ${subtotalGratuita}`)
+    }
+    
+    $('select[name^=tipo-igv-').change(function() { actualizarSubtotales() })
 })
