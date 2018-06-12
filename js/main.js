@@ -58,27 +58,38 @@ $('.to-clipboard').click(function(e) {
 
 /** Show Client Menu */
 const   clientMenuBtn = document.getElementById('clientMenuBtn'),
-        clientMenu = document.querySelector('.client-bar__menu'),
+        clientMenu = document.querySelector('.client-bar__menu')
+
+let clientMenuFlag = 0
+
+    showClientMenu = function() {
+        clientMenu.classList.add('active')
+        clientMenuFlag = 1
+        console.log(clientMenuFlag)
+    }
+    hideClientMenu = function() {
+        clientMenu.classList.remove('active')
         clientMenuFlag = 0
-
-        showClientMenu = function() {
-            clientMenu.classList.toggle('active')
-        }
-
-clientMenuBtn.addEventListener('click', function() {
-    showClientMenu()
-
-    if(clientMenuFlag == 1) {
-        document.addEventListener('click', function() {
-            if(clientMenu.classList.contains('active')) {
-                clientMenu.classList.remove('active')
-                clientMenuFlag = 0
-            }
-        })
+        console.log(clientMenuFlag)
     }
 
-    clientMenuFlag = 1
-})
+    
+    clientMenuBtn.addEventListener('click', function() {
+        (clientMenu.classList.contains('active')) ? hideClientMenu() : showClientMenu()
+    })
+    
+    document.body.addEventListener('click', function(e) {
+        if(
+            e.target.classList.contains('client-bar__name') || 
+            e.target.classList.contains('client-bar__avatar') || 
+            e.target.classList.contains('client-bar__info') || 
+            e.target.classList.contains('client-bar__menu-btm')
+        ) {
+            // Se intentó desplegar el menú
+        } else {
+            if(clientMenuFlag == 1) hideClientMenu()
+        }
+    })
 
 /** Input Description alt */
 $('.field-description').on('keyup', function() {
