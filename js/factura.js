@@ -330,6 +330,7 @@ $(document).ready(function() {
             },
             success: function (data) {
                 alert("data.status : "+ data);
+                $('form')[0].reset();
             }
         }); 
     });

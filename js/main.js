@@ -29,8 +29,6 @@ $('.alert__close-btn').click(function() {
     $(this).parent().remove()
 })
 
-console.log($('.toast').length)
-
 /** Copiar texto */
 $('.to-clipboard').click(function(e) {
     e.preventDefault();
