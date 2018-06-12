@@ -1752,9 +1752,16 @@ input[type=date]::-webkit-clear-button {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  min-width: 190px;
   padding: 0 15px;
   height: 4rem;
-  border-bottom: 1px solid #151928; }
+  border-bottom: 1px solid #151928;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
   .main-header__logo {
     color: #d65b63;
     font-weight: 700; }
@@ -1764,8 +1771,10 @@ input[type=date]::-webkit-clear-button {
     width: var(--size);
     height: var(--size);
     cursor: pointer; }
-  .main-header.small .main-header__menu-btn {
-    margin-left: 0; }
+  .main-header.small {
+    min-width: 30px; }
+    .main-header.small .main-header__menu-btn {
+      margin-left: 0; }
 
 .main-menu {
   margin: 0; }
