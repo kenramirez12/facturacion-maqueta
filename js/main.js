@@ -29,25 +29,33 @@ $('.alert__close-btn').click(function() {
     $(this).parent().remove()
 })
 
+console.log($('.toast').length)
+
 /** Copiar texto */
 $('.to-clipboard').click(function(e) {
-    temp = $('<input>')
-    copiar = $(this).text()
+    e.preventDefault();
 
-    $('body').append(temp)
-    temp.val(copiar).select()
-    document.execCommand("copy")
+    if($('.toast').length == 0) {
+        temp = $('<input class="temp">')
+        copiar = $(this).text()
+    
+        $('body').append(temp)
+        temp.val(copiar).select()
+        document.execCommand("copy")
+    
+        toast = $(`<div class="toast" style="top: ${e.pageY}px; left: ${e.pageX}px;">Copiado!</div>`)
+        slideDuration = 200
+    
+        $('body').append(toast)
+        toast.fadeIn('fast')
+        setTimeout(function() {
+            toast.fadeOut('fast')
+            $('.toast').remove()
+            $('.temp').remove()
+        }, 500)
+    
+    }
 
-    toast = $(`<div class="toast" style="top: ${e.pageY}px; left: ${e.pageX}px;">Copiado!</div>`)
-    slideDuration = 200
-
-    $('body').append(toast)
-    toast.fadeIn('fast')
-    setTimeout(function() {
-        toast.fadeOut('fast')
-    }, 500)
-
-    temp.remove()
 })
 
 /** Show Client Menu */
