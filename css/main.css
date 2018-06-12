@@ -2078,6 +2078,25 @@ input[type="checkbox"]:checked + .slider:before,
   width: 100%;
   padding: 0 15px;
   border-spacing: 0; }
+  .table--striped tbody tr:nth-of-type(odd) {
+    background-color: #fff; }
+  .table--consulta-emisiones tr td {
+    padding: 0.5rem 0; }
+  .table--consulta-emisiones thead tr td {
+    border-top: 1px solid rgba(34, 38, 54, 0.1);
+    border-bottom: 1px solid rgba(34, 38, 54, 0.1); }
+  .table--consulta-emisiones tbody {
+    font-size: 0.9rem;
+    text-align: center; }
+    .table--consulta-emisiones tbody tr {
+      cursor: pointer;
+      -webkit-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      transition: all 0.2s; }
+      .table--consulta-emisiones tbody tr:hover {
+        background-color: #ecf0f1; }
+      .table--consulta-emisiones tbody tr:last-child td {
+        border-bottom: 1px solid rgba(34, 38, 54, 0.1); }
   .table thead tr > td {
     text-align: center; }
 
@@ -2592,6 +2611,9 @@ input[type="checkbox"]:checked + .slider:before,
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -ms-flex-flow: wrap;
   flex-flow: wrap;
   width: 100%; }
@@ -2602,5 +2624,9 @@ input[type="checkbox"]:checked + .slider:before,
     font-weight: 600; }
   .label--inline .response {
     width: 100%; }
+  .label--inline input, .label--inline select {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
 
 /*# sourceMappingURL=main.css.map */

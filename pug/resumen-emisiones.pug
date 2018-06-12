@@ -1,0 +1,180 @@
+extends ./template/config/main-layout
+
+append config
+    -var currentPage = "consulta-emisiones"
+
+block content
+    .popup
+        .popup__content.container
+            //- .popup__close CERRAR [X]
+            .tab
+                .tab__content
+                    .container-fluid
+                        .row.preview__top
+                            .col-6
+                                .preview__top-left
+                                    //- img(src="#", alt="")
+                                    P.razon-social-local-p
+                                    p.direccion-local-p
+                            .col-4.offset-2
+                                .preview__top-right
+                                    p RUC: 
+                                        span.ruc-local-p
+                                    p FACTURA ELECTRÓNICA
+                                    P F001-
+                                        span.serie-p
+                        
+                        .row.preview__client
+                            .col-8
+                                .preview__client-info
+                                    p
+                                        b Señor(es): 
+                                        span.razon-social-p
+                                    p
+                                        b RUC No: 
+                                        span.ruc-p
+                                    p
+                                        b Dirección: 
+                                        span.direccion-p
+
+                            .col-4
+                                .preview__client-date
+                                    table
+                                        tr
+                                            td.w-50p: b Fecha de emisión
+                                            td.w-50p.text-right.fecha-emision-p
+                                        tr
+                                            td.w-50p: b Fecha de vencimiento
+                                            td.w-50p.text-right.fecha-vencimiento-p 20/06/2017
+
+                        .row.preview__products
+                            .col-12
+                                table.table#products-table-p
+                                    thead
+                                        tr
+                                            td.w-90: span.field__tag.center Cantidad
+                                            td.w-90: span.field__tag.center U. de medida
+                                            td: span.field__tag.center Descripción
+                                            td.w-90: span.field__tag.center Valor Unit.
+                                    tbody
+
+                        .row.preview__footer
+                            .col-9
+                                .preview__footer-left
+                                    p SON: MIL CUATROCIENTOS CINCUENTA Y OCO CON 90/100 Soles
+
+                                    .row
+                                        .col-9.field__label.vertical
+                                            span.field__tag.mb-1 Observación
+                                            textarea.field.default.block.textarea(name="observacion-p", disabled)
+                            .col-3
+                                .container-fluid
+                                    //- .row.mtb-tr
+                                    //-     .col-6
+                                    //-         span.field__tag.normal-w % Descuento
+                                    //-     .col-6
+                                    //-         input.field.default.block(type="text", name="descuento", disabled, value="1450.90")
+                                    //- .row.mtb-tr
+                                    //-     .col-6
+                                    //-         span.field__tag.normal-w Anticipo (-)
+                                    //-     .col-6
+                                    //-         input.field.default.small-height.block(type="text", name="anticipo", disabled, value="1450.90")
+                                    .row.mtb-tr
+                                        .col-6
+                                            span.field__tag.normal-w Exonerada
+                                        .col-6
+                                            input.field.default.small-height.block(type="text", name="exonerada", disabled, value="1450.90")
+                                    .row.mtb-tr
+                                        .col-6
+                                            span.field__tag.normal-w Inafecta
+                                        .col-6
+                                            input.field.default.small-height.block(type="text", name="inafecta", disabled, value="1450.90")
+                                    .row.mtb-tr
+                                        .col-6
+                                            span.field__tag.normal-w Gravada
+                                        .col-6
+                                            input.field.default.small-height.block(type="text", name="gravada", disabled, value="1450.90")
+                                    .row.mtb-tr
+                                        .col-6
+                                            span.field__tag.normal-w IGV
+                                        .col-6
+                                            input.field.default.small-height.block(type="text", name="igv", disabled, value="1450.90")
+                                    //- .row.mtb-tr
+                                    //-     .col-6
+                                    //-         span.field__tag.normal-w Gratuita
+                                    //-     .col-6
+                                    //-         input.field.default.small-height.block(type="text", name="gratuita", disabled, value="1450.90")
+                                    .row.mtb-tr
+                                        .col-6
+                                            span.field__tag.normal-w Otros cargos
+                                        .col-6
+                                            input.field.default.small-height.block(type="text", name="otros-cargos", disabled, value="1450.90")
+                                    .row.mtb-tr
+                                        .col-6
+                                            span.field__tag.normal-w Descuento total (-)
+                                        .col-6
+                                            input.field.default.small-height.block(type="text", name="descuento-total", disabled, value="1450.90")
+                                    .row.mtb-tr
+                                        .col-6
+                                            span.field__tag TOTAL
+                                        .col-6
+                                            input.field.default.small-height.block(type="text", name="total", disabled, value="1450.90")
+
+    .tab
+        .tab__top
+            span.tab__title CONSULTA DE EMISIONES
+        .tab__content
+            .container-fluid
+                .row
+                    .col-md-4
+                        label.label--inline
+                                span Tipo de Documento
+                                select.native-select.bordered(name="tipo-documento")
+                                    option(value="0", selected, disabled) Seleccionar
+                                    option(value="1") Factura
+                                    option(value="2") Boleta
+                                    option(value="3") Nota de Crédito
+                                    option(value="4") Nota de Débito
+                                    option(value="5") Bajas
+                                //- span.response.error Debe elegir la fecha de emisión
+                    
+                    .col-md-3.offset-md-2
+                        label.label--inline
+                            span Desde
+                            input.field.bordered(type="date", name="fecha-desde")
+                            //- span.response.error
+                    .col-md-3
+                        label.label--inline
+                            span Hasta
+                            input.field.bordered(type="date", name="fecha-hasta")
+                            //- span.response.error
+    
+                .row
+                    table.table.table--striped.table--consulta-emisiones.mt-2#consulta-emisiones
+                        thead
+                            tr
+                                td: span.field__tag.center Fecha
+                                td: span.field__tag.center Tipo
+                                td: span.field__tag.center Tipo de Documento
+                                td: span.field__tag.center Entidad
+                                td: span.field__tag.center Monto
+                                td: span.field__tag.center Estado
+                                td: span.field__tag.center Sunat
+                        tbody
+                            -for (i = 0; i < 5; i++)
+                                tr(title="Ver documento")
+                                    td Fecha
+                                    td Tipo
+                                    td Tipo de Documento
+                                    td Entidad
+                                    td Monto
+                                    td Estado
+                                    td Sunat
+
+    .container-fluid
+        .row.mt-1
+            .col-12
+                button.btn.alt.float-right.new-product-row Descargar Historial
+
+block scripts
+    script(src="js/resumen-emisiones.js")

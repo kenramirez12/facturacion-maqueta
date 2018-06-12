@@ -3,6 +3,44 @@
     padding: 0 15px;
     border-spacing: 0;
 
+    &--striped {
+
+        tbody tr:nth-of-type(odd) {
+            background-color: #fff;
+        }
+    }
+
+    &--consulta-emisiones {
+        tr td {
+            padding: 0.5rem 0;
+        }
+
+        thead {
+            tr td {
+                border-top: 1px solid rgba($alt-c, 0.1);
+                border-bottom: 1px solid rgba($alt-c, 0.1);
+            }
+        }
+
+        tbody {
+            font-size: 0.9rem;
+            text-align: center;
+
+            tr {
+                cursor: pointer;
+                transition: all 0.2s;
+
+                &:hover {
+                    background-color: $grey-bg;
+                }
+
+                &:last-child td {
+                    border-bottom: 1px solid rgba($alt-c, 0.1);
+                }
+            }
+        }
+    }
+
     thead {
         tr > td {
             text-align: center;

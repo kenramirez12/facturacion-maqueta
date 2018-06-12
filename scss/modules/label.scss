@@ -2,6 +2,7 @@
     &--inline {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         flex-flow: wrap;
         width: 100%;
 
@@ -15,6 +16,12 @@
 
         .response {
             width: 100%;
+        }
+
+        input, select {
+            flex: 1;
+            // width: auto;
+            // max-width: 100%;
         }
     }
 }

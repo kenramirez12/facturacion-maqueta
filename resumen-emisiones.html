@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Sistema de Facturación</title>
+    <link rel="stylesheet" href="./css/main.css"/>
+  </head>
+  <body>
+    <div class="page">
+      <div class="sidebar">
+        <header class="main-header"><span class="main-header__logo">SOFTWARE V 1.0</span><img class="main-header__menu-btn" src="./img/menu-icons/toggle-btn.svg"/></header>
+        <ul class="main-menu"><a class="main-menu__link" href="dashboard.html">
+            <li class="main-menu__item"><img class="main-menu__icon" src="./img/menu-icons/dashboard.svg"/><span class="main-menu__span">Dashboard</span></li></a><a class="main-menu__link" href="factura.html">
+            <li class="main-menu__item"><img class="main-menu__icon" src="./img/menu-icons/factura.svg"/><span class="main-menu__span">Factura</span></li></a><a class="main-menu__link" href="boleta.html">
+            <li class="main-menu__item"><img class="main-menu__icon" src="./img/menu-icons/boleta.svg"/><span class="main-menu__span">Boleta</span></li></a><a class="main-menu__link" href="nota-credito.html">
+            <li class="main-menu__item"><img class="main-menu__icon" src="./img/menu-icons/nota-credito.svg"/><span class="main-menu__span">Nota de Crédito</span></li></a><a class="main-menu__link" href="nota-debito.html">
+            <li class="main-menu__item"><img class="main-menu__icon" src="./img/menu-icons/nota-debito.svg"/><span class="main-menu__span">Nota de Débito</span></li></a>
+        </ul>
+      </div>
+      <main class="main__container">
+        <div class="client-bar">
+          <div class="client-bar__info" id="clientMenuBtn">
+            <div class="client-bar__name">Constructora Aguirre</div><img class="client-bar__avatar" src="./img/avatar/user.jpg"/><img class="client-bar__menu-btn" src="./img/down-arrow.svg"/>
+            <ul class="client-bar__menu">
+              <li class="client-bar__menu-item"><a class="client-bar__menu-link" href="perfil.html">Mi Perfil</a></li>
+              <li class="client-bar__menu-item"><a class="client-bar__menu-link" href="productos-servicios.html">Mis productos y Servicios</a></li>
+              <li class="client-bar__menu-item"><a class="client-bar__menu-link" href="resumen-emisiones.html">Resumen de Emisiones</a></li>
+              <li class="client-bar__menu-item"><a class="client-bar__menu-link" href="./login.html">Cerrar Sesión</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="main__content">
+          <div class="popup">
+            <div class="popup__content container">
+              <div class="tab">
+                <div class="tab__content">
+                  <div class="container-fluid">
+                    <div class="row preview__top">
+                      <div class="col-6">
+                        <div class="preview__top-left">
+                          <P class="razon-social-local-p"></P>
+                          <p class="direccion-local-p"></p>
+                        </div>
+                      </div>
+                      <div class="col-4 offset-2">
+                        <div class="preview__top-right">
+                          <p>RUC: <span class="ruc-local-p"></span></p>
+                          <p>FACTURA ELECTRÓNICA</p>
+                          <P>F001-<span class="serie-p"></span></P>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row preview__client">
+                      <div class="col-8">
+                        <div class="preview__client-info">
+                          <p><b>Señor(es): </b><span class="razon-social-p"></span></p>
+                          <p><b>RUC No: </b><span class="ruc-p"></span></p>
+                          <p><b>Dirección: </b><span class="direccion-p"></span></p>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="preview__client-date">
+                          <table>
+                            <tr>
+                              <td class="w-50p"><b>Fecha de emisión</b></td>
+                              <td class="w-50p text-right fecha-emision-p"></td>
+                            </tr>
+                            <tr>
+                              <td class="w-50p"><b>Fecha de vencimiento</b></td>
+                              <td class="w-50p text-right fecha-vencimiento-p">20/06/2017</td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row preview__products">
+                      <div class="col-12">
+                        <table class="table" id="products-table-p">
+                          <thead>
+                            <tr>
+                              <td class="w-90"><span class="field__tag center">Cantidad</span></td>
+                              <td class="w-90"><span class="field__tag center">U. de medida</span></td>
+                              <td><span class="field__tag center">Descripción</span></td>
+                              <td class="w-90"><span class="field__tag center">Valor Unit.</span></td>
+                            </tr>
+                          </thead>
+                          <tbody></tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="row preview__footer">
+                      <div class="col-9">
+                        <div class="preview__footer-left">
+                          <p>SON: MIL CUATROCIENTOS CINCUENTA Y OCO CON 90/100 Soles</p>
+                          <div class="row">
+                            <div class="col-9 field__label vertical"><span class="field__tag mb-1">Observación</span>
+                              <textarea class="field default block textarea" name="observacion-p" disabled="disabled"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class="container-fluid">
+                          <div class="row mtb-tr">
+                            <div class="col-6"><span class="field__tag normal-w">Exonerada</span></div>
+                            <div class="col-6">
+                              <input class="field default small-height block" type="text" name="exonerada" disabled="disabled" value="1450.90"/>
+                            </div>
+                          </div>
+                          <div class="row mtb-tr">
+                            <div class="col-6"><span class="field__tag normal-w">Inafecta</span></div>
+                            <div class="col-6">
+                              <input class="field default small-height block" type="text" name="inafecta" disabled="disabled" value="1450.90"/>
+                            </div>
+                          </div>
+                          <div class="row mtb-tr">
+                            <div class="col-6"><span class="field__tag normal-w">Gravada</span></div>
+                            <div class="col-6">
+                              <input class="field default small-height block" type="text" name="gravada" disabled="disabled" value="1450.90"/>
+                            </div>
+                          </div>
+                          <div class="row mtb-tr">
+                            <div class="col-6"><span class="field__tag normal-w">IGV</span></div>
+                            <div class="col-6">
+                              <input class="field default small-height block" type="text" name="igv" disabled="disabled" value="1450.90"/>
+                            </div>
+                          </div>
+                          <div class="row mtb-tr">
+                            <div class="col-6"><span class="field__tag normal-w">Otros cargos</span></div>
+                            <div class="col-6">
+                              <input class="field default small-height block" type="text" name="otros-cargos" disabled="disabled" value="1450.90"/>
+                            </div>
+                          </div>
+                          <div class="row mtb-tr">
+                            <div class="col-6"><span class="field__tag normal-w">Descuento total (-)</span></div>
+                            <div class="col-6">
+                              <input class="field default small-height block" type="text" name="descuento-total" disabled="disabled" value="1450.90"/>
+                            </div>
+                          </div>
+                          <div class="row mtb-tr">
+                            <div class="col-6"><span class="field__tag">TOTAL</span></div>
+                            <div class="col-6">
+                              <input class="field default small-height block" type="text" name="total" disabled="disabled" value="1450.90"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab">
+            <div class="tab__top"><span class="tab__title">CONSULTA DE EMISIONES</span></div>
+            <div class="tab__content">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-4">
+                    <label class="label--inline"><span>Tipo de Documento</span>
+                      <select class="native-select bordered" name="tipo-documento">
+                        <option value="0" selected="selected" disabled="disabled">Seleccionar</option>
+                        <option value="1">Factura</option>
+                        <option value="2">Boleta</option>
+                        <option value="3">Nota de Crédito</option>
+                        <option value="4">Nota de Débito</option>
+                        <option value="5">Bajas</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div class="col-md-3 offset-md-2">
+                    <label class="label--inline"><span>Desde</span>
+                      <input class="field bordered" type="date" name="fecha-desde"/>
+                    </label>
+                  </div>
+                  <div class="col-md-3">
+                    <label class="label--inline"><span>Hasta</span>
+                      <input class="field bordered" type="date" name="fecha-hasta"/>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <table class="table table--striped table--consulta-emisiones mt-2" id="consulta-emisiones">
+                    <thead>
+                      <tr>
+                        <td><span class="field__tag center">Fecha</span></td>
+                        <td><span class="field__tag center">Tipo</span></td>
+                        <td><span class="field__tag center">Tipo de Documento</span></td>
+                        <td><span class="field__tag center">Entidad</span></td>
+                        <td><span class="field__tag center">Monto</span></td>
+                        <td><span class="field__tag center">Estado</span></td>
+                        <td><span class="field__tag center">Sunat</span></td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr title="Ver documento">
+                        <td>Fecha</td>
+                        <td>Tipo</td>
+                        <td>Tipo de Documento</td>
+                        <td>Entidad</td>
+                        <td>Monto</td>
+                        <td>Estado</td>
+                        <td>Sunat</td>
+                      </tr>
+                      <tr title="Ver documento">
+                        <td>Fecha</td>
+                        <td>Tipo</td>
+                        <td>Tipo de Documento</td>
+                        <td>Entidad</td>
+                        <td>Monto</td>
+                        <td>Estado</td>
+                        <td>Sunat</td>
+                      </tr>
+                      <tr title="Ver documento">
+                        <td>Fecha</td>
+                        <td>Tipo</td>
+                        <td>Tipo de Documento</td>
+                        <td>Entidad</td>
+                        <td>Monto</td>
+                        <td>Estado</td>
+                        <td>Sunat</td>
+                      </tr>
+                      <tr title="Ver documento">
+                        <td>Fecha</td>
+                        <td>Tipo</td>
+                        <td>Tipo de Documento</td>
+                        <td>Entidad</td>
+                        <td>Monto</td>
+                        <td>Estado</td>
+                        <td>Sunat</td>
+                      </tr>
+                      <tr title="Ver documento">
+                        <td>Fecha</td>
+                        <td>Tipo</td>
+                        <td>Tipo de Documento</td>
+                        <td>Entidad</td>
+                        <td>Monto</td>
+                        <td>Estado</td>
+                        <td>Sunat</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="row mt-1">
+              <div class="col-12">
+                <button class="btn alt float-right new-product-row">Descargar Historial</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script src="js/vendors/jquery-3.3.1.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/resumen-emisiones.js"></script>
+</html>
