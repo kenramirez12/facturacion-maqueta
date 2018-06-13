@@ -1,0 +1,524 @@
+{
+   "objeto":null,
+   "objetos":[
+      {
+         "fecha":"13/03/2018",
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":"13/03/2018",
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":"13/03/2018",
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":"13/03/2018",
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":"13/03/2018",
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":"13/03/2018",
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":"13/03/2018",
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":"12/03/2018",
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":"BO",
+         "sunat":null
+      },
+      {
+         "fecha":"09/03/2018",
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":"CR",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"3",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":"CR",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":300.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":null,
+         "entidad":"Servicios Generales Nuevo Amanecer EIRL",
+         "monto":470.00,
+         "estado":null,
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      },
+      {
+         "fecha":null,
+         "tipoDocumento":"1",
+         "entidad":"GM CONTRATISTA",
+         "monto":1450.90,
+         "estado":"EN",
+         "sunat":null
+      }
+   ],
+   "audit":{
+      "errorCode":null,
+      "errorMsg":null,
+      "msgId":null
+   },
+   "validated":false,
+   "errorMessages":null
+}
