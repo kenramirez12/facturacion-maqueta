@@ -138,7 +138,7 @@ block content
                                     option(value="5") Bajas
                                 //- span.response.error Debe elegir la fecha de emisión
                     
-                    .col-md-3.offset-md-2
+                    .col-md-3
                         label.label--inline
                             span Desde
                             input.field.bordered(type="date", name="fecha-desde")
@@ -148,6 +148,9 @@ block content
                             span Hasta
                             input.field.bordered(type="date", name="fecha-hasta")
                             //- span.response.error
+                    
+                    .col-md-2
+                        button.btn.alt.float-right(type="button") Buscar
     
                 .row
                     table.table.table--striped.table--consulta-emisiones.mt-2#consulta-emisiones
@@ -174,7 +177,7 @@ block content
     .container-fluid
         .row.mt-1
             .col-12
-                button.btn.alt.float-right.new-product-row Descargar Historial
+                button.btn.bordered.float-right.new-product-row Descargar Historial
 
 block scripts
     script(src="js/consulta-emisiones.js")
