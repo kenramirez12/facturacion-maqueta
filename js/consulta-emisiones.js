@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+    $('body').css('cursor', 'wait')
+
     $('#consulta-emisiones > tbody > tr > td').click(function() {
         popup.fadeIn('fast')
     });
@@ -46,10 +49,13 @@ $(document).ready(function() {
     });
 
 
-    $("select[name^='tipo-documento']").change(function () {
-        let documentTypeVal = $(this).val();
-        getDocumentJson();
-    });
+    // $("select[name^='tipo-documento']").change(function () {
+    //     let documentTypeVal = $(this).val();
+    //     getDocumentJson();
+    // });
+    $('#consultar').click(function() {
+        getDocumentJson()
+    })
 
     function getDocumentJson() {
         var consultaEmisionesForm = $('#consultaEmisiones-frm');
@@ -85,12 +91,15 @@ $(document).ready(function() {
             beforeSend: function () {
                 console.log("jsonData: " + jsonData);
                 //cargando gif
+                $('body').css('cursor', 'wait')
             },
             success: function (data) {
                 //agregar efecto en la grilla, de cargado
                 console.log("data: " + data);
+                $('body').css('cursor', 'default')
             },
             error: function (e) {
+                $('body').css('cursor', 'default')
                 var response;
                 if (e.status == "400") {
                     response = jQuery.parseJSON(e.responseText);
