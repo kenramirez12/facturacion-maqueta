@@ -2592,6 +2592,11 @@ input[type="checkbox"]:checked + .slider:before,
     margin-bottom: 1rem; }
   .alert__close-btn {
     cursor: pointer; }
+  .alert__link {
+    color: #e4ebf7;
+    font-weight: 700; }
+    .alert__link:hover {
+      text-decoration: underline; }
 
 .tag {
   display: inline-block;
@@ -2636,5 +2641,9 @@ input[type="checkbox"]:checked + .slider:before,
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1; }
+
+.link--small {
+  font-size: 0.8rem;
+  color: #222636; }
 
 /*# sourceMappingURL=main.css.map */

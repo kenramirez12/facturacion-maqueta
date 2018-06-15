@@ -16,6 +16,16 @@
     &__close-btn {
         cursor: pointer;
     }
+
+    &__link {
+        color: $white-text;
+        font-weight: 700;
+        // text-decoration: underline;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
 .tag {
