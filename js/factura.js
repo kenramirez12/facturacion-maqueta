@@ -330,7 +330,9 @@ $(document).ready(function() {
             },
             success: function (data) {
                 alert("data.status : "+ data);
-                $('form')[0].reset();
+                //Form Reset
+                $('input[type=text], input[type=number], input[type=hidden], select').val('')
+
             }
         }); 
     });
@@ -416,9 +418,7 @@ $(document).ready(function() {
     $('#primerboton, #segundoboton').click(function() {
         // e.preventDefault
         if($(this).is('#primerboton')) {
-            console.log('ola')
         } else {
-            console.log('chao')
         }
     })
 
