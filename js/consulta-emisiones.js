@@ -1,12 +1,6 @@
 $(document).ready(function() {
 
-    $('#consulta-emisiones > tbody > tr > td').click(function() {
-        popup.fadeIn('fast')
-    });
-
     var tipoDocumentoArray = ['Nulo', 'Factura', 'Boleta', 'Nota de Crédito', 'Nota de Débito', 'Bajas']
-
-    console.log(tipoDocumentoArray[0])
 
     var data = [
         {
@@ -45,6 +39,13 @@ $(document).ready(function() {
         `
         $('#consulta-emisiones > tbody').append(newItem)
     });
+
+    emisionesList = document.querySelectorAll('#consulta-emisiones > tbody > tr')
+    for(let i = 0; i < emisionesList.length; i++) {
+        emisionesList[i].addEventListener('click', function() {
+            popup.fadeIn('fast')
+        })
+    }
 
 
     // $("select[name^='tipo-documento']").change(function () {
