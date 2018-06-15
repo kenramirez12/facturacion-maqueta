@@ -83,7 +83,7 @@ let clientMenuFlag = 0
             e.target.classList.contains('client-bar__name') || 
             e.target.classList.contains('client-bar__avatar') || 
             e.target.classList.contains('client-bar__info') || 
-            e.target.classList.contains('client-bar__menu-btm')
+            e.target.classList.contains('client-bar__menu-btn')
         ) {
             // Se intentó desplegar el menú
         } else {

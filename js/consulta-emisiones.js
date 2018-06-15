@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-    $('body').css('cursor', 'wait')
-
     $('#consulta-emisiones > tbody > tr > td').click(function() {
         popup.fadeIn('fast')
     });
