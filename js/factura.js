@@ -239,7 +239,7 @@ $(document).ready(function() {
         invoiceDetails = [];
 
         // Elaborar array invoiceDetails
-        $('.table > tbody > tr').each(function() {
+        $('#products-table > tbody > tr').each(function() {
             var servicio = $(this).children('td').eq(0).children().val(),
                 unidMedida = $(this).children('td').eq(1).children().val(),
                 cantidad = $(this).children('td').eq(2).children().val(),
@@ -361,7 +361,17 @@ $(document).ready(function() {
             // Datos de la Factura
             // serieValue = $('input[name=serie]').val()
             fechaEmisionValue = $('input[name=fecha-emision]').val()
+            if(fechaEmisionValue != '') {
+                fechaEmisionValue = fechaEmisionValue.split("-")
+                fechaEmisionValue = fechaEmisionValue[1] + "-" + fechaEmisionValue[2] + "-" + fechaEmisionValue[0]
+            }
+
             fechaVencimientoValue = $('input[name=fecha-vencimiento]').val()
+            if(fechaVencimientoValue != '') {
+                fechaVencimientoValue = fechaVencimientoValue.split("-")
+                fechaVencimientoValue = fechaVencimientoValue[1] + "-" + fechaVencimientoValue[2] + "-" + fechaVencimientoValue[0]
+            }
+
             observacionValue = $('textarea[name=observacion]').val()        
 
             // Productos
