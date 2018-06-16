@@ -2202,14 +2202,14 @@ input[type="checkbox"]:checked + .slider:before,
     z-index: 999; }
     .client-bar__menu.active {
       display: block; }
-  .client-bar__menu-item {
-    padding: 0 15px; }
-    .client-bar__menu-item:hover {
-      background-color: #ecf0f1; }
+  .client-bar__menu-item:hover {
+    background-color: #ecf0f1; }
   .client-bar__menu-link {
+    display: block;
+    padding: 10px 15px;
     color: #222636;
     font-size: 0.9rem;
-    line-height: 2rem; }
+    white-space: nowrap; }
   .client-bar__response {
     background-color: #73a5db;
     height: 100%;

@@ -60,17 +60,19 @@
     }
 
     &__menu-item {
-        padding: 0 15px;
-
+        
         &:hover {
             background-color: $grey-bg;
         }
     }
-
+    
     &__menu-link {
+        display: block;
+        padding: 10px 15px;
         color: $alt-c;
         font-size: 0.9rem;
-        line-height: 2rem;
+        white-space: nowrap;
+        // line-height: 2rem;
     }
 
     &__response {
