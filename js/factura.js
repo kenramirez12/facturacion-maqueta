@@ -363,7 +363,7 @@ $(document).ready(function() {
             fechaEmisionValue = $('input[name=fecha-emision]').val()
             if(fechaEmisionValue != '') {
                 fechaEmisionValue = fechaEmisionValue.split("-")
-                fechaEmisionValue = fechaEmisionValue[1] + "-" + fechaEmisionValue[2] + "-" + fechaEmisionValue[0]
+                fechaEmisionValue = fechaEmisionValue[2] + "/" + fechaEmisionValue[1] + "/" + fechaEmisionValue[0]
             }
 
             fechaVencimientoValue = $('input[name=fecha-vencimiento]').val()
