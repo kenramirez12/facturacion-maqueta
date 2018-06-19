@@ -84,6 +84,7 @@
                               <td class="w-90"><span class="field__tag center">U. de medida</span></td>
                               <td><span class="field__tag center">Descripción</span></td>
                               <td class="w-90"><span class="field__tag center">Valor Unit.</span></td>
+                              <td class="w-90"><span class="field__tag center">Importe</span></td>
                             </tr>
                           </thead>
                           <tbody></tbody>
@@ -267,7 +268,7 @@
                           <td class="min-w-180"><span class="field__tag center">Tipo de IGV</span></td>
                           <td class="w-100"><span class="field__tag center">Valor Unit.</span></td>
                           <td class="w-100"><span class="field__tag center">IGV</span></td>
-                          <td class="w-100"><span class="field__tag center">Total</span></td>
+                          <td class="w-100"><span class="field__tag center">Importe</span></td>
                           <td></td>
                         </tr>
                       </thead>
@@ -285,7 +286,7 @@
                           </select>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="cantidad-1" value="1"/>
+                          <input class="field default block" type="text" name="cantidad-1" value="1" onkeyup="calcularValores(this)"/>
                         </td>
                         <td>
                           <input class="field-description field default block" type="text" name="description-1" value=""/>
@@ -294,7 +295,7 @@
                           <input class="field default block" type="text" name="cod-1" value=""/>
                         </td>
                         <td>
-                          <select class="native-select default" name="tipo-igv-1">
+                          <select class="native-select default" name="tipo-igv-1" onchange="calcularValores(this)">
                             <option value="" disabled="disabled" selected="selected">Seleccionar</option>
                             <option value="10">Gravado - Operación Onerosa</option>
                             <option value="11">Gravado – Retiro por premio</option>
@@ -317,7 +318,7 @@
                           </select>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="valor-unit-1"/>
+                          <input class="field default block" type="text" name="valor-unit-1" onkeyup="calcularValores(this)"/>
                         </td>
                         <td>
                           <input class="field default block" type="text" name="igv-1" disabled="disabled"/>
@@ -340,7 +341,7 @@
                           </select>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="cantidad-2" value="1"/>
+                          <input class="field default block" type="text" name="cantidad-2" value="1" onkeyup="calcularValores(this)"/>
                         </td>
                         <td>
                           <input class="field-description field default block" type="text" name="description-2" value=""/>
@@ -349,7 +350,7 @@
                           <input class="field default block" type="text" name="cod-2" value=""/>
                         </td>
                         <td>
-                          <select class="native-select default" name="tipo-igv-2">
+                          <select class="native-select default" name="tipo-igv-2" onchange="calcularValores(this)">
                             <option value="" disabled="disabled" selected="selected">Seleccionar</option>
                             <option value="10">Gravado - Operación Onerosa</option>
                             <option value="11">Gravado – Retiro por premio</option>
@@ -372,7 +373,7 @@
                           </select>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="valor-unit-2"/>
+                          <input class="field default block" type="text" name="valor-unit-2" onkeyup="calcularValores(this)"/>
                         </td>
                         <td>
                           <input class="field default block" type="text" name="igv-2" disabled="disabled"/>
@@ -395,7 +396,7 @@
                           </select>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="cantidad-3" value="1"/>
+                          <input class="field default block" type="text" name="cantidad-3" value="1" onkeyup="calcularValores(this)"/>
                         </td>
                         <td>
                           <input class="field-description field default block" type="text" name="description-3" value=""/>
@@ -404,7 +405,7 @@
                           <input class="field default block" type="text" name="cod-3" value=""/>
                         </td>
                         <td>
-                          <select class="native-select default" name="tipo-igv-3">
+                          <select class="native-select default" name="tipo-igv-3" onchange="calcularValores(this)">
                             <option value="" disabled="disabled" selected="selected">Seleccionar</option>
                             <option value="10">Gravado - Operación Onerosa</option>
                             <option value="11">Gravado – Retiro por premio</option>
@@ -427,7 +428,7 @@
                           </select>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="valor-unit-3"/>
+                          <input class="field default block" type="text" name="valor-unit-3" onkeyup="calcularValores(this)"/>
                         </td>
                         <td>
                           <input class="field default block" type="text" name="igv-3" disabled="disabled"/>

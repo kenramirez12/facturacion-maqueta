@@ -27,10 +27,16 @@ $(document).ready(function() {
                     if (inputRUC.classList.contains('error')) inputRUC.classList.remove('error')
                     inputRUC.classList.add("success")
                     spinner.style.display = "none"
-
+                    
                     $("input[name='razon-social']").val(response['razon_social'])
                     $("input[name='direccion']").val(response['direccion'])
                 }
+            })
+            .fail(function() {
+                inputRUC.disabled = ""
+                if (inputRUC.classList.contains('success')) inputRUC.classList.remove('success')
+                inputRUC.classList.add("error")
+                spinner.style.display = "none"
             })
 
         } else {
@@ -39,9 +45,13 @@ $(document).ready(function() {
         }
     })
 
-
-    /* Cálculos según IGV */
-    function calcularValores(cantidad, valorUnit, tipoIgv, campoIgv, campoTotal) {
+    calcularValores = function(that) {
+        tr = $(that).parent().parent()
+        cantidad = tr.children('td').eq(2).children().val()
+        valorUnit = tr.children('td').eq(6).children().val()
+        tipoIgv = tr.children('td').eq(5).children().val()
+        campoIgv = tr.children('td').eq(7).children()
+        campoTotal = tr.children('td').eq(8).children()
 
         valorIgv = 0 // Valor inicial de IGV
         valorUnitTotal = valorUnit * cantidad
@@ -49,42 +59,56 @@ $(document).ready(function() {
         valorTotal = valorUnitTotal + valorIgv
 
         // Setear valores
-        campoIgv.value = valorIgv
-        campoTotal.value = valorTotal
+        campoIgv.val(valorIgv)
+        campoTotal.val(valorTotal)
     }
 
-
-    $("input[name^='cantidad-']").keyup(function(e) {
-        cantidad = parseInt(this.value)
-        valorUnit = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.children[0].value
-        tipoIgv = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.children[0].value
-        campoIgv = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.children[0]
-        campoTotal = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.children[0]
+    /* Cálculos según IGV */
+    // function calcularValores(cantidad, valorUnit, tipoIgv, campoIgv, campoTotal) {
         
-        calcularValores(cantidad, valorUnit, tipoIgv, campoIgv, campoTotal)
-    })
+    //     valorIgv = 0 // Valor inicial de IGV
+    //     valorUnitTotal = valorUnit * cantidad
+    //     if(tipoIgv == 10) valorIgv = valorUnitTotal * 0.18 // Calcular IGV 
+    //     valorTotal = valorUnitTotal + valorIgv
 
-    $("input[name^='valor-unit-']").keyup(function(e) {
-        cantidad = this.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.children[0].value
-        valorUnit = parseInt(this.value)
-        tipoIgv = this.parentElement.previousElementSibling.children[0].value
-        campoIgv = this.parentElement.nextElementSibling.children[0]
-        campoTotal = this.parentElement.nextElementSibling.nextElementSibling.children[0]
+    //     // Setear valores
+    //     campoIgv.value = valorIgv
+    //     campoTotal.value = valorTotal
+    // }
+
+    // $("input[name^='cantidad-']").keyup(function(e) {
+
+    //     cantidad = parseInt(this.value)
+    //     valorUnit = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.children[0].value
+    //     tipoIgv = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.children[0].value
+    //     campoIgv = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.children[0]
+    //     campoTotal = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.children[0]
         
-        calcularValores(cantidad, valorUnit, tipoIgv, campoIgv, campoTotal)
+    //     calcularValores($(this))
+    // })
 
-    })
+    // $("input[name^='valor-unit-']").keyup(function(e) {
+    //     cantidad = this.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.children[0].value
+    //     valorUnit = parseInt(this.value)
+    //     tipoIgv = this.parentElement.previousElementSibling.children[0].value
+    //     campoIgv = this.parentElement.nextElementSibling.children[0]
+    //     campoTotal = this.parentElement.nextElementSibling.nextElementSibling.children[0]
+        
+    //     calcularValores($(this))
 
-    $("select[name^='tipo-igv-']").change(function() {
-        cantidad = this.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.children[0].value
-        valorUnit = parseInt(this.parentElement.nextElementSibling.children[0].value)
-        tipoIgv = this.value
-        campoIgv = this.parentElement.nextElementSibling.nextElementSibling.children[0]
-        campoTotal = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.children[0]
+    // })
 
-        calcularValores(cantidad, valorUnit, tipoIgv, campoIgv, campoTotal)
+    // // $("select[name^='tipo-igv-']").change(function() {
+    // $("select[name^='tipo-igv-']").change(function() {
+    //     cantidad = this.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.children[0].value
+    //     valorUnit = parseInt(this.parentElement.nextElementSibling.children[0].value)
+    //     tipoIgv = this.value
+    //     campoIgv = this.parentElement.nextElementSibling.nextElementSibling.children[0]
+    //     campoTotal = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.children[0]
 
-    })
+    //     calcularValores($(this))
+
+    // })
 
 
     /* Crear nueva columna de Producto */
@@ -177,7 +201,7 @@ $(document).ready(function() {
                     newRow += `</select>
                 </td>
                 <td>
-                    <input class="field default block" type="text" name="cantidad-${rowId}" value="1">
+                    <input class="field default block" type="text" name="cantidad-${rowId}" value="1" onkeyup="calcularValores(this)">
                 </td>
                 <td>
                 <input class="field-description field default block" type="text" name="description-${rowId}">
@@ -186,7 +210,7 @@ $(document).ready(function() {
                     <input class="field default block" type="text" name="cod-${rowId}">
                 </td>
                 <td>
-                <select class="native-select default" name="tipo-igv-${rowId}">
+                <select class="native-select default" name="tipo-igv-${rowId}" onchange="calcularValores(this)">
                     <option value="" disabled="disabled" selected="selected">Seleccionar</option>`;
 
 
@@ -197,7 +221,7 @@ $(document).ready(function() {
                 newRow += `</select>
                 </td>
                 <td>
-                    <input class="field default block" type="text" name="valor-unit-${rowId}">
+                    <input class="field default block" type="text" name="valor-unit-${rowId}" onkeyup="calcularValores(this)">
                 </td>
                 <td>
                     <input class="field default block" type="text" name="igv-${rowId}" disabled>
@@ -381,6 +405,7 @@ $(document).ready(function() {
                 uMedida = $(this).children('td').eq(1).children().val()
                 descripcion = $(this).children('td').eq(3).children().val()
                 valorUnit = $(this).children('td').eq(6).children().val()
+                importe = $(this).children('td').eq(8).children().val()
 
                 console.log(cantidad)
 
@@ -390,6 +415,7 @@ $(document).ready(function() {
                     <td class="text-center">${uMedida}</td>
                     <td class="text-center">${descripcion}</td>
                     <td class="text-center">${valorUnit}</td>
+                    <td class="text-center">${importe}</td>
                 </tr>
                 `
             })

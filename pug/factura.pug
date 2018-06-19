@@ -56,6 +56,7 @@ block content
                                             td.w-90: span.field__tag.center U. de medida
                                             td: span.field__tag.center Descripción
                                             td.w-90: span.field__tag.center Valor Unit.
+                                            td.w-90: span.field__tag.center Importe
                                     tbody
 
                         .row.preview__footer
@@ -226,7 +227,7 @@ block content
                                     td.min-w-180: span.field__tag.center Tipo de IGV
                                     td.w-100: span.field__tag.center Valor Unit.
                                     td.w-100: span.field__tag.center IGV
-                                    td.w-100: span.field__tag.center Total
+                                    td.w-100: span.field__tag.center Importe
                                     td
                             tbody
                             - for(i = 0; i < 3; i++) {
@@ -239,11 +240,11 @@ block content
                                             option(value="2") Mts
                                             option(value="3") UND
 
-                                    td: input(type="text", name="cantidad-" + (i + 1), value="1").field.default.block
+                                    td: input(type="text", name="cantidad-" + (i + 1), value="1", onkeyup="calcularValores(this)").field.default.block
                                     td: input(type="text", class="field-description" name="description-" + (i + 1), value="").field.default.block
                                     td: input(type="text", name="cod-" + (i + 1), value="").field.default.block
                                     td
-                                        select.native-select.default(name="tipo-igv-" + (i + 1))
+                                        select.native-select.default(name="tipo-igv-" + (i + 1), onchange="calcularValores(this)")
                                             option(value="", disabled, selected) Seleccionar
                                             option(value="10") Gravado - Operación Onerosa
                                             option(value="11") Gravado – Retiro por premio
@@ -264,7 +265,7 @@ block content
                                             option(value="36") Inafecto - Retiro por publicidad
                                             option(value="37") Exportación
 
-                                    td: input(type="text", name="valor-unit-" + (i + 1)).field.default.block
+                                    td: input(type="text", name="valor-unit-" + (i + 1), onkeyup="calcularValores(this)").field.default.block
                                     td: input(type="text", name="igv-" + (i + 1), disabled).field.default.block
                                     td: input(type="text", name="total-" + (i + 1), disabled).field.default.block
                                     td: a.delete-product(href="#"): img.delete-product__icon(src="./img/trash.svg", alt="")
