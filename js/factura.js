@@ -45,70 +45,107 @@ $(document).ready(function() {
         }
     })
 
+    /** Cálculo de valores */
+    // Gravado - Operación Onerosa , value 10
+    // Gravado – Retiro por premio , value 11
+    // Gravado – Retiro por donación , value 12
+    // Gravado – Retiro, value 13
+    // Gravado – Retiro por publicidad , value 14
+    // Gravado – Bonificaciones , value 15
+    // Gravado – Retiro por entrega a trabajadores , value 16
+    // Gravado – IVAP , value 17 ESTE FALTA
+    // Exonerado - Operación Onerosa , value 20
+    // Exonerado – Transferencia Gratuita , value 21 ESTE FALTA
+    // Inafecto - Operación Onerosa , value 30
+    // Inafecto – Retiro por Bonificación , value 31
+    // Inafecto – Retiro , value 32
+    // Inafecto – Retiro por Muestras Médicas , value 33
+    // Inafecto - Retiro por Convenio Colectivo , value 34
+    // Inafecto – Retiro por premio , value 35
+    // Inafecto - Retiro por publicidad , value 36
+    // Exportación, value 37
+
+    // Exonerada 20
+    // Inafecta 37, 30
+    // Gravada 10
+    // Gratuita 11, 12, 13, 14, 15, 16, 36, 35, 34, 33, 32, 31
+
+    // Array de correspondencias tipo igv - campos subtotales
+    tiposParaExonerada = [20]
+    tiposParaInafecta = [30, 37]
+    tiposParaGravada = [10]
+    tiposParaGratuita = [11, 12, 13, 14, 15, 16, 31, 32, 33, 34, 35, 36]
+
+    exonerada = $('input[name=exonerada]')
+    inafecta = $('input[name=inafecta]')
+    gravada = $('input[name=gravada]')
+    gratuita = $('input[name=gratuita]')
+    igv = $('input[name=igv]')
+    total = $('input[name=total]')
+
+    porcentajeIgv = 0.18;
+
     calcularValores = function(that) {
         tr = $(that).parent().parent()
         cantidad = tr.children('td').eq(2).children().val()
         valorUnit = tr.children('td').eq(6).children().val()
-        tipoIgv = tr.children('td').eq(5).children().val()
+        tipoIgv = parseInt(tr.children('td').eq(5).children().val())
         campoIgv = tr.children('td').eq(7).children()
         campoTotal = tr.children('td').eq(8).children()
 
         valorIgv = 0 // Valor inicial de IGV
         valorUnitTotal = valorUnit * cantidad
-        if(tipoIgv == 10) valorIgv = valorUnitTotal * 0.18 // Calcular IGV 
+        if(tipoIgv == 10) valorIgv = valorUnitTotal * porcentajeIgv // Calcular IGV 
         valorTotal = valorUnitTotal + valorIgv
 
-        // Setear valores
+        // Setear valores en grilla de productos
         campoIgv.val(valorIgv)
         campoTotal.val(valorTotal)
+
+        // Setear valores en sub totales
+        if(tipoIgv) {
+
+            if ($.inArray(tipoIgv, tiposParaExonerada) != -1) {
+
+                subtotalExonerada = parseFloat(exonerada.val()) + parseFloat(valorUnitTotal)
+                exonerada.val(subtotalExonerada)
+
+            } else if ($.inArray(tipoIgv, tiposParaInafecta) != -1) {
+
+                subtotalInafecta = parseFloat(inafecta.val()) + parseFloat(valorUnitTotal)
+                inafecta.val(subtotalInafecta)
+
+            } else if ($.inArray(tipoIgv, tiposParaGravada) != -1) {
+
+                subtotalGravada = parseFloat($(gravada).val()) + parseFloat(valorUnitTotal)
+                $(gravada).val(subtotalGravada)
+
+            } else if ($.inArray(tipoIgv, tiposParaGratuita) != -1) {
+
+                subtotalGratuita = parseFloat(gratuita.val()) + parseFloat(valorUnitTotal)
+                gratuita.val(subtotalGratuita)
+
+            } else {
+                console.log('No se ha registrado el tipo de IGV')
+            }
+
+        } else {
+            console.log('No se ha definido el tipo de IGV')
+        }
+
+        // Setear IGV
+        valorIgvFinal = parseFloat(igv.val()) + valorIgv
+        igv.val(valorIgvFinal)
+
+        //Setear Total
+        valorTotalFinal = 0
+        $('input[name^=total-').each(function() {
+            if($(this).val() != '' || $(this).val() != 0) {
+                valorTotalFinal = valorTotalFinal + parseFloat($(this).val())
+            }
+        })
+        total.val(valorTotalFinal)
     }
-
-    /* Cálculos según IGV */
-    // function calcularValores(cantidad, valorUnit, tipoIgv, campoIgv, campoTotal) {
-        
-    //     valorIgv = 0 // Valor inicial de IGV
-    //     valorUnitTotal = valorUnit * cantidad
-    //     if(tipoIgv == 10) valorIgv = valorUnitTotal * 0.18 // Calcular IGV 
-    //     valorTotal = valorUnitTotal + valorIgv
-
-    //     // Setear valores
-    //     campoIgv.value = valorIgv
-    //     campoTotal.value = valorTotal
-    // }
-
-    // $("input[name^='cantidad-']").keyup(function(e) {
-
-    //     cantidad = parseInt(this.value)
-    //     valorUnit = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.children[0].value
-    //     tipoIgv = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.children[0].value
-    //     campoIgv = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.children[0]
-    //     campoTotal = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.children[0]
-        
-    //     calcularValores($(this))
-    // })
-
-    // $("input[name^='valor-unit-']").keyup(function(e) {
-    //     cantidad = this.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.children[0].value
-    //     valorUnit = parseInt(this.value)
-    //     tipoIgv = this.parentElement.previousElementSibling.children[0].value
-    //     campoIgv = this.parentElement.nextElementSibling.children[0]
-    //     campoTotal = this.parentElement.nextElementSibling.nextElementSibling.children[0]
-        
-    //     calcularValores($(this))
-
-    // })
-
-    // // $("select[name^='tipo-igv-']").change(function() {
-    // $("select[name^='tipo-igv-']").change(function() {
-    //     cantidad = this.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.children[0].value
-    //     valorUnit = parseInt(this.parentElement.nextElementSibling.children[0].value)
-    //     tipoIgv = this.value
-    //     campoIgv = this.parentElement.nextElementSibling.nextElementSibling.children[0]
-    //     campoTotal = this.parentElement.nextElementSibling.nextElementSibling.nextElementSibling.children[0]
-
-    //     calcularValores($(this))
-
-    // })
 
 
     /* Crear nueva columna de Producto */
@@ -201,7 +238,7 @@ $(document).ready(function() {
                     newRow += `</select>
                 </td>
                 <td>
-                    <input class="field default block" type="text" name="cantidad-${rowId}" value="1" onkeyup="calcularValores(this)">
+                    <input class="field default block" type="number" name="cantidad-${rowId}" value="1" onkeyup="calcularValores(this)">
                 </td>
                 <td>
                 <input class="field-description field default block" type="text" name="description-${rowId}">
@@ -221,7 +258,7 @@ $(document).ready(function() {
                 newRow += `</select>
                 </td>
                 <td>
-                    <input class="field default block" type="text" name="valor-unit-${rowId}" onkeyup="calcularValores(this)">
+                    <input class="field default block" type="number" name="valor-unit-${rowId}" onkeyup="calcularValores(this)">
                 </td>
                 <td>
                     <input class="field default block" type="text" name="igv-${rowId}" disabled>
@@ -403,6 +440,7 @@ $(document).ready(function() {
             $('#products-table > tbody > tr').each(function() {
                 cantidad = $(this).children('td').eq(2).children().val()
                 uMedida = $(this).children('td').eq(1).children().val()
+                uMedida = (uMedida != '') ? uMedida : '—'
                 descripcion = $(this).children('td').eq(3).children().val()
                 valorUnit = $(this).children('td').eq(6).children().val()
                 importe = $(this).children('td').eq(8).children().val()
@@ -420,6 +458,13 @@ $(document).ready(function() {
                 `
             })
 
+            //Subtotales
+            exonerada = $('input[name=exonerada]').val()
+            inafecta = $('input[name=inafecta]').val()
+            gravada = $('input[name=gravada]').val()
+            gratuita = $('input[name=gratuita]').val()
+            total = $('input[name=total]').val()
+
 
         $('.razon-social-local-p').text(razonSocialLocalValue)
         $('.direccion-local-p').text(direccionLocalValue)
@@ -435,6 +480,12 @@ $(document).ready(function() {
         $('textarea[name=observacion-p]').html(observacionValue)
 
         $('#products-table-p > tbody').html(productos)
+
+        $('input[name=exonerada-p]').val(exonerada)
+        $('input[name=inafecta-p]').val(inafecta)
+        $('input[name=gravada-p]').val(gravada)
+        $('input[name=gratuita-p]').val(gratuita)
+        $('input[name=total-p]').val(total)
     })
 
     obtenerProductos = function() {
@@ -458,65 +509,4 @@ $(document).ready(function() {
         }
     })
 
-
-    /** Calculos sub totales */
-    // Gravado - Operación Onerosa , value 10
-    // Gravado – Retiro por premio , value 11
-    // Gravado – Retiro por donación , value 12
-    // Gravado – Retiro, value 13
-    // Gravado – Retiro por publicidad , value 14
-    // Gravado – Bonificaciones , value 15
-    // Gravado – Retiro por entrega a trabajadores , value 16
-    // Gravado – IVAP , value 17 ESTE FALTA
-    // Exonerado - Operación Onerosa , value 20
-    // Exonerado – Transferencia Gratuita , value 21 ESTE FALTA
-    // Inafecto - Operación Onerosa , value 30
-    // Inafecto – Retiro por Bonificación , value 31
-    // Inafecto – Retiro , value 32
-    // Inafecto – Retiro por Muestras Médicas , value 33
-    // Inafecto - Retiro por Convenio Colectivo , value 34
-    // Inafecto – Retiro por premio , value 35
-    // Inafecto - Retiro por publicidad , value 36
-    // Exportación, value 37
-
-    // % Descuento
-    // Anticipo (-)
-    // Exonerada 20
-    // Inafecta 37, 30
-    // Gravada 10
-    // IGV
-    // Gratuita 11, 12, 13, 14, 15, 16, 36, 35, 34, 33, 32, 31
-    // Otros cargos
-    // Descuento total (-)
-    // TOTAL
-
-    
-    function actualizarSubtotales() {
-        tiposParaExonerada = ['20']
-        tiposParaInafecta = [30, 37]
-        tiposParaGravada = [10]
-        tiposParaGratuita = [11, 12, 13, 14, 15, 16, 31, 32, 33, 34, 35, 36]
-        subtotalExonerada = '',
-        subtotalInafecta = '',
-        subtotalGravada = '',
-        subtotalGratuita = ''
-
-        $('select[name^=tipo-igv-').each(function() {
-            total = $(this).parent().next().next().next().children().val()
-            parseFloat(subtotalExonerada)
-            parseFloat(total)
-
-            if(jQuery.inArray('10', tiposParaExonerada)) subtotalExonerada += total
-            if(jQuery.inArray('10', tiposParaInafecta)) subtotalInafecta += total
-            if(jQuery.inArray('10', tiposParaGravada)) subtotalGravada += total
-            if(jQuery.inArray('10', tiposParaGratuita)) subtotalGratuita += total
-        })
-
-        console.log(`Exonerada es: ${subtotalExonerada}`)
-        console.log(`Inafecta es: ${subtotalInafecta}`)
-        console.log(`Gravada es: ${subtotalGravada}`)
-        console.log(`Gratuita es: ${subtotalGratuita}`)
-    }
-    
-    $('select[name^=tipo-igv-').change(function() { actualizarSubtotales() })
 })

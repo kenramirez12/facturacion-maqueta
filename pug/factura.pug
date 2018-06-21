@@ -66,60 +66,60 @@ block content
 
                                     .row
                                         .col-9.field__label.vertical
-                                            span.field__tag.mb-1 Observación
+                                            span.field__tag.mb-1 Información Adicional
                                             textarea.field.default.block.textarea(name="observacion-p", disabled)
                             .col-3
                                 .container-fluid
-                                    //- .row.mtb-tr
-                                    //-     .col-6
-                                    //-         span.field__tag.normal-w % Descuento
-                                    //-     .col-6
-                                    //-         input.field.default.block(type="text", name="descuento", disabled, value="1450.90")
-                                    //- .row.mtb-tr
-                                    //-     .col-6
-                                    //-         span.field__tag.normal-w Anticipo (-)
-                                    //-     .col-6
-                                    //-         input.field.default.small-height.block(type="text", name="anticipo", disabled, value="1450.90")
+                                    .row.mtb-tr
+                                        .col-6
+                                            span.field__tag.normal-w % Descuento
+                                        .col-6
+                                            input.field.default.block(type="text", name="descuento", disabled, value="0")
+                                    .row.mtb-tr
+                                        .col-6
+                                            span.field__tag.normal-w Anticipo (-)
+                                        .col-6
+                                            input.field.default.small-height.block(type="text", name="anticipo", disabled, value="0")
                                     .row.mtb-tr
                                         .col-6
                                             span.field__tag.normal-w Exonerada
                                         .col-6
-                                            input.field.default.small-height.block(type="text", name="exonerada", disabled, value="1450.90")
+                                            input.field.default.small-height.block(type="text", name="exonerada-p", disabled, value="0")
                                     .row.mtb-tr
                                         .col-6
                                             span.field__tag.normal-w Inafecta
                                         .col-6
-                                            input.field.default.small-height.block(type="text", name="inafecta", disabled, value="1450.90")
+                                            input.field.default.small-height.block(type="text", name="inafecta-p", disabled, value="0")
                                     .row.mtb-tr
                                         .col-6
                                             span.field__tag.normal-w Gravada
                                         .col-6
-                                            input.field.default.small-height.block(type="text", name="gravada", disabled, value="1450.90")
+                                            input.field.default.small-height.block(type="text", name="gravada-p", disabled, value="0")
                                     .row.mtb-tr
                                         .col-6
                                             span.field__tag.normal-w IGV
                                         .col-6
-                                            input.field.default.small-height.block(type="text", name="igv", disabled, value="1450.90")
-                                    //- .row.mtb-tr
-                                    //-     .col-6
-                                    //-         span.field__tag.normal-w Gratuita
-                                    //-     .col-6
-                                    //-         input.field.default.small-height.block(type="text", name="gratuita", disabled, value="1450.90")
+                                            input.field.default.small-height.block(type="text", name="igv-p", disabled, value="0")
+                                    .row.mtb-tr
+                                        .col-6
+                                            span.field__tag.normal-w Gratuita
+                                        .col-6
+                                            input.field.default.small-height.block(type="text", name="gratuita-p", disabled, value="0")
                                     .row.mtb-tr
                                         .col-6
                                             span.field__tag.normal-w Otros cargos
                                         .col-6
-                                            input.field.default.small-height.block(type="text", name="otros-cargos", disabled, value="1450.90")
+                                            input.field.default.small-height.block(type="text", name="otros-cargos-p", disabled, value="0")
                                     .row.mtb-tr
                                         .col-6
                                             span.field__tag.normal-w Descuento total (-)
                                         .col-6
-                                            input.field.default.small-height.block(type="text", name="descuento-total", disabled, value="1450.90")
+                                            input.field.default.small-height.block(type="text", name="descuento-total-p", disabled, value="0")
                                     .row.mtb-tr
                                         .col-6
                                             span.field__tag TOTAL
                                         .col-6
-                                            input.field.default.small-height.block(type="text", name="total", disabled, value="1450.90")
+                                            input.field.default.small-height.block(type="text", name="total-p", disabled, value="0")
 
     .alert.alert--success
         .alert__content
@@ -234,13 +234,14 @@ block content
                                 tr
                                     td: input(type="text", name="servicio-" + (i + 1), value="hola").field.default.block
                                     td
-                                        select.native-select.default(name="unid-medida-" + (i + 1))
-                                            option(value="", disabled, selected) —
-                                            option(value="1") Kg
-                                            option(value="2") Mts
-                                            option(value="3") UND
+                                        input(type="text", name="unid-medida-" + (i + 1)).field.default.block
+                                        //- select.native-select.default(name="unid-medida-" + (i + 1))
+                                        //-     option(value="", disabled, selected) —
+                                        //-     option(value="1") Kg
+                                        //-     option(value="2") Mts
+                                        //-     option(value="3") UND
 
-                                    td: input(type="text", name="cantidad-" + (i + 1), value="1", onkeyup="calcularValores(this)").field.default.block
+                                    td: input(type="number", name="cantidad-" + (i + 1), value="1", onkeyup="calcularValores(this)").field.default.block
                                     td: input(type="text", class="field-description" name="description-" + (i + 1), value="").field.default.block
                                     td: input(type="text", name="cod-" + (i + 1), value="").field.default.block
                                     td
@@ -265,7 +266,7 @@ block content
                                             option(value="36") Inafecto - Retiro por publicidad
                                             option(value="37") Exportación
 
-                                    td: input(type="text", name="valor-unit-" + (i + 1), onkeyup="calcularValores(this)").field.default.block
+                                    td: input(type="number", name="valor-unit-" + (i + 1), onkeyup="calcularValores(this)").field.default.block
                                     td: input(type="text", name="igv-" + (i + 1), disabled).field.default.block
                                     td: input(type="text", name="total-" + (i + 1), disabled).field.default.block
                                     td: a.delete-product(href="#"): img.delete-product__icon(src="./img/trash.svg", alt="")
@@ -278,12 +279,12 @@ block content
                     | Añadir Producto/Servicio
 
         .row.mt-2
-            .col-md-7
+            .col-md-6
                 .tab
                     .tab__content.tab__content--alternative
                         .container-fluid
                             .field__label.vertical
-                                span.field__tag.mb-1 Añadir Observación
+                                span.field__tag.mb-1 Información Adicional
                                 textarea.field.default.block.textarea(name="observacion")
                 
                 .row.mt-3
@@ -295,8 +296,16 @@ block content
                         //- input.btn.bordered(type="submit", value="PREVISUALIZAR")
                         | &nbsp;
                         input.btn.bordered(type="submit", value="GENERAR")
+            
+            .col-md-3
+                .tab
+                    .tab__content.tab__content--alternative
+                        .container-fluid
+                            .field__label.vertical
+                                span.field__tag.mb-1 Enviar por Email
+                                textarea.field.default.block.textarea.textarea--striped(name="correos")
                 
-            .col-md-3.offset-md-2
+            .col-md-3
                 .tab
                     .tab__content.tab__content--alternative
                         .container-fluid
@@ -304,54 +313,52 @@ block content
                                 .col-6
                                     span.field__tag.normal-w % Descuento
                                 .col-6
-                                    input.field.default.block(type="number", name="descuento")
+                                    input.field.default.block(type="number", name="descuento" value="0")
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Anticipo (-)
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="anticipo")
+                                    input.field.default.small-height.block(type="text", name="anticipo" value="0")
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Exonerada
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="exonerada", disabled)
+                                    input.field.default.small-height.block(type="text", name="exonerada", value="0", disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Inafecta
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="inafecta", disabled)
+                                    input.field.default.small-height.block(type="text", name="inafecta",value="0",  disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Gravada
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="gravada", disabled)
+                                    input.field.default.small-height.block(type="text", name="gravada", value="0", disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w IGV
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="igv", disabled)
+                                    input.field.default.small-height.block(type="text", name="igv", value="0", disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Gratuita
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="gratuita", disabled)
+                                    input.field.default.small-height.block(type="text", name="gratuita", value="0", disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Otros cargos
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="otros-cargos")
+                                    input.field.default.small-height.block(type="text", name="otros-cargos", value="0")
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Descuento total (-)
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="descuento-total", disabled)
+                                    input.field.default.small-height.block(type="text", name="descuento-total", disabled, value="0")
                             .row.mtb-1
                                 .col-6
                                     span.field__tag TOTAL
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="total", disabled)
-
-        button#totales(type="button") Calcular
+                                    input.field.default.small-height.block(type="text", name="total", disabled, value="0")
 
 block scripts
     script(src="js/factura.js")

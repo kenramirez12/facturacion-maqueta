@@ -96,7 +96,7 @@
                         <div class="preview__footer-left">
                           <p>SON: MIL CUATROCIENTOS CINCUENTA Y OCO CON 90/100 Soles</p>
                           <div class="row">
-                            <div class="col-9 field__label vertical"><span class="field__tag mb-1">Observación</span>
+                            <div class="col-9 field__label vertical"><span class="field__tag mb-1">Información Adicional</span>
                               <textarea class="field default block textarea" name="observacion-p" disabled="disabled"></textarea>
                             </div>
                           </div>
@@ -105,45 +105,63 @@
                       <div class="col-3">
                         <div class="container-fluid">
                           <div class="row mtb-tr">
+                            <div class="col-6"><span class="field__tag normal-w">% Descuento</span></div>
+                            <div class="col-6">
+                              <input class="field default block" type="text" name="descuento" disabled="disabled" value="0"/>
+                            </div>
+                          </div>
+                          <div class="row mtb-tr">
+                            <div class="col-6"><span class="field__tag normal-w">Anticipo (-)</span></div>
+                            <div class="col-6">
+                              <input class="field default small-height block" type="text" name="anticipo" disabled="disabled" value="0"/>
+                            </div>
+                          </div>
+                          <div class="row mtb-tr">
                             <div class="col-6"><span class="field__tag normal-w">Exonerada</span></div>
                             <div class="col-6">
-                              <input class="field default small-height block" type="text" name="exonerada" disabled="disabled" value="1450.90"/>
+                              <input class="field default small-height block" type="text" name="exonerada-p" disabled="disabled" value="0"/>
                             </div>
                           </div>
                           <div class="row mtb-tr">
                             <div class="col-6"><span class="field__tag normal-w">Inafecta</span></div>
                             <div class="col-6">
-                              <input class="field default small-height block" type="text" name="inafecta" disabled="disabled" value="1450.90"/>
+                              <input class="field default small-height block" type="text" name="inafecta-p" disabled="disabled" value="0"/>
                             </div>
                           </div>
                           <div class="row mtb-tr">
                             <div class="col-6"><span class="field__tag normal-w">Gravada</span></div>
                             <div class="col-6">
-                              <input class="field default small-height block" type="text" name="gravada" disabled="disabled" value="1450.90"/>
+                              <input class="field default small-height block" type="text" name="gravada-p" disabled="disabled" value="0"/>
                             </div>
                           </div>
                           <div class="row mtb-tr">
                             <div class="col-6"><span class="field__tag normal-w">IGV</span></div>
                             <div class="col-6">
-                              <input class="field default small-height block" type="text" name="igv" disabled="disabled" value="1450.90"/>
+                              <input class="field default small-height block" type="text" name="igv-p" disabled="disabled" value="0"/>
+                            </div>
+                          </div>
+                          <div class="row mtb-tr">
+                            <div class="col-6"><span class="field__tag normal-w">Gratuita</span></div>
+                            <div class="col-6">
+                              <input class="field default small-height block" type="text" name="gratuita-p" disabled="disabled" value="0"/>
                             </div>
                           </div>
                           <div class="row mtb-tr">
                             <div class="col-6"><span class="field__tag normal-w">Otros cargos</span></div>
                             <div class="col-6">
-                              <input class="field default small-height block" type="text" name="otros-cargos" disabled="disabled" value="1450.90"/>
+                              <input class="field default small-height block" type="text" name="otros-cargos-p" disabled="disabled" value="0"/>
                             </div>
                           </div>
                           <div class="row mtb-tr">
                             <div class="col-6"><span class="field__tag normal-w">Descuento total (-)</span></div>
                             <div class="col-6">
-                              <input class="field default small-height block" type="text" name="descuento-total" disabled="disabled" value="1450.90"/>
+                              <input class="field default small-height block" type="text" name="descuento-total-p" disabled="disabled" value="0"/>
                             </div>
                           </div>
                           <div class="row mtb-tr">
                             <div class="col-6"><span class="field__tag">TOTAL</span></div>
                             <div class="col-6">
-                              <input class="field default small-height block" type="text" name="total" disabled="disabled" value="1450.90"/>
+                              <input class="field default small-height block" type="text" name="total-p" disabled="disabled" value="0"/>
                             </div>
                           </div>
                         </div>
@@ -278,15 +296,10 @@
                           <input class="field default block" type="text" name="servicio-1" value="hola"/>
                         </td>
                         <td>
-                          <select class="native-select default" name="unid-medida-1">
-                            <option value="" disabled="disabled" selected="selected">—</option>
-                            <option value="1">Kg</option>
-                            <option value="2">Mts</option>
-                            <option value="3">UND</option>
-                          </select>
+                          <input class="field default block" type="text" name="unid-medida-1"/>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="cantidad-1" value="1" onkeyup="calcularValores(this)"/>
+                          <input class="field default block" type="number" name="cantidad-1" value="1" onkeyup="calcularValores(this)"/>
                         </td>
                         <td>
                           <input class="field-description field default block" type="text" name="description-1" value=""/>
@@ -318,7 +331,7 @@
                           </select>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="valor-unit-1" onkeyup="calcularValores(this)"/>
+                          <input class="field default block" type="number" name="valor-unit-1" onkeyup="calcularValores(this)"/>
                         </td>
                         <td>
                           <input class="field default block" type="text" name="igv-1" disabled="disabled"/>
@@ -333,15 +346,10 @@
                           <input class="field default block" type="text" name="servicio-2" value="hola"/>
                         </td>
                         <td>
-                          <select class="native-select default" name="unid-medida-2">
-                            <option value="" disabled="disabled" selected="selected">—</option>
-                            <option value="1">Kg</option>
-                            <option value="2">Mts</option>
-                            <option value="3">UND</option>
-                          </select>
+                          <input class="field default block" type="text" name="unid-medida-2"/>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="cantidad-2" value="1" onkeyup="calcularValores(this)"/>
+                          <input class="field default block" type="number" name="cantidad-2" value="1" onkeyup="calcularValores(this)"/>
                         </td>
                         <td>
                           <input class="field-description field default block" type="text" name="description-2" value=""/>
@@ -373,7 +381,7 @@
                           </select>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="valor-unit-2" onkeyup="calcularValores(this)"/>
+                          <input class="field default block" type="number" name="valor-unit-2" onkeyup="calcularValores(this)"/>
                         </td>
                         <td>
                           <input class="field default block" type="text" name="igv-2" disabled="disabled"/>
@@ -388,15 +396,10 @@
                           <input class="field default block" type="text" name="servicio-3" value="hola"/>
                         </td>
                         <td>
-                          <select class="native-select default" name="unid-medida-3">
-                            <option value="" disabled="disabled" selected="selected">—</option>
-                            <option value="1">Kg</option>
-                            <option value="2">Mts</option>
-                            <option value="3">UND</option>
-                          </select>
+                          <input class="field default block" type="text" name="unid-medida-3"/>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="cantidad-3" value="1" onkeyup="calcularValores(this)"/>
+                          <input class="field default block" type="number" name="cantidad-3" value="1" onkeyup="calcularValores(this)"/>
                         </td>
                         <td>
                           <input class="field-description field default block" type="text" name="description-3" value=""/>
@@ -428,7 +431,7 @@
                           </select>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="valor-unit-3" onkeyup="calcularValores(this)"/>
+                          <input class="field default block" type="number" name="valor-unit-3" onkeyup="calcularValores(this)"/>
                         </td>
                         <td>
                           <input class="field default block" type="text" name="igv-3" disabled="disabled"/>
@@ -449,11 +452,11 @@
               </div>
             </div>
             <div class="row mt-2">
-              <div class="col-md-7">
+              <div class="col-md-6">
                 <div class="tab">
                   <div class="tab__content tab__content--alternative">
                     <div class="container-fluid">
-                      <div class="field__label vertical"><span class="field__tag mb-1">Añadir Observación</span>
+                      <div class="field__label vertical"><span class="field__tag mb-1">Información Adicional</span>
                         <textarea class="field default block textarea" name="observacion"></textarea>
                       </div>
                     </div>
@@ -465,68 +468,79 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 offset-md-2">
+              <div class="col-md-3">
+                <div class="tab">
+                  <div class="tab__content tab__content--alternative">
+                    <div class="container-fluid">
+                      <div class="field__label vertical"><span class="field__tag mb-1">Enviar por Email</span>
+                        <textarea class="field default block textarea textarea--striped" name="correos"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
                 <div class="tab">
                   <div class="tab__content tab__content--alternative">
                     <div class="container-fluid">
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">% Descuento</span></div>
                         <div class="col-6">
-                          <input class="field default block" type="number" name="descuento"/>
+                          <input class="field default block" type="number" name="descuento" value="0"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Anticipo (-)</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="anticipo"/>
+                          <input class="field default small-height block" type="text" name="anticipo" value="0"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Exonerada</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="exonerada" disabled="disabled"/>
+                          <input class="field default small-height block" type="text" name="exonerada" value="0" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Inafecta</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="inafecta" disabled="disabled"/>
+                          <input class="field default small-height block" type="text" name="inafecta" value="0" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Gravada</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="gravada" disabled="disabled"/>
+                          <input class="field default small-height block" type="text" name="gravada" value="0" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">IGV</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="igv" disabled="disabled"/>
+                          <input class="field default small-height block" type="text" name="igv" value="0" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Gratuita</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="gratuita" disabled="disabled"/>
+                          <input class="field default small-height block" type="text" name="gratuita" value="0" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Otros cargos</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="otros-cargos"/>
+                          <input class="field default small-height block" type="text" name="otros-cargos" value="0"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Descuento total (-)</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="descuento-total" disabled="disabled"/>
+                          <input class="field default small-height block" type="text" name="descuento-total" disabled="disabled" value="0"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag">TOTAL</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="total" disabled="disabled"/>
+                          <input class="field default small-height block" type="text" name="total" disabled="disabled" value="0"/>
                         </div>
                       </div>
                     </div>
@@ -534,7 +548,6 @@
                 </div>
               </div>
             </div>
-            <button id="totales" type="button">Calcular</button>
           </form>
         </div>
       </main>
