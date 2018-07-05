@@ -4,122 +4,7 @@ append config
     -var currentPage = "factura"
 
 block content
-    .popup
-        .popup__content.container
-            //- .popup__close CERRAR [X]
-            .tab
-                .tab__content
-                    .container-fluid
-                        .row.preview__top
-                            .col-6
-                                .preview__top-left
-                                    //- img(src="#", alt="")
-                                    P.razon-social-local-p
-                                    p.direccion-local-p
-                            .col-4.offset-2
-                                .preview__top-right
-                                    p RUC: 
-                                        span.ruc-local-p
-                                    p FACTURA ELECTRÓNICA
-                                    P F001-
-                                        span.serie-p
-                        
-                        .row.preview__client
-                            .col-8
-                                .preview__client-info
-                                    p
-                                        b Señor(es): 
-                                        span.razon-social-p
-                                    p
-                                        b RUC No: 
-                                        span.ruc-p
-                                    p
-                                        b Dirección: 
-                                        span.direccion-p
-
-                            .col-4
-                                .preview__client-date
-                                    table
-                                        tr
-                                            td.w-50p: b Fecha de emisión
-                                            td.w-50p.text-right.fecha-emision-p
-                                        tr
-                                            td.w-50p: b Fecha de vencimiento
-                                            td.w-50p.text-right.fecha-vencimiento-p 20/06/2017
-
-                        .row.preview__products
-                            .col-12
-                                table.table#products-table-p
-                                    thead
-                                        tr
-                                            td.w-90: span.field__tag.center Cantidad
-                                            td.w-90: span.field__tag.center U. de medida
-                                            td: span.field__tag.center Descripción
-                                            td.w-90: span.field__tag.center Valor Unit.
-                                            td.w-90: span.field__tag.center Importe
-                                    tbody
-
-                        .row.preview__footer
-                            .col-9
-                                .preview__footer-left
-                                    p SON: MIL CUATROCIENTOS CINCUENTA Y OCO CON 90/100 Soles
-
-                                    .row
-                                        .col-9.field__label.vertical
-                                            span.field__tag.mb-1 Información Adicional
-                                            textarea.field.default.block.textarea(name="observacion-p", disabled)
-                            .col-3
-                                .container-fluid
-                                    .row.mtb-tr
-                                        .col-6
-                                            span.field__tag.normal-w % Descuento
-                                        .col-6
-                                            input.field.default.block(type="text", name="descuento", disabled, value="0")
-                                    .row.mtb-tr
-                                        .col-6
-                                            span.field__tag.normal-w Anticipo (-)
-                                        .col-6
-                                            input.field.default.small-height.block(type="text", name="anticipo", disabled, value="0")
-                                    .row.mtb-tr
-                                        .col-6
-                                            span.field__tag.normal-w Exonerada
-                                        .col-6
-                                            input.field.default.small-height.block(type="text", name="exonerada-p", disabled, value="0")
-                                    .row.mtb-tr
-                                        .col-6
-                                            span.field__tag.normal-w Inafecta
-                                        .col-6
-                                            input.field.default.small-height.block(type="text", name="inafecta-p", disabled, value="0")
-                                    .row.mtb-tr
-                                        .col-6
-                                            span.field__tag.normal-w Gravada
-                                        .col-6
-                                            input.field.default.small-height.block(type="text", name="gravada-p", disabled, value="0")
-                                    .row.mtb-tr
-                                        .col-6
-                                            span.field__tag.normal-w IGV
-                                        .col-6
-                                            input.field.default.small-height.block(type="text", name="igv-p", disabled, value="0")
-                                    .row.mtb-tr
-                                        .col-6
-                                            span.field__tag.normal-w Gratuita
-                                        .col-6
-                                            input.field.default.small-height.block(type="text", name="gratuita-p", disabled, value="0")
-                                    .row.mtb-tr
-                                        .col-6
-                                            span.field__tag.normal-w Otros cargos
-                                        .col-6
-                                            input.field.default.small-height.block(type="text", name="otros-cargos-p", disabled, value="0")
-                                    .row.mtb-tr
-                                        .col-6
-                                            span.field__tag.normal-w Descuento total (-)
-                                        .col-6
-                                            input.field.default.small-height.block(type="text", name="descuento-total-p", disabled, value="0")
-                                    .row.mtb-tr
-                                        .col-6
-                                            span.field__tag TOTAL
-                                        .col-6
-                                            input.field.default.small-height.block(type="text", name="total-p", disabled, value="0")
+    include template/modules/preview-factura
 
     .alert.alert--success
         .alert__content
@@ -219,33 +104,34 @@ block content
                         table.table#products-table
                             thead
                                 tr
-                                    td.min-w-180: span.field__tag.center Bien/Servicio
-                                    td.w-50: span.field__tag.center U. Medida
+                                    //- td.min-w-180: span.field__tag.center Bien/Servicio
                                     td.w-50: span.field__tag.center Cantidad
+                                    td.w-50: span.field__tag.center U. Medida
                                     td.min-w-180.w-100p: span.field__tag.center Descripción
                                     td.w-50: span.field__tag.center Código
                                     td.min-w-180: span.field__tag.center Tipo de IGV
                                     td.w-100: span.field__tag.center Valor Unit.
+                                    td.w-100: span.field__tag.center Descuento
                                     td.w-100: span.field__tag.center IGV
                                     td.w-100: span.field__tag.center Importe
                                     td
                             tbody
                             - for(i = 0; i < 3; i++) {
                                 tr
-                                    td: input(type="text", name="servicio-" + (i + 1), value="hola").field.default.block
+                                    //- td: input(type="text", name="servicio-" + (i + 1), value="hola").field.default.block
+                                    td: input(type="number", name="cantidad-" + (i + 1), value="1", onkeyup="calcularValores(this)").field.default.block
                                     td
-                                        input(type="text", name="unid-medida-" + (i + 1)).field.default.block
+                                        input(type="text", name="unidMedida-" + (i + 1)).field.default.block
                                         //- select.native-select.default(name="unid-medida-" + (i + 1))
                                         //-     option(value="", disabled, selected) —
                                         //-     option(value="1") Kg
                                         //-     option(value="2") Mts
                                         //-     option(value="3") UND
 
-                                    td: input(type="number", name="cantidad-" + (i + 1), value="1", onkeyup="calcularValores(this)").field.default.block
                                     td: input(type="text", class="field-description" name="description-" + (i + 1), value="").field.default.block
                                     td: input(type="text", name="cod-" + (i + 1), value="").field.default.block
                                     td
-                                        select.native-select.default(name="tipo-igv-" + (i + 1), onchange="calcularValores(this)")
+                                        select.native-select.default(name="tipoIgv-" + (i + 1), onchange="calcularValores(this)")
                                             option(value="", disabled, selected) Seleccionar
                                             option(value="10") Gravado - Operación Onerosa
                                             option(value="11") Gravado – Retiro por premio
@@ -266,9 +152,10 @@ block content
                                             option(value="36") Inafecto - Retiro por publicidad
                                             option(value="37") Exportación
 
-                                    td: input(type="number", name="valor-unit-" + (i + 1), onkeyup="calcularValores(this)").field.default.block
-                                    td: input(type="text", name="igv-" + (i + 1), disabled).field.default.block
-                                    td: input(type="text", name="total-" + (i + 1), disabled).field.default.block
+                                    td: input(type="number", name="valorUnit-" + (i + 1), onkeyup="calcularValores(this)", placeholder="0").field.default.block
+                                    td: input(type="number", name="descuento-" + (i + 1), onkeyup="calcularValores(this)", placeholder="0").field.default.block
+                                    td: input(type="number", name="igv-" + (i + 1), value="0" disabled).field.default.block
+                                    td: input(type="number", name="total-" + (i + 1), value="0" disabled).field.default.block
                                     td: a.delete-product(href="#"): img.delete-product__icon(src="./img/trash.svg", alt="")
                             - }
         
@@ -323,27 +210,27 @@ block content
                                 .col-6
                                     span.field__tag.normal-w Exonerada
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="exonerada", value="0", disabled)
+                                    input.field.default.small-height.block(type="number", name="exonerada", value="0", disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Inafecta
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="inafecta",value="0",  disabled)
+                                    input.field.default.small-height.block(type="number", name="inafecta",value="0",  disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Gravada
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="gravada", value="0", disabled)
+                                    input.field.default.small-height.block(type="number", name="gravada", value="0", disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w IGV
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="igv", value="0", disabled)
+                                    input.field.default.small-height.block(type="number", name="igv", value="0", disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Gratuita
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="gratuita", value="0", disabled)
+                                    input.field.default.small-height.block(type="number", name="gratuita", value="0", disabled)
                             .row.mtb-1
                                 .col-6
                                     span.field__tag.normal-w Otros cargos
@@ -358,7 +245,7 @@ block content
                                 .col-6
                                     span.field__tag TOTAL
                                 .col-6
-                                    input.field.default.small-height.block(type="text", name="total", disabled, value="0")
+                                    input.field.default.small-height.block(type="number", name="total", disabled, value="0")
 
 block scripts
     script(src="js/factura.js")

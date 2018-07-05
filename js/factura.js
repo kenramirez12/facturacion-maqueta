@@ -46,29 +46,6 @@ $(document).ready(function() {
     })
 
     /** Cálculo de valores */
-    // Gravado - Operación Onerosa , value 10
-    // Gravado – Retiro por premio , value 11
-    // Gravado – Retiro por donación , value 12
-    // Gravado – Retiro, value 13
-    // Gravado – Retiro por publicidad , value 14
-    // Gravado – Bonificaciones , value 15
-    // Gravado – Retiro por entrega a trabajadores , value 16
-    // Gravado – IVAP , value 17 ESTE FALTA
-    // Exonerado - Operación Onerosa , value 20
-    // Exonerado – Transferencia Gratuita , value 21 ESTE FALTA
-    // Inafecto - Operación Onerosa , value 30
-    // Inafecto – Retiro por Bonificación , value 31
-    // Inafecto – Retiro , value 32
-    // Inafecto – Retiro por Muestras Médicas , value 33
-    // Inafecto - Retiro por Convenio Colectivo , value 34
-    // Inafecto – Retiro por premio , value 35
-    // Inafecto - Retiro por publicidad , value 36
-    // Exportación, value 37
-
-    // Exonerada 20
-    // Inafecta 37, 30
-    // Gravada 10
-    // Gratuita 11, 12, 13, 14, 15, 16, 36, 35, 34, 33, 32, 31
 
     // Array de correspondencias tipo igv - campos subtotales
     tiposParaExonerada = [20]
@@ -85,13 +62,17 @@ $(document).ready(function() {
 
     porcentajeIgv = 0.18;
 
-    calcularValores = function(that) {
-        tr = $(that).parent().parent()
-        cantidad = tr.children('td').eq(2).children().val()
-        valorUnit = tr.children('td').eq(6).children().val()
-        tipoIgv = parseInt(tr.children('td').eq(5).children().val())
+    informaciondeProducto = function(e) {
+        tr = e.parent().parent()
+        cantidad = tr.children('td').eq(0).children().val()
+        tipoIgv = parseInt(tr.children('td').eq(4).children().val())
+        valorUnit = tr.children('td').eq(5).children().val()
         campoIgv = tr.children('td').eq(7).children()
         campoTotal = tr.children('td').eq(8).children()
+    }
+
+    calcularValores = function(that) {
+        informaciondeProducto($(that))
 
         valorIgv = 0 // Valor inicial de IGV
         valorUnitTotal = valorUnit * cantidad
@@ -99,43 +80,65 @@ $(document).ready(function() {
         valorTotal = valorUnitTotal + valorIgv
 
         // Setear valores en grilla de productos
-        campoIgv.val(valorIgv)
-        campoTotal.val(valorTotal)
+        campoIgv.val(valorIgv.toFixed(2))
+        campoTotal.val(valorTotal.toFixed(2))
 
         // Setear valores en sub totales
         if(tipoIgv) {
+            //Resetear sub totales
+            exonerada.val(0)
+            inafecta.val(0)
+            gravada.val(0)
+            gratuita.val(0)
 
-            if ($.inArray(tipoIgv, tiposParaExonerada) != -1) {
+            arrayGravada = []
 
-                subtotalExonerada = parseFloat(exonerada.val()) + parseFloat(valorUnitTotal)
-                exonerada.val(subtotalExonerada)
+            $('select[name^=tipoIgv-').each(function() {
+                that = $(this)
+                thatVal = parseInt(that.val())
+                thatValorUnit = that.parent().parent().children('td').eq(5).children().val()
 
-            } else if ($.inArray(tipoIgv, tiposParaInafecta) != -1) {
+                //Sumar
+                if(that.val()) {
 
-                subtotalInafecta = parseFloat(inafecta.val()) + parseFloat(valorUnitTotal)
-                inafecta.val(subtotalInafecta)
-
-            } else if ($.inArray(tipoIgv, tiposParaGravada) != -1) {
-
-                subtotalGravada = parseFloat($(gravada).val()) + parseFloat(valorUnitTotal)
-                $(gravada).val(subtotalGravada)
-
-            } else if ($.inArray(tipoIgv, tiposParaGratuita) != -1) {
-
-                subtotalGratuita = parseFloat(gratuita.val()) + parseFloat(valorUnitTotal)
-                gratuita.val(subtotalGratuita)
-
-            } else {
-                console.log('No se ha registrado el tipo de IGV')
-            }
+                    if ($.inArray(thatVal, tiposParaExonerada) != -1) {
+                        
+                        subtotalExonerada = parseFloat(exonerada.val()) + parseFloat(thatValorUnit)
+                        exonerada.val(subtotalExonerada.toFixed(2))
+                        
+                    } else if ($.inArray(thatVal, tiposParaInafecta) != -1) {
+                        
+                        subtotalInafecta = parseFloat(inafecta.val()) + parseFloat(thatValorUnit)
+                        inafecta.val(subtotalInafecta.toFixed(2))
+                        
+                    } else if ($.inArray(thatVal, tiposParaGravada) != -1) {
+                        
+                        subtotalGravada = parseFloat(gravada.val()) + parseFloat(thatValorUnit)
+                        gravada.val(subtotalGravada.toFixed(2))
+        
+                    } else if ($.inArray(thatVal, tiposParaGratuita) != -1) {
+        
+                        subtotalGratuita = parseFloat(gratuita.val()) + parseFloat(thatValorUnit)
+                        gratuita.val(subtotalGratuita.toFixed(2))
+        
+                    } else {
+                        console.log('El tipo de IGV seleccionado no tiene una correspondencia')
+                    }
+                }
+            })
 
         } else {
             console.log('No se ha definido el tipo de IGV')
         }
 
-        // Setear IGV
-        valorIgvFinal = parseFloat(igv.val()) + valorIgv
-        igv.val(valorIgvFinal)
+        // Recalcular IGV total
+        subtotalIgv = 0
+        $('input[name^=igv-').each(function() {
+            console.log('se suma' + $(this).val())
+            subtotalIgv = parseFloat(subtotalIgv) + parseFloat($(this).val())
+        })
+        
+        igv.val(subtotalIgv.toFixed(2))
 
         //Setear Total
         valorTotalFinal = 0
@@ -225,29 +228,19 @@ $(document).ready(function() {
             newRow = `
             <tr>
                 <td>
-                    <input class="field default block" type="text" name="servicio-${rowId}">
-                </td>
-                <td>
-                    <select class="native-select default" name="unid-medida-${rowId}">
-                        <option value="" disabled="disabled" selected="selected">—</option>`;
-
-                        for(i = 0; i < uMedidaArray.length; i++) {
-                            newRow += `<option value="${uMedidaArray[i]['value']}">${uMedidaArray[i]['umedida']}</option>`
-                        }
-
-                    newRow += `</select>
-                </td>
-                <td>
                     <input class="field default block" type="number" name="cantidad-${rowId}" value="1" onkeyup="calcularValores(this)">
                 </td>
                 <td>
-                <input class="field-description field default block" type="text" name="description-${rowId}">
+                    <input type="text" name="unidMedida-${rowId}" class="field default block">
+                </td>
+                <td>
+                    <input class="field-description field default block" type="text" name="description-${rowId}">
                 </td>
                 <td>
                     <input class="field default block" type="text" name="cod-${rowId}">
                 </td>
                 <td>
-                <select class="native-select default" name="tipo-igv-${rowId}" onchange="calcularValores(this)">
+                <select class="native-select default" name="tipoIgv-${rowId}" onchange="calcularValores(this)">
                     <option value="" disabled="disabled" selected="selected">Seleccionar</option>`;
 
 
@@ -258,13 +251,16 @@ $(document).ready(function() {
                 newRow += `</select>
                 </td>
                 <td>
-                    <input class="field default block" type="number" name="valor-unit-${rowId}" onkeyup="calcularValores(this)">
+                    <input class="field default block" type="number" name="valorUnit-${rowId}" onkeyup="calcularValores(this)" placeholder="0">
                 </td>
                 <td>
-                    <input class="field default block" type="text" name="igv-${rowId}" disabled>
+                    <input class="field default block" type="number" name="descuento-${rowId}" onkeyup="calcularValores(this)" placeholder="0">
                 </td>
                 <td>
-                    <input class="field default block" type="text" name="total-${rowId}" disabled>
+                    <input class="field default block" type="number" name="igv-${rowId}" disabled>
+                </td>
+                <td>
+                    <input class="field default block" type="number" name="total-${rowId}" disabled>
                 </td>
                 <td>
                     <a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""></a>
@@ -301,25 +297,27 @@ $(document).ready(function() {
 
         // Elaborar array invoiceDetails
         $('#products-table > tbody > tr').each(function() {
-            var servicio = $(this).children('td').eq(0).children().val(),
+            // var servicio = $(this).children('td').eq(0).children().val(),
+            var cantidad = $(this).children('td').eq(2).children().val(),    
                 unidMedida = $(this).children('td').eq(1).children().val(),
-                cantidad = $(this).children('td').eq(2).children().val(),
-                descripcion = $(this).children('td').eq(3).children().val(),
-                cod = $(this).children('td').eq(4).children().val(),
-                tipoIgv = $(this).children('td').eq(5).children().val(),
-                valorUnit = $(this).children('td').eq(6).children().val(),
+                descripcion = $(this).children('td').eq(0).children().val(),
+                cod = $(this).children('td').eq(3).children().val(),
+                tipoIgv = $(this).children('td').eq(4).children().val(),
+                valorUnit = $(this).children('td').eq(5).children().val(),
+                descuento = $(this).children('td').eq(6).children().val(),
                 igv = $(this).children('td').eq(7).children().val(),
                 total = $(this).children('td').eq(8).children().val(),
 
             newInvoice = {
                 'order': invoiceDetailsCount,
-                'servicio' : servicio,
-                'unid-medida': unidMedida,
                 'cantidad': cantidad,
+                'unid-medida': unidMedida,
                 'descripcion': descripcion,
                 'cod': cod,
                 'tipo-igv': tipoIgv,
+                // 'servicio' : servicio,
                 'valor-unit': valorUnit,
+                'descuento': descuento,
                 'igv': igv,
                 'total': total,
             }
@@ -392,8 +390,8 @@ $(document).ready(function() {
             success: function (data) {
                 alert("data.status : "+ data);
                 //Form Reset
-                $('input[type=text], input[type=number], input[type=hidden], select').val('')
-
+                $('input[type=text], input[type=number], input[type=date], input[type=hidden], textarea, select').val('')
+                if ($('input[name=numero-documento]').hasClass('success')) $('input[name=numero-documento]').removeClass('success')
             }
         }); 
     });
@@ -430,7 +428,7 @@ $(document).ready(function() {
             fechaVencimientoValue = $('input[name=fecha-vencimiento]').val()
             if(fechaVencimientoValue != '') {
                 fechaVencimientoValue = fechaVencimientoValue.split("-")
-                fechaVencimientoValue = fechaVencimientoValue[1] + "-" + fechaVencimientoValue[2] + "-" + fechaVencimientoValue[0]
+                fechaVencimientoValue = fechaVencimientoValue[1] + "/" + fechaVencimientoValue[2] + "/" + fechaVencimientoValue[0]
             }
 
             observacionValue = $('textarea[name=observacion]').val()        
@@ -438,11 +436,11 @@ $(document).ready(function() {
             // Productos
             productos = '';
             $('#products-table > tbody > tr').each(function() {
-                cantidad = $(this).children('td').eq(2).children().val()
+                cantidad = $(this).children('td').eq(0).children().val()
                 uMedida = $(this).children('td').eq(1).children().val()
                 uMedida = (uMedida != '') ? uMedida : '—'
-                descripcion = $(this).children('td').eq(3).children().val()
-                valorUnit = $(this).children('td').eq(6).children().val()
+                descripcion = $(this).children('td').eq(2).children().val()
+                valorUnit = $(this).children('td').eq(5).children().val()
                 importe = $(this).children('td').eq(8).children().val()
 
                 console.log(cantidad)
@@ -480,6 +478,8 @@ $(document).ready(function() {
         $('textarea[name=observacion-p]').html(observacionValue)
 
         $('#products-table-p > tbody').html(productos)
+
+        $('.total-to-text').html(NumeroALetras(total))
 
         $('input[name=exonerada-p]').val(exonerada)
         $('input[name=inafecta-p]').val(inafecta)

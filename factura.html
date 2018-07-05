@@ -94,7 +94,7 @@
                     <div class="row preview__footer">
                       <div class="col-9">
                         <div class="preview__footer-left">
-                          <p>SON: MIL CUATROCIENTOS CINCUENTA Y OCO CON 90/100 Soles</p>
+                          <p>SON: <span class="total-to-text"> </span></p>
                           <div class="row">
                             <div class="col-9 field__label vertical"><span class="field__tag mb-1">Información Adicional</span>
                               <textarea class="field default block textarea" name="observacion-p" disabled="disabled"></textarea>
@@ -278,13 +278,13 @@
                     <table class="table" id="products-table">
                       <thead>
                         <tr>
-                          <td class="min-w-180"><span class="field__tag center">Bien/Servicio</span></td>
-                          <td class="w-50"><span class="field__tag center">U. Medida</span></td>
                           <td class="w-50"><span class="field__tag center">Cantidad</span></td>
+                          <td class="w-50"><span class="field__tag center">U. Medida</span></td>
                           <td class="min-w-180 w-100p"><span class="field__tag center">Descripción</span></td>
                           <td class="w-50"><span class="field__tag center">Código</span></td>
                           <td class="min-w-180"><span class="field__tag center">Tipo de IGV</span></td>
                           <td class="w-100"><span class="field__tag center">Valor Unit.</span></td>
+                          <td class="w-100"><span class="field__tag center">Descuento</span></td>
                           <td class="w-100"><span class="field__tag center">IGV</span></td>
                           <td class="w-100"><span class="field__tag center">Importe</span></td>
                           <td></td>
@@ -293,13 +293,10 @@
                       <tbody></tbody>
                       <tr>
                         <td>
-                          <input class="field default block" type="text" name="servicio-1" value="hola"/>
-                        </td>
-                        <td>
-                          <input class="field default block" type="text" name="unid-medida-1"/>
-                        </td>
-                        <td>
                           <input class="field default block" type="number" name="cantidad-1" value="1" onkeyup="calcularValores(this)"/>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="unidMedida-1"/>
                         </td>
                         <td>
                           <input class="field-description field default block" type="text" name="description-1" value=""/>
@@ -308,7 +305,7 @@
                           <input class="field default block" type="text" name="cod-1" value=""/>
                         </td>
                         <td>
-                          <select class="native-select default" name="tipo-igv-1" onchange="calcularValores(this)">
+                          <select class="native-select default" name="tipoIgv-1" onchange="calcularValores(this)">
                             <option value="" disabled="disabled" selected="selected">Seleccionar</option>
                             <option value="10">Gravado - Operación Onerosa</option>
                             <option value="11">Gravado – Retiro por premio</option>
@@ -331,25 +328,25 @@
                           </select>
                         </td>
                         <td>
-                          <input class="field default block" type="number" name="valor-unit-1" onkeyup="calcularValores(this)"/>
+                          <input class="field default block" type="number" name="valorUnit-1" onkeyup="calcularValores(this)" placeholder="0"/>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="igv-1" disabled="disabled"/>
+                          <input class="field default block" type="number" name="descuento-1" onkeyup="calcularValores(this)" placeholder="0"/>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="total-1" disabled="disabled"/>
+                          <input class="field default block" type="number" name="igv-1" value="0" disabled="disabled"/>
+                        </td>
+                        <td>
+                          <input class="field default block" type="number" name="total-1" value="0" disabled="disabled"/>
                         </td>
                         <td><a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""/></a></td>
                       </tr>
                       <tr>
                         <td>
-                          <input class="field default block" type="text" name="servicio-2" value="hola"/>
-                        </td>
-                        <td>
-                          <input class="field default block" type="text" name="unid-medida-2"/>
-                        </td>
-                        <td>
                           <input class="field default block" type="number" name="cantidad-2" value="1" onkeyup="calcularValores(this)"/>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="unidMedida-2"/>
                         </td>
                         <td>
                           <input class="field-description field default block" type="text" name="description-2" value=""/>
@@ -358,7 +355,7 @@
                           <input class="field default block" type="text" name="cod-2" value=""/>
                         </td>
                         <td>
-                          <select class="native-select default" name="tipo-igv-2" onchange="calcularValores(this)">
+                          <select class="native-select default" name="tipoIgv-2" onchange="calcularValores(this)">
                             <option value="" disabled="disabled" selected="selected">Seleccionar</option>
                             <option value="10">Gravado - Operación Onerosa</option>
                             <option value="11">Gravado – Retiro por premio</option>
@@ -381,25 +378,25 @@
                           </select>
                         </td>
                         <td>
-                          <input class="field default block" type="number" name="valor-unit-2" onkeyup="calcularValores(this)"/>
+                          <input class="field default block" type="number" name="valorUnit-2" onkeyup="calcularValores(this)" placeholder="0"/>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="igv-2" disabled="disabled"/>
+                          <input class="field default block" type="number" name="descuento-2" onkeyup="calcularValores(this)" placeholder="0"/>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="total-2" disabled="disabled"/>
+                          <input class="field default block" type="number" name="igv-2" value="0" disabled="disabled"/>
+                        </td>
+                        <td>
+                          <input class="field default block" type="number" name="total-2" value="0" disabled="disabled"/>
                         </td>
                         <td><a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""/></a></td>
                       </tr>
                       <tr>
                         <td>
-                          <input class="field default block" type="text" name="servicio-3" value="hola"/>
-                        </td>
-                        <td>
-                          <input class="field default block" type="text" name="unid-medida-3"/>
-                        </td>
-                        <td>
                           <input class="field default block" type="number" name="cantidad-3" value="1" onkeyup="calcularValores(this)"/>
+                        </td>
+                        <td>
+                          <input class="field default block" type="text" name="unidMedida-3"/>
                         </td>
                         <td>
                           <input class="field-description field default block" type="text" name="description-3" value=""/>
@@ -408,7 +405,7 @@
                           <input class="field default block" type="text" name="cod-3" value=""/>
                         </td>
                         <td>
-                          <select class="native-select default" name="tipo-igv-3" onchange="calcularValores(this)">
+                          <select class="native-select default" name="tipoIgv-3" onchange="calcularValores(this)">
                             <option value="" disabled="disabled" selected="selected">Seleccionar</option>
                             <option value="10">Gravado - Operación Onerosa</option>
                             <option value="11">Gravado – Retiro por premio</option>
@@ -431,13 +428,16 @@
                           </select>
                         </td>
                         <td>
-                          <input class="field default block" type="number" name="valor-unit-3" onkeyup="calcularValores(this)"/>
+                          <input class="field default block" type="number" name="valorUnit-3" onkeyup="calcularValores(this)" placeholder="0"/>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="igv-3" disabled="disabled"/>
+                          <input class="field default block" type="number" name="descuento-3" onkeyup="calcularValores(this)" placeholder="0"/>
                         </td>
                         <td>
-                          <input class="field default block" type="text" name="total-3" disabled="disabled"/>
+                          <input class="field default block" type="number" name="igv-3" value="0" disabled="disabled"/>
+                        </td>
+                        <td>
+                          <input class="field default block" type="number" name="total-3" value="0" disabled="disabled"/>
                         </td>
                         <td><a class="delete-product" href="#"><img class="delete-product__icon" src="./img/trash.svg" alt=""/></a></td>
                       </tr>
@@ -498,31 +498,31 @@
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Exonerada</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="exonerada" value="0" disabled="disabled"/>
+                          <input class="field default small-height block" type="number" name="exonerada" value="0" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Inafecta</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="inafecta" value="0" disabled="disabled"/>
+                          <input class="field default small-height block" type="number" name="inafecta" value="0" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Gravada</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="gravada" value="0" disabled="disabled"/>
+                          <input class="field default small-height block" type="number" name="gravada" value="0" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">IGV</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="igv" value="0" disabled="disabled"/>
+                          <input class="field default small-height block" type="number" name="igv" value="0" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag normal-w">Gratuita</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="gratuita" value="0" disabled="disabled"/>
+                          <input class="field default small-height block" type="number" name="gratuita" value="0" disabled="disabled"/>
                         </div>
                       </div>
                       <div class="row mtb-1">
@@ -540,7 +540,7 @@
                       <div class="row mtb-1">
                         <div class="col-6"><span class="field__tag">TOTAL</span></div>
                         <div class="col-6">
-                          <input class="field default small-height block" type="text" name="total" disabled="disabled" value="0"/>
+                          <input class="field default small-height block" type="number" name="total" disabled="disabled" value="0"/>
                         </div>
                       </div>
                     </div>
@@ -554,6 +554,7 @@
     </div>
   </body>
   <script src="js/vendors/jquery-3.3.1.min.js"></script>
+  <script src="js/vendors/numeroaletras.js"></script>
   <script src="js/main.js"></script>
   <script src="js/factura.js"></script>
 </html>

@@ -1,0 +1,117 @@
+.popup
+    .popup__content.container
+        //- .popup__close CERRAR [X]
+        .tab
+            .tab__content
+                .container-fluid
+                    .row.preview__top
+                        .col-6
+                            .preview__top-left
+                                //- img(src="#", alt="")
+                                P.razon-social-local-p
+                                p.direccion-local-p
+                        .col-4.offset-2
+                            .preview__top-right
+                                p RUC: 
+                                    span.ruc-local-p
+                                p FACTURA ELECTRÓNICA
+                                P F001-
+                                    span.serie-p
+                    
+                    .row.preview__client
+                        .col-8
+                            .preview__client-info
+                                p
+                                    b Señor(es): 
+                                    span.razon-social-p
+                                p
+                                    b RUC No: 
+                                    span.ruc-p
+                                p
+                                    b Dirección: 
+                                    span.direccion-p
+
+                        .col-4
+                            .preview__client-date
+                                table
+                                    tr
+                                        td.w-50p: b Fecha de emisión
+                                        td.w-50p.text-right.fecha-emision-p
+                                    tr
+                                        td.w-50p: b Fecha de vencimiento
+                                        td.w-50p.text-right.fecha-vencimiento-p 20/06/2017
+
+                    .row.preview__products
+                        .col-12
+                            table.table#products-table-p
+                                thead
+                                    tr
+                                        td.w-90: span.field__tag.center Cantidad
+                                        td.w-90: span.field__tag.center U. de medida
+                                        td: span.field__tag.center Descripción
+                                        td.w-90: span.field__tag.center Valor Unit.
+                                        td.w-90: span.field__tag.center Importe
+                                tbody
+
+                    .row.preview__footer
+                        .col-9
+                            .preview__footer-left
+                                p SON: 
+                                    span.total-to-text 
+
+                                .row
+                                    .col-9.field__label.vertical
+                                        span.field__tag.mb-1 Información Adicional
+                                        textarea.field.default.block.textarea(name="observacion-p", disabled)
+                        .col-3
+                            .container-fluid
+                                .row.mtb-tr
+                                    .col-6
+                                        span.field__tag.normal-w % Descuento
+                                    .col-6
+                                        input.field.default.block(type="text", name="descuento", disabled, value="0")
+                                .row.mtb-tr
+                                    .col-6
+                                        span.field__tag.normal-w Anticipo (-)
+                                    .col-6
+                                        input.field.default.small-height.block(type="text", name="anticipo", disabled, value="0")
+                                .row.mtb-tr
+                                    .col-6
+                                        span.field__tag.normal-w Exonerada
+                                    .col-6
+                                        input.field.default.small-height.block(type="text", name="exonerada-p", disabled, value="0")
+                                .row.mtb-tr
+                                    .col-6
+                                        span.field__tag.normal-w Inafecta
+                                    .col-6
+                                        input.field.default.small-height.block(type="text", name="inafecta-p", disabled, value="0")
+                                .row.mtb-tr
+                                    .col-6
+                                        span.field__tag.normal-w Gravada
+                                    .col-6
+                                        input.field.default.small-height.block(type="text", name="gravada-p", disabled, value="0")
+                                .row.mtb-tr
+                                    .col-6
+                                        span.field__tag.normal-w IGV
+                                    .col-6
+                                        input.field.default.small-height.block(type="text", name="igv-p", disabled, value="0")
+                                .row.mtb-tr
+                                    .col-6
+                                        span.field__tag.normal-w Gratuita
+                                    .col-6
+                                        input.field.default.small-height.block(type="text", name="gratuita-p", disabled, value="0")
+                                .row.mtb-tr
+                                    .col-6
+                                        span.field__tag.normal-w Otros cargos
+                                    .col-6
+                                        input.field.default.small-height.block(type="text", name="otros-cargos-p", disabled, value="0")
+                                .row.mtb-tr
+                                    .col-6
+                                        span.field__tag.normal-w Descuento total (-)
+                                    .col-6
+                                        input.field.default.small-height.block(type="text", name="descuento-total-p", disabled, value="0")
+                                .row.mtb-tr
+                                    .col-6
+                                        span.field__tag TOTAL
+                                    .col-6
+                                        input.field.default.small-height.block(type="text", name="total-p", disabled, value="0")
